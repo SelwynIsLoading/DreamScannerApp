@@ -14,6 +14,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="DPFPDevNET">
+      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPDevNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPEngNET">
+      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPEngNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPGuiNET">
+      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPGuiNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPShrNET">
+      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPShrNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPVerNET">
+      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPVerNET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
