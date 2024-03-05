@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DreamScannerApp.Services
 {
-    public class Verification
+    public class Verification : FingerprintHandler
     {
+        public Verification(Messages messages, UserControl form) : base(messages, form)
+        {
+
+        }
     }
 }

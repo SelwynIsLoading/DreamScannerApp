@@ -8,25 +8,47 @@ using DPFP.Capture;
 
 namespace DreamScannerApp.Services
 {
-    public class FingerprintService : DPFP.Capture.EventHandler
+    public class FingerprintHandler : DPFP.Capture.EventHandler
     {
-        public event EventHandler<string> ReportGenerated;
+        private Capture? Capturer;
+        protected readonly Messages messages;
+        private readonly UserControl form;
 
-        private FingerMessages fingerMessages = new FingerMessages();
-
-        protected virtual void OnReportGenerated(string message)
+        public FingerprintHandler(Messages messages, UserControl form)
         {
-            ReportGenerated?.Invoke(this, message);
+            this.messages = messages;
+            this.form = form;
+
+            Initialize();
         }
+
+        protected void Initialize()
+        {
+            try
+            {
+                Capturer = new Capture();
+                if (null != Capturer)
+                {
+                    Capturer.EventHandler = this;
+                }
+                else
+                {
+                    throw new Exception("Can't initiate capture operation!");
+                }
+            }
+            catch
+            {
+                throw new Exception("Can't initiate capture operation!");
+            }
+        }
+
 
         protected void MakeReport(string message)
         {
-            OnReportGenerated(message);
-        }
-
-        private void UpdateFingerMessagesStatus(object sender, string message)
-        {
-            fingerMessages.Status = message;
+            form.Invoke(new Action(delegate ()
+            {
+                messages.Status = message;
+            }));
         }
 
         void DPFP.Capture.EventHandler.OnComplete(object Capture, string ReaderSerialNumber, Sample Sample)
@@ -69,15 +91,23 @@ namespace DreamScannerApp.Services
 
         protected virtual void Process(Sample sample)
         {
-            ConvertSampleToBitmap(sample);   
+            DrawPicture(ConvertSampleToBitmap(sample));  
         }
 
-        protected void ConvertSampleToBitmap(Sample sample)
+        protected Bitmap ConvertSampleToBitmap(Sample sample)
         {
             SampleConversion convertor = new SampleConversion();
-            Bitmap bitmap = null;
+            Bitmap? bitmap = null;
             convertor.ConvertToPicture(sample, ref bitmap);
-            fingerMessages.fingerPicture = bitmap;
+            return bitmap;
+        }
+
+        protected void DrawPicture(Bitmap bitmap)
+        {
+            form.Invoke(new Action(delegate ()
+            {
+                messages.fingerImage = bitmap;
+            }));
         }
 
 

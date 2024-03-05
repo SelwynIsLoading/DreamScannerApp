@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DreamScannerApp.Services
 {
-    public class FingerMessages
+    public class Messages
     {
         public string Status { get; set; } = "";
         public string ReaderSerial { get; set; } = "";
-        public Bitmap fingerPicture { get; set; } = null;
+        public Bitmap? fingerImage { get; set; } = null;
     }
 }
