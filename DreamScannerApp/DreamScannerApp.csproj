@@ -15,19 +15,24 @@
 
   <ItemGroup>
     <Reference Include="DPFPDevNET">
-      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPDevNET.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPDevNET.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DPFPEngNET">
-      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPEngNET.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPEngNET.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DPFPGuiNET">
-      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPGuiNET.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPGuiNET.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DPFPShrNET">
-      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPShrNET.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPShrNET.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DPFPVerNET">
-      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPVerNET.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPVerNET.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
 

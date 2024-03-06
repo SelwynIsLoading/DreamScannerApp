@@ -14,5 +14,6 @@ namespace DreamScannerApp
             //Application.Run(new LoginFrm());
             Application.Run(new UI.MainDashboardFrm());
         }
+
     }
 }
