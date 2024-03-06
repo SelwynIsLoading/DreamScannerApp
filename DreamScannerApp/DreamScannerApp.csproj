@@ -16,23 +16,18 @@
   <ItemGroup>
     <Reference Include="DPFPDevNET">
       <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPDevNET.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="DPFPEngNET">
       <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPEngNET.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="DPFPGuiNET">
       <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPGuiNET.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="DPFPShrNET">
       <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPShrNET.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="DPFPVerNET">
       <HintPath>..\..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPVerNET.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
 

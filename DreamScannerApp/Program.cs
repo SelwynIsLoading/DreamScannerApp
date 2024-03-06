@@ -1,3 +1,7 @@
+using DreamScannerApp.Services;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
+
 namespace DreamScannerApp
 {
     internal static class Program
@@ -12,6 +16,8 @@ namespace DreamScannerApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new LoginFrm());
+            DatabaseFacade facade = new DatabaseFacade(new DataContext());
+            facade.EnsureCreated();
             Application.Run(new UI.MainDashboardFrm());
         }
 

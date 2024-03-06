@@ -9,7 +9,12 @@
       "DreamScannerApp/1.0.0": {
         "dependencies": {
           "Krypton.Toolkit": "80.23.11.321",
-          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.16"
+          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.16",
+          "DPFPDevNET": "1.6.1.0",
+          "DPFPEngNET": "1.6.1.0",
+          "DPFPGuiNET": "1.6.1.0",
+          "DPFPShrNET": "1.6.1.0",
+          "DPFPVerNET": "1.6.1.0"
         },
         "runtime": {
           "DreamScannerApp.dll": {}
@@ -358,6 +363,46 @@
         "dependencies": {
           "System.Text.Encodings.Web": "7.0.0"
         }
+      },
+      "DPFPDevNET/1.6.1.0": {
+        "runtime": {
+          "DPFPDevNET.dll": {
+            "assemblyVersion": "1.6.1.0",
+            "fileVersion": "1.6.1.0"
+          }
+        }
+      },
+      "DPFPEngNET/1.6.1.0": {
+        "runtime": {
+          "DPFPEngNET.dll": {
+            "assemblyVersion": "1.6.1.0",
+            "fileVersion": "1.6.1.0"
+          }
+        }
+      },
+      "DPFPGuiNET/1.6.1.0": {
+        "runtime": {
+          "DPFPGuiNET.dll": {
+            "assemblyVersion": "1.6.1.0",
+            "fileVersion": "1.6.1.0"
+          }
+        }
+      },
+      "DPFPShrNET/1.6.1.0": {
+        "runtime": {
+          "DPFPShrNET.dll": {
+            "assemblyVersion": "1.6.1.0",
+            "fileVersion": "1.6.1.0"
+          }
+        }
+      },
+      "DPFPVerNET/1.6.1.0": {
+        "runtime": {
+          "DPFPVerNET.dll": {
+            "assemblyVersion": "1.6.1.0",
+            "fileVersion": "1.6.1.0"
+          }
+        }
       }
     }
   },
@@ -541,6 +586,31 @@
       "sha512": "sha512-DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
       "path": "system.text.json/7.0.0",
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
+    },
+    "DPFPDevNET/1.6.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DPFPEngNET/1.6.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DPFPGuiNET/1.6.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DPFPShrNET/1.6.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DPFPVerNET/1.6.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
