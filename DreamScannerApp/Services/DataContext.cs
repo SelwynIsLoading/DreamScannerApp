@@ -18,6 +18,6 @@ namespace DreamScannerApp.Services
         public DbSet<Students> Students { get; set; }
         public DbSet<Teachers> Teachers { get; set; }
         public DbSet<StudentLogs> StudentLogs { get; set; }
-
+        public DbSet<TeacherLogs> TeacherLogs { get; set; }
     }
 }
