@@ -13,7 +13,7 @@ namespace DreamScannerApp.Models
         public string LastName { get; set; } = "";
         public string MiddleInitial { get; set; } = "";
         public string Subject { get; set; } = "";
-        public TeacherProperties.room room { get; set; } = TeacherProperties.room.None;
+        public TeacherProperties.room room { get; set; }
         public byte[]? Fingerprint { get; set; }
         public DateTime TimeFrom { get; set; }
         public DateTime TimeTo { get; set; }
