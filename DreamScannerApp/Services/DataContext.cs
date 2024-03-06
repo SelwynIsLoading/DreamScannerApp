@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamScannerApp.Models;
 
 namespace DreamScannerApp.Services
 {
@@ -14,6 +15,9 @@ namespace DreamScannerApp.Services
             optionsBuilder.UseSqlite("Data Source=school.db");
         }
 
-        public DbSet<Models.Students> Students { get; set; }
+        public DbSet<Students> Students { get; set; }
+        public DbSet<Teachers> Teachers { get; set; }
+        public DbSet<StudentLogs> StudentLogs { get; set; }
+
     }
 }
