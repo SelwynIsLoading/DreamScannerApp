@@ -11,10 +11,10 @@ namespace DreamScannerApp.Services
     public class FingerprintHandler : DPFP.Capture.EventHandler
     {
         private Capture? Capturer;
-        protected readonly Messages messages;
+        protected readonly Result messages;
         private readonly UserControl form;
 
-        public FingerprintHandler(Messages messages, UserControl form)
+        public FingerprintHandler(Result messages, UserControl form)
         {
             this.messages = messages;
             this.form = form;

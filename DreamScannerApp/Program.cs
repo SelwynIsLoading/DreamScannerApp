@@ -16,7 +16,7 @@ namespace DreamScannerApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new LoginFrm());
-            DatabaseFacade facade = new DatabaseFacade(new DataContext());
+            DatabaseFacade facade = new DatabaseFacade(new ApplicationDbContext());
             facade.EnsureCreated();
             Application.Run(new UI.MainDashboardFrm());
         }

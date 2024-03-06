@@ -53,7 +53,6 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-window
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.AssemblyInfoInputs.cache
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.AssemblyInfo.cs
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.csproj.CoreCompileInputs.cache
-C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.csproj.CopyComplete
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.dll
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\refint\DreamScannerApp.dll
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.pdb
@@ -140,3 +139,10 @@ C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\ne
 C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.pdb
 C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.genruntimeconfig.cache
 C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\ref\DreamScannerApp.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DPFPDevNET.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DPFPEngNET.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DPFPGuiNET.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DPFPShrNET.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DPFPVerNET.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.sourcelink.json
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamSca.7F97E2CA.Up2Date

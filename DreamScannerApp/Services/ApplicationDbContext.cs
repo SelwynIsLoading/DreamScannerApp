@@ -4,20 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DreamScannerApp.Models;
+using DreamScannerApp.Models.Entities;
 
 namespace DreamScannerApp.Services
 {
-    public class DataContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=school.db");
         }
 
-        public DbSet<Students> Students { get; set; }
-        public DbSet<Teachers> Teachers { get; set; }
-        public DbSet<StudentLogs> StudentLogs { get; set; }
-        public DbSet<TeacherLogs> TeacherLogs { get; set; }
+        public DbSet<StudentsEntity> Students { get; set; }
+        public DbSet<TeachersEntity> Teachers { get; set; }
+        public DbSet<StudentLogsEntity> StudentLogs { get; set; }
+        public DbSet<TeacherLogsEntity> TeacherLogs { get; set; }
     }
 }

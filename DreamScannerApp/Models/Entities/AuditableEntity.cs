@@ -7,7 +7,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DreamScannerApp.Models
+namespace DreamScannerApp.Models.Entities
 {
     public class AuditableEntity
     {

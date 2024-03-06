@@ -8,7 +8,7 @@ namespace DreamScannerApp.Services
 {
     public class Verification : FingerprintHandler
     {
-        public Verification(Messages messages, UserControl form) : base(messages, form)
+        public Verification(Result messages, UserControl form) : base(messages, form)
         {
 
         }

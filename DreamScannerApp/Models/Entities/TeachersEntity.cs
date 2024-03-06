@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamScannerApp.Models.Enums;
 
-namespace DreamScannerApp.Models
+namespace DreamScannerApp.Models.Entities
 {
-    public class Teachers : AuditableEntity
+    public class TeachersEntity : AuditableEntity
     {
         public string FirstName { get; set; } = "";
         public string LastName { get; set; } = "";
