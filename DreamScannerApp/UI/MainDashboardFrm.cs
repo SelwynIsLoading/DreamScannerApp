@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Krypton.Toolkit;
 using DreamScannerApp.UserControls;
+using DreamScannerApp.Interfaces;
 
 namespace DreamScannerApp.UI
 {

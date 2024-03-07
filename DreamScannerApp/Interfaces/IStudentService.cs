@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DreamScannerApp.Models;
 using DreamScannerApp.Models.Entities;
+using DreamScannerApp.Services;
 
 namespace DreamScannerApp.Interfaces
 {

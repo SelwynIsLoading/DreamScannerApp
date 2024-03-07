@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            btnLogin = new Krypton.Toolkit.KryptonButton();
+            btnEnrollFingerprint = new Krypton.Toolkit.KryptonButton();
             cbGender = new Krypton.Toolkit.KryptonComboBox();
             cbRoom = new Krypton.Toolkit.KryptonComboBox();
             label8 = new Label();
@@ -57,7 +57,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(btnLogin);
+            panel1.Controls.Add(btnEnrollFingerprint);
             panel1.Controls.Add(cbGender);
             panel1.Controls.Add(cbRoom);
             panel1.Controls.Add(label8);
@@ -78,46 +78,47 @@
             panel1.Size = new Size(612, 690);
             panel1.TabIndex = 0;
             // 
-            // btnLogin
+            // btnEnrollFingerprint
             // 
-            btnLogin.Anchor = AnchorStyles.Top;
-            btnLogin.Location = new Point(141, 593);
-            btnLogin.Name = "btnLogin";
-            btnLogin.OverrideDefault.Back.Color1 = Color.Red;
-            btnLogin.OverrideDefault.Back.Color2 = Color.FromArgb(192, 0, 0);
-            btnLogin.OverrideDefault.Back.ColorAngle = 130F;
-            btnLogin.OverrideDefault.Border.Color1 = Color.Red;
-            btnLogin.OverrideDefault.Border.Color2 = Color.FromArgb(192, 0, 0);
-            btnLogin.OverrideDefault.Border.ColorAngle = 130F;
-            btnLogin.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnLogin.OverrideDefault.Border.Rounding = 18F;
-            btnLogin.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnLogin.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnLogin.OverrideDefault.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLogin.Size = new Size(340, 42);
-            btnLogin.StateCommon.Back.Color1 = Color.Red;
-            btnLogin.StateCommon.Back.Color2 = Color.FromArgb(192, 0, 0);
-            btnLogin.StateCommon.Back.ColorAngle = 45F;
-            btnLogin.StateCommon.Border.Color1 = Color.Red;
-            btnLogin.StateCommon.Border.Color2 = Color.Red;
-            btnLogin.StateCommon.Border.ColorAngle = 130F;
-            btnLogin.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnLogin.StateCommon.Border.Rounding = 18F;
-            btnLogin.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnLogin.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnLogin.StateCommon.Content.ShortText.Font = new Font("Archivo", 8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLogin.StatePressed.Back.Color1 = Color.Red;
-            btnLogin.StatePressed.Back.Color2 = Color.Red;
-            btnLogin.StatePressed.Back.ColorAngle = 45F;
-            btnLogin.StatePressed.Border.Color1 = Color.Red;
-            btnLogin.StatePressed.Border.Color2 = Color.Red;
-            btnLogin.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnLogin.StatePressed.Border.Rounding = 18F;
-            btnLogin.StatePressed.Content.ShortText.Color1 = Color.White;
-            btnLogin.StatePressed.Content.ShortText.Color2 = Color.White;
-            btnLogin.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLogin.TabIndex = 49;
-            btnLogin.Values.Text = "Enroll Fingerprint";
+            btnEnrollFingerprint.Anchor = AnchorStyles.Top;
+            btnEnrollFingerprint.Location = new Point(141, 593);
+            btnEnrollFingerprint.Name = "btnEnrollFingerprint";
+            btnEnrollFingerprint.OverrideDefault.Back.Color1 = Color.Red;
+            btnEnrollFingerprint.OverrideDefault.Back.Color2 = Color.FromArgb(192, 0, 0);
+            btnEnrollFingerprint.OverrideDefault.Back.ColorAngle = 130F;
+            btnEnrollFingerprint.OverrideDefault.Border.Color1 = Color.Red;
+            btnEnrollFingerprint.OverrideDefault.Border.Color2 = Color.FromArgb(192, 0, 0);
+            btnEnrollFingerprint.OverrideDefault.Border.ColorAngle = 130F;
+            btnEnrollFingerprint.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnEnrollFingerprint.OverrideDefault.Border.Rounding = 18F;
+            btnEnrollFingerprint.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnEnrollFingerprint.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnEnrollFingerprint.OverrideDefault.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEnrollFingerprint.Size = new Size(340, 42);
+            btnEnrollFingerprint.StateCommon.Back.Color1 = Color.Red;
+            btnEnrollFingerprint.StateCommon.Back.Color2 = Color.FromArgb(192, 0, 0);
+            btnEnrollFingerprint.StateCommon.Back.ColorAngle = 45F;
+            btnEnrollFingerprint.StateCommon.Border.Color1 = Color.Red;
+            btnEnrollFingerprint.StateCommon.Border.Color2 = Color.Red;
+            btnEnrollFingerprint.StateCommon.Border.ColorAngle = 130F;
+            btnEnrollFingerprint.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnEnrollFingerprint.StateCommon.Border.Rounding = 18F;
+            btnEnrollFingerprint.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnEnrollFingerprint.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnEnrollFingerprint.StateCommon.Content.ShortText.Font = new Font("Archivo", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEnrollFingerprint.StatePressed.Back.Color1 = Color.Red;
+            btnEnrollFingerprint.StatePressed.Back.Color2 = Color.Red;
+            btnEnrollFingerprint.StatePressed.Back.ColorAngle = 45F;
+            btnEnrollFingerprint.StatePressed.Border.Color1 = Color.Red;
+            btnEnrollFingerprint.StatePressed.Border.Color2 = Color.Red;
+            btnEnrollFingerprint.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnEnrollFingerprint.StatePressed.Border.Rounding = 18F;
+            btnEnrollFingerprint.StatePressed.Content.ShortText.Color1 = Color.White;
+            btnEnrollFingerprint.StatePressed.Content.ShortText.Color2 = Color.White;
+            btnEnrollFingerprint.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEnrollFingerprint.TabIndex = 49;
+            btnEnrollFingerprint.Values.Text = "Enroll Fingerprint";
+            btnEnrollFingerprint.Click += btnEnrollFingerprint_Click;
             // 
             // cbGender
             // 
@@ -394,6 +395,6 @@
         private PictureBox pictureBox1;
         private Krypton.Toolkit.KryptonComboBox cbGender;
         private Krypton.Toolkit.KryptonComboBox cbRoom;
-        private Krypton.Toolkit.KryptonButton btnLogin;
+        private Krypton.Toolkit.KryptonButton btnEnrollFingerprint;
     }
 }

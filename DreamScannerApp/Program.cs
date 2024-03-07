@@ -1,25 +1,35 @@
+using DreamScannerApp.Controllers;
+using DreamScannerApp.Interfaces;
 using DreamScannerApp.Services;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DreamScannerApp
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // Set up dependency injection
+            var serviceProvider = new ServiceCollection()
+                .AddScoped<IStudentService, StudentService>()
+                .BuildServiceProvider();
+
+            // Resolve the StudentController
+            var studentService = serviceProvider.GetService<StudentController>();
+
+            // Initialize application configuration
             ApplicationConfiguration.Initialize();
-            //Application.Run(new LoginFrm());
+
+            // Initialize the database (if needed)
             DatabaseFacade facade = new DatabaseFacade(new ApplicationDbContext());
             facade.EnsureCreated();
+
+            // Run the main form
             Application.Run(new UI.MainDashboardFrm());
         }
-
     }
+
 }

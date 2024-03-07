@@ -12,11 +12,9 @@ namespace DreamScannerApp.Services
     public class StudentService : IStudentService
     {
         private ApplicationDbContext _context;
-        private readonly IStudentService _studentService;
-        public StudentService(ApplicationDbContext context, IStudentService studentService)
+        public StudentService(ApplicationDbContext context)
         {
             _context = context;
-            _studentService = studentService;
         }
 
         public bool AddStudent(StudentsDTO.CreateStudent student)
@@ -37,6 +35,7 @@ namespace DreamScannerApp.Services
                 return _context.SaveChanges() > 0;
             }
         }
+
 
     }
 }

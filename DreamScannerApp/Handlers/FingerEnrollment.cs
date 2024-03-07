@@ -7,21 +7,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamScannerApp.UI;
 
 namespace DreamScannerApp.Handlers
 {
-    public class Enrollment : FingerprintHandler
+    public class FingerEnrollment : FingerprintHandler
     {
         private DPFP.Template Template;
         private DPFP.Processing.Enrollment Enroller;
         private Result result;
-        public Enrollment(Result messages, UserControl form) : base(messages, form)
+
+
+        public FingerEnrollment(Action<string> reportCallback, Action<Bitmap> imageCallback) : base(reportCallback, imageCallback)
         {
             Enroller = new DPFP.Processing.Enrollment();
             Template = new Template();
             result = new Result();
             Initialize();
-            StartCapture();
+        }
+
+        public override void StartCapture()
+        {
+            base.StartCapture();
+        }
+        public override void StopCapture()
+        {
+            base.StopCapture();
         }
         private FeatureSet? ExtractFeatures(Sample Sample, DataPurpose Purpose)
         {
@@ -62,12 +73,21 @@ namespace DreamScannerApp.Handlers
                             StartCapture();
                             break;
                         case DPFP.Processing.Enrollment.Status.Insufficient:
-                            MakeReport("The fingerprint template is not sufficient for fingerprint verification. Please scan your fingerprint again.");
-                            break;
+                            MakeReport("Need more samples: " + Enroller.FeaturesNeeded);
+                            break;                        
                     }
-                    result.fingerprintTemplate = Template;
+                    if (Enroller.FeaturesNeeded <= 0)
+                    {
+                        result.AddFingerprint(Template);
+                    }
                 }
             }
+        }
+
+        public bool IsDoneEnrolling()
+        {
+            MakeReport("Fingerprint enrollment is complete.");
+            return result.IsSaved;
         }
 
     }

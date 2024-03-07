@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using DPFP;
 using DPFP.Capture;
 using DPFP.Processing;
@@ -12,14 +13,14 @@ namespace DreamScannerApp.Services
     public class FingerprintHandler : DPFP.Capture.EventHandler
     {
         private Capture? Capturer;
-        protected readonly Result messages;
-        private readonly UserControl form;
 
-        public FingerprintHandler(Result messages, UserControl form)
+        private Action<string> reportCallback;
+        private Action<Bitmap> imageCallback;
+
+        public FingerprintHandler(Action<string> reportCallback, Action<Bitmap> imageCallback)
         {
-            this.messages = messages;
-            this.form = form;
-
+            this.reportCallback = reportCallback;
+            this.imageCallback = imageCallback;
             Initialize();
         }
 
@@ -43,7 +44,7 @@ namespace DreamScannerApp.Services
             }
         }
 
-        public void StartCapture()
+        public virtual void StartCapture()
         {
             Capturer = new Capture();
             Capturer.EventHandler = this;
@@ -61,7 +62,7 @@ namespace DreamScannerApp.Services
             }
         }
 
-        public void StopCapture()
+        public virtual void StopCapture()
         {
             if (Capturer != null)
             {
@@ -79,10 +80,10 @@ namespace DreamScannerApp.Services
 
         protected void MakeReport(string message)
         {
-            form.Invoke(new Action(delegate ()
+            if(reportCallback.Target is Control control && control.IsHandleCreated)
             {
-                messages.Status = message;
-            }));
+                control.BeginInvoke(() => reportCallback.Invoke(message));
+            }
         }
 
         public virtual void OnComplete(object Capture, string ReaderSerialNumber, Sample Sample)
@@ -138,12 +139,11 @@ namespace DreamScannerApp.Services
 
         protected void DrawPicture(Bitmap bitmap)
         {
-            form.Invoke(new Action(delegate ()
+            if (imageCallback.Target is Control control && control.IsHandleCreated)
             {
-                messages.fingerImage = bitmap;
-            }));
+                control.BeginInvoke(() => imageCallback.Invoke(bitmap));
+            }
         }
-
 
     }
 }

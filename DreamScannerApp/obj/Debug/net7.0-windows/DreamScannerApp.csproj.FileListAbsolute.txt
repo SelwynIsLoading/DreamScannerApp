@@ -146,3 +146,5 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-window
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DPFPVerNET.dll
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.sourcelink.json
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamSca.7F97E2CA.Up2Date
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UI.FingerprintAdd.resources
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UserControls.FingerprintAddControl.resources

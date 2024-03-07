@@ -14,6 +14,18 @@ namespace DreamScannerApp.Services
         public string ReaderSerial { get; set; } = "";
         public Bitmap? fingerImage { get; set; } = null;
         public bool IsSaved { get; set; } = false;
-        public DPFP.Template? fingerprintTemplate { get; set; }
+        public byte[]? fingerprintTemplate { get; set; }
+        public void AddFingerprint(DPFP.Template template)
+        {
+            fingerprintTemplate = template.Bytes;
+            Status = "Fingerprint was captured successfully";
+            IsSaved = true;
+        }
+
+        public byte[]? GetFingerprint()
+        {
+            return fingerprintTemplate;
+        }
+
     }
 }
