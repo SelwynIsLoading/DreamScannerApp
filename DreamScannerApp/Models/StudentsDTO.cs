@@ -43,8 +43,10 @@ namespace DreamScannerApp.Models
             public Guid FingerprintID { get; set; } = Guid.Empty;
             public StudentProperties.Section section { get; set; } = StudentProperties.Section.None;
             public StudentProperties.Room room { get; set; } = StudentProperties.Room.Unknown;
+            public StudentProperties.Gender gender { get; set; } = StudentProperties.Gender.None;
             public DateTime TimeIn { get; set; }
             public DateTime TimeOut { get; set; }
+            public bool IsIn { get; set; }
         }
     }
 }

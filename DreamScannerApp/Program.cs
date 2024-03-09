@@ -44,6 +44,7 @@ namespace DreamScannerApp
                     services.AddDbContext<ApplicationDbContext>();
                     services.AddTransient<IStudentService,StudentService>();
                     services.AddTransient<StudentService>();
+                    services.AddTransient<IStudentLogService, StudentLogService>();
                     services.AddTransient<MainDashboardFrm>();
                 });
         }
