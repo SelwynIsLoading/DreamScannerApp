@@ -1,9 +1,15 @@
 using DreamScannerApp.Controllers;
 using DreamScannerApp.Interfaces;
 using DreamScannerApp.Services;
+using DreamScannerApp.UI;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
+using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
+using DreamScannerApp.UserControls.StudentsUserControls;
 
 namespace DreamScannerApp
 {
@@ -12,13 +18,12 @@ namespace DreamScannerApp
         [STAThread]
         static void Main()
         {
-            // Set up dependency injection
-            var serviceProvider = new ServiceCollection()
-                .AddScoped<IStudentService, StudentService>()
-                .BuildServiceProvider();
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            // Resolve the StudentController
-            var studentService = serviceProvider.GetService<StudentController>();
+            var host = CreateHostBuilder().Build();
+            ServiceProvider = host.Services;
 
             // Initialize application configuration
             ApplicationConfiguration.Initialize();
@@ -28,7 +33,18 @@ namespace DreamScannerApp
             facade.EnsureCreated();
 
             // Run the main form
-            Application.Run(new UI.MainDashboardFrm());
+            Application.Run(ServiceProvider.GetRequiredService<MainDashboardFrm>());
+        }
+
+        public static IServiceProvider ServiceProvider { get; private set; }
+        static IHostBuilder CreateHostBuilder()
+        {
+            return Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) => {
+                    services.AddDbContext<ApplicationDbContext>();
+                    services.AddTransient<IStudentService, StudentService>();
+                    services.AddTransient<MainDashboardFrm>();
+                });
         }
     }
 

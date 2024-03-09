@@ -19,5 +19,6 @@ namespace DreamScannerApp.Models.Entities
         public StudentProperties.Room Room { get; set; }
         public StudentProperties.Gender Gender { get; set; }
         public byte[]? Fingerprint { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

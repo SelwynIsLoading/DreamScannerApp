@@ -12,7 +12,7 @@ namespace DreamScannerApp.Services
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=school.db");
+            optionsBuilder.UseSqlite(@"Data Source=school.db");
         }
 
         public DbSet<StudentsEntity> Students { get; set; }

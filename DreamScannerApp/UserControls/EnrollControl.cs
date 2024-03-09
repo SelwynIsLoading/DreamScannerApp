@@ -17,8 +17,10 @@ namespace DreamScannerApp.UserControls
     public partial class EnrollControl : UserControl
     {
         private Result results;
-        public EnrollControl()
+        private readonly IStudentService _studentService;
+        public EnrollControl(IStudentService studentService)
         {
+            _studentService = studentService;
             results = new Result();
             InitializeComponent();
             cbSection.DataSource = Enum.GetValues(typeof(StudentProperties.Section));
@@ -47,7 +49,7 @@ namespace DreamScannerApp.UserControls
                         gender = Enum.TryParse<StudentProperties.Gender>(cbGender.SelectedValue.ToString(), out var gender) ? gender : StudentProperties.Gender.None,
                         fingerprintData = results.GetFingerprint()
                     };
-                    if ()
+                    if (_studentService.AddStudent(student))
                     {
                         MessageBox.Show("Student Successfully Enrolled!", "DreamScanner Enroll", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         clear();

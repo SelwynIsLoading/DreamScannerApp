@@ -1,6 +1,8 @@
 ﻿using DreamScannerApp.Interfaces;
 using DreamScannerApp.Models;
 using DreamScannerApp.Models.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +21,34 @@ namespace DreamScannerApp.Services
 
         public bool AddStudent(StudentsDTO.CreateStudent student)
         {
-            using(_context = new ApplicationDbContext())
+            try
             {
-                var students = _context.Students.Add(new StudentsEntity
+                using(_context = new ApplicationDbContext())
                 {
-                    FirstName = student.FirstName,
-                    LastName = student.LastName,
-                    MiddleInitial = student.MiddleInitial,
-                    Section = student.section,
-                    StudentNumber = student.StudentNumber,
-                    Room = student.room,
-                    Gender = student.gender,
-                    Fingerprint = student.fingerprintData
-                });
-                return _context.SaveChanges() > 0;
+                    if(student != null)
+                    {
+                        _context.Students.Add(new StudentsEntity
+                        {
+                            FirstName = student.FirstName,
+                            LastName = student.LastName,
+                            MiddleInitial = student.MiddleInitial,
+                            Section = student.section,
+                            StudentNumber = student.StudentNumber,
+                            Room = student.room,
+                            Gender = student.gender,
+                            Fingerprint = student.fingerprintData,
+                            DateCreated = DateTime.Now,
+                            EncodedBy = "Admin",
+                    
+                        });
+                        return _context.SaveChanges() > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
 

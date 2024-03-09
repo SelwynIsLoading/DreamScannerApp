@@ -15,9 +15,11 @@ namespace DreamScannerApp.UI
 {
     public partial class MainDashboardFrm : KryptonForm
     {
-        public MainDashboardFrm()
+        IStudentService _studentService;
+        public MainDashboardFrm(IStudentService studentService)
         {
             InitializeComponent();
+            _studentService = studentService;
         }
 
         private void MainDashboardFrm_Load(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace DreamScannerApp.UI
             sideActive.Top = btnEnroll.Top;
             sideActive.Height = btnEnroll.Height;
 
-            EnrollControl enroll = new EnrollControl();
+            EnrollControl enroll = new EnrollControl(_studentService);
             addUserControl(enroll);
         }
 
