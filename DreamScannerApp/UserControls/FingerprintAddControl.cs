@@ -1,4 +1,5 @@
 ﻿using DreamScannerApp.Handlers;
+using DreamScannerApp.Interfaces;
 using DreamScannerApp.Services;
 using DreamScannerApp.UI;
 using System;
@@ -16,9 +17,11 @@ namespace DreamScannerApp.UserControls
     public partial class FingerprintAddControl : UserControl
     {
         private FingerEnrollment fingerEnrollment;
-        public FingerprintAddControl()
+        private Result _result;
+        public FingerprintAddControl(Result result)
         {
-            fingerEnrollment = new FingerEnrollment(MakeReport, DisplayImage);
+            _result = result;
+            fingerEnrollment = new FingerEnrollment(MakeReport, DisplayImage,_result);
             InitializeComponent();
         }
 

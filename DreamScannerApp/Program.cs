@@ -36,13 +36,14 @@ namespace DreamScannerApp
             Application.Run(ServiceProvider.GetRequiredService<MainDashboardFrm>());
         }
 
-        public static IServiceProvider ServiceProvider { get; private set; }
+        public static IServiceProvider ServiceProvider { get; set; }
         static IHostBuilder CreateHostBuilder()
         {
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) => {
                     services.AddDbContext<ApplicationDbContext>();
-                    services.AddTransient<IStudentService, StudentService>();
+                    services.AddTransient<IStudentService,StudentService>();
+                    services.AddTransient<StudentService>();
                     services.AddTransient<MainDashboardFrm>();
                 });
         }

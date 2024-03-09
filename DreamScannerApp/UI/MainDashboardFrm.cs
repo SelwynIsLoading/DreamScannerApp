@@ -10,16 +10,17 @@ using System.Windows.Forms;
 using Krypton.Toolkit;
 using DreamScannerApp.UserControls;
 using DreamScannerApp.Interfaces;
+using DreamScannerApp.Handlers;
+using DreamScannerApp.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DreamScannerApp.UI
 {
     public partial class MainDashboardFrm : KryptonForm
-    {
-        IStudentService _studentService;
-        public MainDashboardFrm(IStudentService studentService)
+    {        
+        public MainDashboardFrm()
         {
             InitializeComponent();
-            _studentService = studentService;
         }
 
         private void MainDashboardFrm_Load(object sender, EventArgs e)
@@ -52,7 +53,8 @@ namespace DreamScannerApp.UI
             sideActive.Top = btnEnroll.Top;
             sideActive.Height = btnEnroll.Height;
 
-            EnrollControl enroll = new EnrollControl(_studentService);
+            Result _result = new Result();
+            EnrollControl enroll = new EnrollControl(Program.ServiceProvider.GetRequiredService<StudentService>(), _result);
             addUserControl(enroll);
         }
 

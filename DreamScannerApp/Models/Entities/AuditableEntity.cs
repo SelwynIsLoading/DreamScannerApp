@@ -16,7 +16,6 @@ namespace DreamScannerApp.Models.Entities
         public Guid Id { get; set; }
         public DateTime DateCreated { get; set; } 
         public Guid FingerprintID { get; set; }
-        public Guid ReferenceID { get; set; }
         public string EncodedBy { get; set; } = "";
     }
 }

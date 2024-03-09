@@ -1,4 +1,5 @@
-﻿using DreamScannerApp.Interfaces;
+﻿using DreamScannerApp.Handlers;
+using DreamScannerApp.Interfaces;
 using DreamScannerApp.Models;
 using DreamScannerApp.Models.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -36,10 +37,10 @@ namespace DreamScannerApp.Services
                             StudentNumber = student.StudentNumber,
                             Room = student.room,
                             Gender = student.gender,
-                            Fingerprint = student.fingerprintData,
                             DateCreated = DateTime.Now,
                             EncodedBy = "Admin",
-                    
+                            FingerprintID = Guid.NewGuid(),
+                            Fingerprint = student.fingerprintData
                         });
                         return _context.SaveChanges() > 0;
                     }
@@ -48,9 +49,11 @@ namespace DreamScannerApp.Services
             }
             catch (Exception ex)
             {
+                Console.WriteLine("ERROR!!!!!!" + ex.Message);
                 return false;
             }
         }
+
 
 
     }

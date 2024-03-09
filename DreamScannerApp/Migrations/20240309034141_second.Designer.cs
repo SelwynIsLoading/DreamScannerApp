@@ -3,6 +3,7 @@ using System;
 using DreamScannerApp.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DreamScannerApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240309034141_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.16");
@@ -49,6 +52,9 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("ReferenceID")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Room")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -69,7 +75,7 @@ namespace DreamScannerApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StudentLogs", (string)null);
+                    b.ToTable("StudentLogs");
                 });
 
             modelBuilder.Entity("DreamScannerApp.Models.Entities.StudentsEntity", b =>
@@ -106,6 +112,9 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("ReferenceID")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("Room")
                         .HasColumnType("INTEGER");
 
@@ -118,7 +127,7 @@ namespace DreamScannerApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("DreamScannerApp.Models.Entities.TeacherLogsEntity", b =>
@@ -153,6 +162,9 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("ReferenceID")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Room")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -169,7 +181,7 @@ namespace DreamScannerApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TeacherLogs", (string)null);
+                    b.ToTable("TeacherLogs");
                 });
 
             modelBuilder.Entity("DreamScannerApp.Models.Entities.TeachersEntity", b =>
@@ -203,6 +215,9 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("ReferenceID")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Room")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -219,7 +234,7 @@ namespace DreamScannerApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teachers", (string)null);
+                    b.ToTable("Teachers");
                 });
 #pragma warning restore 612, 618
         }

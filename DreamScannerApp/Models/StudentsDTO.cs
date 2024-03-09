@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamScannerApp.Models.Entities;
 using DreamScannerApp.Models.Enums;
 using DreamScannerApp.Services;
 
@@ -16,11 +17,10 @@ namespace DreamScannerApp.Models
             public string LastName { get; set; } = "";
             public string MiddleInitial { get; set; } = "";
             public string StudentNumber { get; set; } = "";
-            public StudentProperties.Gender gender { get; set; } 
+            public StudentProperties.Gender gender { get; set; } = StudentProperties.Gender.None;
             public StudentProperties.Section section { get; set; } = StudentProperties.Section.None;
             public StudentProperties.Room room { get; set; } = StudentProperties.Room.Unknown;
             public byte[]? fingerprintData { get; set; }
-            public Result? result { get; set; }
         }
         public class StudentDetail
         {

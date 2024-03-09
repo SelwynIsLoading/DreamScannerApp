@@ -17,14 +17,16 @@ namespace DreamScannerApp.UI
 {
     public partial class FingerprintAdd : KryptonForm
     {
-        public FingerprintAdd()
+        private Result _result;
+        public FingerprintAdd(Result result)
         {
             InitializeComponent();
+            _result = result;
         }
 
         private void FingerprintAdd_Load(object sender, EventArgs e)
         {
-            FingerprintAddControl fingerprintAddControl = new FingerprintAddControl();
+            FingerprintAddControl fingerprintAddControl = new FingerprintAddControl(_result);
             addUserControl(fingerprintAddControl);
         }
         private void addUserControl(UserControl userControl)

@@ -15,14 +15,17 @@ namespace DreamScannerApp.Handlers
     {
         private DPFP.Template Template;
         private DPFP.Processing.Enrollment Enroller;
-        private Result result;
+        private StudentService _studentService;
 
+        private string ReaderSerial = "";
 
-        public FingerEnrollment(Action<string> reportCallback, Action<Bitmap> imageCallback) : base(reportCallback, imageCallback)
+        private Result _result;
+
+        public FingerEnrollment(Action<string> reportCallback, Action<Bitmap> imageCallback, Result result) : base(reportCallback, imageCallback)
         {
             Enroller = new DPFP.Processing.Enrollment();
+            _result = result;
             Template = new Template();
-            result = new Result();
             Initialize();
         }
 
@@ -78,17 +81,13 @@ namespace DreamScannerApp.Handlers
                     }
                     if (Enroller.FeaturesNeeded <= 0)
                     {
-                        result.AddFingerprint(Template);
+                        _result.fingerprintTemplate = Template.Bytes; 
                     }
                 }
             }
         }
 
-        public bool IsDoneEnrolling()
-        {
-            MakeReport("Fingerprint enrollment is complete.");
-            return result.IsSaved;
-        }
+        
 
     }
 }
