@@ -20,12 +20,14 @@ namespace DreamScannerApp.Migrations
                     FirstName = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     MiddleInitial = table.Column<string>(type: "TEXT", nullable: false),
-                    Section = table.Column<string>(type: "TEXT", nullable: false),
                     StudentNumber = table.Column<string>(type: "TEXT", nullable: false),
-                    Room = table.Column<string>(type: "TEXT", nullable: false),
+                    Section = table.Column<int>(type: "INTEGER", nullable: false),
+                    Room = table.Column<int>(type: "INTEGER", nullable: false),
+                    Gender = table.Column<int>(type: "INTEGER", nullable: false),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     TimeIn = table.Column<TimeSpan>(type: "TEXT", nullable: false),
                     TimeOut = table.Column<TimeSpan>(type: "TEXT", nullable: false),
+                    AttendanceState = table.Column<int>(type: "INTEGER", nullable: false),
                     AttendanceStatus = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>

@@ -8,7 +8,8 @@ namespace DreamScannerApp.Interfaces
 {
     public interface IStudentLogService
     {
-        public void LogStudent(Models.StudentsDTO.StudentLog student);
-        public List<Models.StudentsDTO.StudentLog> VerifyStudentFingerprint(DPFP.FeatureSet featureSet, string ReaderSerial);
+        public List<Handlers.StudentLogResult> LogStudent(Models.StudentsDTO.StudentDetail student, string ReaderSerial);
+        public List<Handlers.StudentLogResult> LogOnBreakStudent(Models.StudentsDTO.StudentDetail student, string ReaderSerial);
+        public List<Models.StudentsDTO.StudentDetail> VerifyStudentFingerprint(DPFP.FeatureSet featureSet, string ReaderSerial);
     }
 }

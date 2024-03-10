@@ -23,6 +23,9 @@ namespace DreamScannerApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("AttendanceState")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("AttendanceStatus")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -37,6 +40,9 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -45,13 +51,11 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Room")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Room")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("Section")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Section")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("StudentNumber")
                         .IsRequired()

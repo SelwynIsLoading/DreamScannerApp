@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DreamScannerApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240310035623_Initial")]
+    [Migration("20240310095832_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -25,6 +25,9 @@ namespace DreamScannerApp.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("AttendanceState")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("AttendanceStatus")
                         .IsRequired()
@@ -40,6 +43,9 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -48,13 +54,11 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Room")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Room")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("Section")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Section")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("StudentNumber")
                         .IsRequired()

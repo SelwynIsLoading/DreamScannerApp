@@ -24,7 +24,6 @@ namespace DreamScannerApp.Models
         }
         public class StudentDetail
         {
-            public Guid Id { get; set; } = Guid.Empty;
             public Guid FingerprintID { get; set; } = Guid.Empty;
             public string FirstName { get; set; } = "";
             public string LastName { get; set; } = "";
@@ -32,6 +31,8 @@ namespace DreamScannerApp.Models
             public string StudentNumber { get; set; } = "";
             public StudentProperties.Section section { get; set; } = StudentProperties.Section.None;
             public StudentProperties.Room room { get; set; } = StudentProperties.Room.Unknown;
+            public StudentProperties.Gender Gender { get; set; } = StudentProperties.Gender.None;
+            public bool IsIn { get; set; } = false;
         }
 
         public class StudentLog
@@ -47,7 +48,6 @@ namespace DreamScannerApp.Models
             public DateTime Date { get; set; }
             public TimeSpan TimeIn { get; set; }
             public TimeSpan TimeOut { get; set; }
-            public bool IsIn { get; set; }
         }
     }
 }

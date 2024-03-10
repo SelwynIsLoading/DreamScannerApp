@@ -12,8 +12,10 @@ namespace DreamScannerApp.Services
     public class Verification : FingerprintHandler
     {
         private DPFP.Verification.Verification Verificator;
-        public delegate void StudentDataCallback(List<StudentsDTO.StudentLog> data);
+        public delegate void StudentDataCallback(List<StudentsDTO.StudentDetail> data);
+        public delegate void StateCallback(string state); 
         public event StudentDataCallback studentDataCallback;
+        public event StateCallback stateCallback;
         private readonly IStudentLogService _studentService;
         private string _ReaderSerial = "";
         public Verification(IStudentLogService studentLogService)
@@ -32,8 +34,31 @@ namespace DreamScannerApp.Services
             DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
             if (features != null)
             {
-                List<StudentsDTO.StudentLog> students = _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
+                List<StudentsDTO.StudentDetail> students = _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
                 GenerateStudentData(students);
+                var LogResult = _studentService.LogStudent(students.FirstOrDefault(), _ReaderSerial);
+                if(students != null && students.Count() > 0)
+                {
+                    if(LogResult.FirstOrDefault().IsSuccess)
+                    {
+                        GenerateState(LogResult.FirstOrDefault().Message);
+                    }
+                    else
+                    {
+                        var OnBreakresult = _studentService.LogOnBreakStudent(students.FirstOrDefault(), _ReaderSerial);
+                        if(OnBreakresult != null && OnBreakresult.Count > 0)
+                        {
+                            if(OnBreakresult.FirstOrDefault().IsSuccess)
+                            {
+                                GenerateState(OnBreakresult.FirstOrDefault().Message);
+                            }
+                            else
+                            {
+                                GenerateState("Failed to log student out!");    
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -43,10 +68,15 @@ namespace DreamScannerApp.Services
             base.OnComplete(Capture, ReaderSerialNumber, Sample);
         }
 
-        public void GenerateStudentData(List<StudentsDTO.StudentLog> students)
+        public void GenerateStudentData(List<StudentsDTO.StudentDetail> students)
         {
             studentDataCallback.Invoke(students);
-        }        
+        }      
+        
+        public void GenerateState(string state)
+        {
+            stateCallback.Invoke(state);
+        }
 
     }
 }

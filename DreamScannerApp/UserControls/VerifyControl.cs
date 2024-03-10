@@ -23,10 +23,11 @@ namespace DreamScannerApp.UserControls
             _verificator = verification;
             _verificator.studentDataCallback += OnStudentDataReceived;
             _verificator.reportCallback += OnStatusRecieved;
+            _verificator.stateCallback += OnStateRecieved;
             _verificator.StartCapture();
         }
 
-        private void OnStudentDataReceived(List<StudentsDTO.StudentLog> students)
+        private void OnStudentDataReceived(List<StudentsDTO.StudentDetail> students)
         {
             UpdateVerification(() =>
             {
@@ -35,7 +36,7 @@ namespace DreamScannerApp.UserControls
                     tbName.Text = students.Select(s => s.FirstName + " " + s.MiddleInitial + " " + s.LastName).FirstOrDefault();
                     tbSection.Text = students.Select(s => s.section).FirstOrDefault().ToString();
                     tbInOut.Text = students.Select(s => s.IsIn ? "In" : "Out").FirstOrDefault();
-                    pbGender.Image = students.Select(s => s.gender).FirstOrDefault() == StudentProperties.Gender.Female ? Resources.Female : Resources.Male;
+                    pbGender.Image = students.Select(s => s.Gender).FirstOrDefault() == StudentProperties.Gender.Female ? Resources.Female : Resources.Male;
                 }
                 else
                 {
@@ -53,6 +54,26 @@ namespace DreamScannerApp.UserControls
             {
                 tbStatus.Text = message;
             });
+        }
+
+        private void OnStateRecieved(string state)
+        {
+            UpdateState(() =>
+            {
+                tbState.Text = state;
+            });
+        }
+
+        public void UpdateState(Action action)
+        {
+            if (tbState.InvokeRequired)
+            {
+                tbState.Invoke(action);
+            }
+            else
+            {
+                action();
+            }   
         }
 
         public void UpdateVerification(Action action)

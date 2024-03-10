@@ -35,6 +35,7 @@
             tbName = new TextBox();
             pbGender = new PictureBox();
             label1 = new Label();
+            tbState = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbGender).BeginInit();
             SuspendLayout();
@@ -42,6 +43,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panel1.Controls.Add(tbState);
             panel1.Controls.Add(tbStatus);
             panel1.Controls.Add(tbInOut);
             panel1.Controls.Add(tbSection);
@@ -74,7 +76,7 @@
             tbInOut.BackColor = Color.White;
             tbInOut.BorderStyle = BorderStyle.None;
             tbInOut.Font = new Font("Arial", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            tbInOut.Location = new Point(54, 527);
+            tbInOut.Location = new Point(54, 508);
             tbInOut.Name = "tbInOut";
             tbInOut.ReadOnly = true;
             tbInOut.Size = new Size(514, 38);
@@ -88,7 +90,7 @@
             tbSection.BackColor = Color.White;
             tbSection.BorderStyle = BorderStyle.None;
             tbSection.Font = new Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            tbSection.Location = new Point(54, 433);
+            tbSection.Location = new Point(54, 414);
             tbSection.Name = "tbSection";
             tbSection.ReadOnly = true;
             tbSection.Size = new Size(514, 32);
@@ -102,7 +104,7 @@
             tbName.BackColor = Color.White;
             tbName.BorderStyle = BorderStyle.None;
             tbName.Font = new Font("Arial", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            tbName.Location = new Point(54, 390);
+            tbName.Location = new Point(54, 371);
             tbName.Name = "tbName";
             tbName.ReadOnly = true;
             tbName.Size = new Size(514, 38);
@@ -114,7 +116,7 @@
             // 
             pbGender.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             pbGender.Image = Properties.Resources.Invalid;
-            pbGender.Location = new Point(205, 168);
+            pbGender.Location = new Point(205, 149);
             pbGender.Name = "pbGender";
             pbGender.Size = new Size(213, 180);
             pbGender.SizeMode = PictureBoxSizeMode.Zoom;
@@ -127,12 +129,27 @@
             label1.AutoSize = true;
             label1.Font = new Font("Archivo", 25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(0, 0, 64);
-            label1.Location = new Point(240, 46);
+            label1.Location = new Point(240, 27);
             label1.Name = "label1";
             label1.Size = new Size(143, 63);
             label1.TabIndex = 1;
             label1.Text = "Verify";
             label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // tbState
+            // 
+            tbState.Anchor = AnchorStyles.Bottom;
+            tbState.BackColor = Color.White;
+            tbState.BorderStyle = BorderStyle.None;
+            tbState.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            tbState.Location = new Point(54, 564);
+            tbState.Multiline = true;
+            tbState.Name = "tbState";
+            tbState.ReadOnly = true;
+            tbState.Size = new Size(514, 34);
+            tbState.TabIndex = 7;
+            tbState.Text = "Status";
+            tbState.TextAlign = HorizontalAlignment.Center;
             // 
             // VerifyControl
             // 
@@ -156,5 +173,6 @@
         private TextBox tbSection;
         private TextBox tbName;
         private TextBox tbStatus;
+        private TextBox tbState;
     }
 }
