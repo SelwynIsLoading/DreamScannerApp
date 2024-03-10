@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DreamScannerApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240309064823_third")]
-    partial class third
+    [Migration("20240310035623_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,11 +30,7 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EncodedBy")
-                        .IsRequired()
+                    b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("FingerprintID")
@@ -64,10 +60,10 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimeIn")
+                    b.Property<TimeSpan>("TimeIn")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimeOut")
+                    b.Property<TimeSpan>("TimeOut")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

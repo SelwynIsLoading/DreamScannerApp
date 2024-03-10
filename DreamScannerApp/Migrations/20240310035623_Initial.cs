@@ -16,19 +16,17 @@ namespace DreamScannerApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    FingerprintID = table.Column<Guid>(type: "TEXT", nullable: false),
                     FirstName = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     MiddleInitial = table.Column<string>(type: "TEXT", nullable: false),
                     Section = table.Column<string>(type: "TEXT", nullable: false),
                     StudentNumber = table.Column<string>(type: "TEXT", nullable: false),
                     Room = table.Column<string>(type: "TEXT", nullable: false),
-                    TimeIn = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    TimeOut = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    AttendanceStatus = table.Column<string>(type: "TEXT", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    FingerprintID = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ReferenceID = table.Column<Guid>(type: "TEXT", nullable: false),
-                    EncodedBy = table.Column<string>(type: "TEXT", nullable: false)
+                    Date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    TimeIn = table.Column<TimeSpan>(type: "TEXT", nullable: false),
+                    TimeOut = table.Column<TimeSpan>(type: "TEXT", nullable: false),
+                    AttendanceStatus = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,7 +48,6 @@ namespace DreamScannerApp.Migrations
                     Fingerprint = table.Column<byte[]>(type: "BLOB", nullable: true),
                     DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
                     FingerprintID = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ReferenceID = table.Column<Guid>(type: "TEXT", nullable: false),
                     EncodedBy = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -73,7 +70,6 @@ namespace DreamScannerApp.Migrations
                     AttendanceStatus = table.Column<string>(type: "TEXT", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
                     FingerprintID = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ReferenceID = table.Column<Guid>(type: "TEXT", nullable: false),
                     EncodedBy = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -96,7 +92,6 @@ namespace DreamScannerApp.Migrations
                     TimeTo = table.Column<DateTime>(type: "TEXT", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false),
                     FingerprintID = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ReferenceID = table.Column<Guid>(type: "TEXT", nullable: false),
                     EncodedBy = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>

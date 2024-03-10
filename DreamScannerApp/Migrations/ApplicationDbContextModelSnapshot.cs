@@ -27,11 +27,7 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EncodedBy")
-                        .IsRequired()
+                    b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("FingerprintID")
@@ -61,15 +57,15 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimeIn")
+                    b.Property<TimeSpan>("TimeIn")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimeOut")
+                    b.Property<TimeSpan>("TimeOut")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("StudentLogs", (string)null);
+                    b.ToTable("StudentLogs");
                 });
 
             modelBuilder.Entity("DreamScannerApp.Models.Entities.StudentsEntity", b =>
@@ -118,7 +114,7 @@ namespace DreamScannerApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("DreamScannerApp.Models.Entities.TeacherLogsEntity", b =>
@@ -169,7 +165,7 @@ namespace DreamScannerApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TeacherLogs", (string)null);
+                    b.ToTable("TeacherLogs");
                 });
 
             modelBuilder.Entity("DreamScannerApp.Models.Entities.TeachersEntity", b =>
@@ -219,7 +215,7 @@ namespace DreamScannerApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teachers", (string)null);
+                    b.ToTable("Teachers");
                 });
 #pragma warning restore 612, 618
         }
