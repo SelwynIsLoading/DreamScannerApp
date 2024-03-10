@@ -21,7 +21,7 @@ namespace DreamScannerApp.Handlers
 
         private Result _result;
 
-        public FingerEnrollment(Action<string> reportCallback, Action<Bitmap> imageCallback, Result result) : base(reportCallback, imageCallback)
+        public FingerEnrollment(Result result)
         {
             Enroller = new DPFP.Processing.Enrollment();
             _result = result;
@@ -36,18 +36,6 @@ namespace DreamScannerApp.Handlers
         public override void StopCapture()
         {
             base.StopCapture();
-        }
-        private FeatureSet? ExtractFeatures(Sample Sample, DataPurpose Purpose)
-        {
-            // Extract the features from the sample
-            FeatureExtraction Extractor = new FeatureExtraction();
-            CaptureFeedback feedback = CaptureFeedback.None;
-            FeatureSet features = new FeatureSet();
-            Extractor.CreateFeatureSet(Sample, Purpose, ref feedback, ref features);
-            if (feedback == CaptureFeedback.Good)
-                return features;
-            else
-                return null;
         }
 
         public override void OnComplete(object Capture, string ReaderSerialNumber, Sample Sample)

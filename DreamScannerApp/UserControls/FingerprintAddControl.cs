@@ -21,7 +21,9 @@ namespace DreamScannerApp.UserControls
         public FingerprintAddControl(Result result)
         {
             _result = result;
-            fingerEnrollment = new FingerEnrollment(MakeReport, DisplayImage,_result);
+            fingerEnrollment = new FingerEnrollment(_result);
+            fingerEnrollment.reportCallback += MakeReport;
+            fingerEnrollment.imageCallback += DisplayImage;
             InitializeComponent();
         }
 
@@ -32,19 +34,45 @@ namespace DreamScannerApp.UserControls
 
         public void MakeReport(string message)
         {
-            this.Invoke(new Action(delegate ()
-            {
-                if(message.ToUpper() == "Capture Stopped".ToUpper())
+            UpdateStatus(() => {
+                tbStatus.Text = message;            
+                if (message.ToUpper() == "Capture Stopped".ToUpper())
                 {
                     ((FingerprintAdd)this.ParentForm).Close();
                 }
-                tbStatus.Text = message;
-            }));
+            });
         }
 
         public void DisplayImage(Bitmap image)
         {
-            pbFingerprint.Image = new Bitmap(image, pbFingerprint.Size);
+            UpdateImage(() =>
+            {
+                pbFingerprint.Image = new Bitmap(image, pbFingerprint.Size);
+            });
+        }
+
+        public void UpdateStatus(Action action)
+        {
+            if(tbStatus.InvokeRequired)
+            {
+                tbStatus.Invoke(action);
+            }
+            else
+            {
+                action();
+            }
+        }
+
+        public void UpdateImage(Action action)
+        {
+            if(pbFingerprint.InvokeRequired)
+            {
+                pbFingerprint.Invoke(action);
+            }
+            else
+            {
+                action();
+            }
         }
     }
 }

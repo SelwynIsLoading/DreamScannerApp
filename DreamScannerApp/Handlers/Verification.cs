@@ -16,7 +16,7 @@ namespace DreamScannerApp.Services
         public event StudentDataCallback studentDataCallback;
         private readonly IStudentLogService _studentService;
         private string _ReaderSerial = "";
-        public Verification(Action<string> reportCallback, Action<Bitmap> imageCallback, IStudentLogService studentLogService) : base(reportCallback, imageCallback)
+        public Verification(IStudentLogService studentLogService)
         {
             _studentService = studentLogService;
             Initialize();

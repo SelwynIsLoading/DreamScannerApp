@@ -13,14 +13,13 @@ namespace DreamScannerApp.Services
     public class FingerprintHandler : DPFP.Capture.EventHandler
     {
         private Capture? Capturer;
+        public delegate void ReportCallback(string message);
+        public delegate void ImageCallback(Bitmap bitmap);
+        public event ReportCallback? reportCallback;
+        public event ImageCallback? imageCallback;
 
-        private Action<string> reportCallback;
-        private Action<Bitmap> imageCallback;
-
-        public FingerprintHandler(Action<string> reportCallback, Action<Bitmap> imageCallback)
-        {
-            this.reportCallback = reportCallback;
-            this.imageCallback = imageCallback;
+        public FingerprintHandler()
+        {            
             Initialize();
         }
 
@@ -80,10 +79,7 @@ namespace DreamScannerApp.Services
 
         protected void MakeReport(string message)
         {
-            if(reportCallback.Target is Control control && control.IsHandleCreated)
-            {
-                control.BeginInvoke(() => reportCallback.Invoke(message));
-            }
+            reportCallback?.Invoke(message);
         }
 
         public virtual void OnComplete(object Capture, string ReaderSerialNumber, Sample Sample)
@@ -139,10 +135,7 @@ namespace DreamScannerApp.Services
 
         protected void DrawPicture(Bitmap bitmap)
         {
-            if (imageCallback.Target is Control control && control.IsHandleCreated)
-            {
-                control.BeginInvoke(() => imageCallback.Invoke(bitmap));
-            }
+            imageCallback?.Invoke(bitmap);
         }
 
         protected DPFP.FeatureSet ExtractFeatures(DPFP.Sample Sample, DPFP.Processing.DataPurpose Purpose)
