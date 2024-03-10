@@ -35,6 +35,17 @@ namespace DreamScannerApp.Models
             public bool IsIn { get; set; } = false;
         }
 
+        public class StudentDetails
+        {
+            public string FirstName { get; set; } = "";
+            public string LastName { get; set; } = "";
+            public string MiddleInitial { get; set; } = "";
+            public string StudentNumber { get; set; } = "";
+            public StudentProperties.Section Section { get; set; }
+            public StudentProperties.Room Room { get; set; } 
+            public StudentProperties.Gender Gender { get; set; } 
+        }
+
         public class StudentLog
         {
             public string FirstName { get; set; } = "";

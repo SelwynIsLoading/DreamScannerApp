@@ -34,11 +34,11 @@ namespace DreamScannerApp.Services
             DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
             if (features != null)
             {
-                List<StudentsDTO.StudentDetail> students = _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
+                var students = _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
                 GenerateStudentData(students);
-                var LogResult = _studentService.LogStudent(students.FirstOrDefault(), _ReaderSerial);
                 if(students != null && students.Count() > 0)
                 {
+                    var LogResult = _studentService.LogStudent(students.FirstOrDefault(), _ReaderSerial);
                     if(LogResult.FirstOrDefault().IsSuccess)
                     {
                         GenerateState(LogResult.FirstOrDefault().Message);
@@ -46,7 +46,7 @@ namespace DreamScannerApp.Services
                     else
                     {
                         var OnBreakresult = _studentService.LogOnBreakStudent(students.FirstOrDefault(), _ReaderSerial);
-                        if(OnBreakresult != null && OnBreakresult.Count > 0)
+                        if(OnBreakresult != null && OnBreakresult.Count() > 0)
                         {
                             if(OnBreakresult.FirstOrDefault().IsSuccess)
                             {
@@ -54,10 +54,14 @@ namespace DreamScannerApp.Services
                             }
                             else
                             {
-                                GenerateState("Failed to log student out!");    
+                                GenerateState("Student already logged in");    
                             }
                         }
                     }
+                }
+                else
+                {
+                    // handle intruder here
                 }
             }
         }

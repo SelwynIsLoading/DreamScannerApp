@@ -35,6 +35,7 @@
             btnAbsent = new Krypton.Toolkit.KryptonButton();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             tbSearch = new Krypton.Toolkit.KryptonTextBox();
+            pnlContainer = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -278,10 +279,20 @@
             tbSearch.StateCommon.Content.Font = new Font("Archivo", 9F, FontStyle.Regular, GraphicsUnit.Point);
             tbSearch.TabIndex = 39;
             // 
+            // pnlContainer
+            // 
+            pnlContainer.BackColor = Color.White;
+            pnlContainer.Dock = DockStyle.Fill;
+            pnlContainer.Location = new Point(0, 76);
+            pnlContainer.Name = "pnlContainer";
+            pnlContainer.Size = new Size(1070, 475);
+            pnlContainer.TabIndex = 2;
+            // 
             // Students
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pnlContainer);
             Controls.Add(panel1);
             Name = "Students";
             Size = new Size(1070, 551);
@@ -300,5 +311,6 @@
         private Krypton.Toolkit.KryptonButton btnAll;
         private Krypton.Toolkit.KryptonButton btnAbsent;
         private Krypton.Toolkit.KryptonButton btnViewLogs;
+        private Panel pnlContainer;
     }
 }

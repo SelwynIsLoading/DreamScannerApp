@@ -25,6 +25,12 @@
     <Compile Update="UserControls\StudentsUserControls\Students.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\StudentsUserControls\ViewStudentLogsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\StudentsUserControls\ViewStudentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\TeacherUserControls\Teachers.cs">
       <SubType>UserControl</SubType>
     </Compile>

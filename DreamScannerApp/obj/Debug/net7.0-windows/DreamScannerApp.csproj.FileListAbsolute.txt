@@ -178,3 +178,5 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-window
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.pdb
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.genruntimeconfig.cache
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\ref\DreamScannerApp.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UserControls.StudentsUserControls.ViewStudentLogsControl.resources
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UserControls.StudentsUserControls.ViewStudentsControl.resources

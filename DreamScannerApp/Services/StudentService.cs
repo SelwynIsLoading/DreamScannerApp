@@ -54,7 +54,37 @@ namespace DreamScannerApp.Services
             }
         }
 
+        public bool DeleteStudent(StudentsDTO.StudentDetails student)
+        {
+            using(_context = new ApplicationDbContext())
+            {
+                var studentToDelete = _context.Students.FirstOrDefault(s => s.StudentNumber == student.StudentNumber);
+                if(studentToDelete != null)
+                {
+                    _context.Students.Remove(studentToDelete);
+                    return _context.SaveChanges() > 0;
+                }
+                return false;
+            }
+        }
 
-
+        public List<StudentsDTO.StudentDetails> GetStudents()
+        {
+            List<StudentsDTO.StudentDetails> model = new List<StudentsDTO.StudentDetails>();
+            using(_context = new ApplicationDbContext())
+            {
+                model.AddRange(_context.Students.Select(s => new StudentsDTO.StudentDetails
+                {
+                    FirstName = s.FirstName,
+                    MiddleInitial = s.MiddleInitial,
+                    LastName = s.LastName,
+                    Section = s.Section,
+                    StudentNumber = s.StudentNumber,
+                    Gender = s.Gender,
+                    Room = s.Room,
+                }).ToList());
+                return model;
+            }
+        }
     }
 }

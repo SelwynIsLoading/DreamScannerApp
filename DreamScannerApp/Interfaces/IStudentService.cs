@@ -13,9 +13,9 @@ namespace DreamScannerApp.Interfaces
     {
         public bool AddStudent(StudentsDTO.CreateStudent student);
         //public bool UpdateStudent(StudentsDTO.CreateStudent student);
-        //public bool DeleteStudent(Guid id);
+        public bool DeleteStudent(StudentsDTO.StudentDetails student);
         //public void LogStudent(StudentsDTO.StudentLog student);
-        //List<StudentsDTO.StudentDetail> GetStudents();
+        List<StudentsDTO.StudentDetails> GetStudents();
         //List<StudentsDTO.StudentLog> GetStudentLogs();
     }
 }
