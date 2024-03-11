@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DreamScannerApp.Interfaces;
 using DreamScannerApp.Models;
+using DreamScannerApp.Models.Enums;
 using Krypton.Toolkit;
 
 namespace DreamScannerApp.UI
@@ -37,21 +38,33 @@ namespace DreamScannerApp.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var student = new StudentsDTO.StudentDetails
-            {
-                FirstName = tbFname.Text,
-                LastName = tbLastName.Text,
-                MiddleInitial = tbMiddleInitial.Text,
-                StudentNumber = tbStudentNum.Text,
-                Gender = (Models.Enums.StudentProperties.Gender)cbGender.SelectedItem,
-                Room = (Models.Enums.StudentProperties.Room)cbRoom.SelectedItem,
-                Section = (Models.Enums.StudentProperties.Section)cbSection.SelectedItem
-            };
+            //var student = new StudentsDTO.StudentDetails
+            //{
+            //    FirstName = tbFname.Text,
+            //    LastName = tbLastName.Text,
+            //    MiddleInitial = tbMiddleInitial.Text,
+            //    StudentNumber = tbStudentNum.Text,
+            //    Gender = (Models.Enums.StudentProperties.Gender)cbGender.SelectedItem,
+            //    Room = (Models.Enums.StudentProperties.Room)cbRoom.SelectedItem,
+            //    Section = (Models.Enums.StudentProperties.Section)cbSection.SelectedItem
+            //};
+            StudentsDTO.StudentDetails student = new StudentsDTO.StudentDetails();
+            student.FirstName = tbFname.Text;
+            student.LastName = tbLastName.Text;
+            student.MiddleInitial = tbMiddleInitial.Text;
+            student.StudentNumber = tbStudentNum.Text;
+            student.Gender = (StudentProperties.Gender)Enum.Parse(typeof(StudentProperties.Gender), cbGender.SelectedItem.ToString());
+            student.Room = (StudentProperties.Room)Enum.Parse(typeof(StudentProperties.Room), cbRoom.SelectedItem.ToString());
+            student.Section = (StudentProperties.Section)Enum.Parse(typeof(StudentProperties.Section), cbSection.SelectedItem.ToString());
+
             if(MessageBox.Show("Are you sure you want to update?", "Update Student", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (_studentService.UpdateStudent(student))
                 {
-                    MessageBox.Show("Student Information Updated!", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if(MessageBox.Show("Student Information Updated!", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
                 }
                 else
                 {

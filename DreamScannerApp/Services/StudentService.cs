@@ -15,7 +15,8 @@ namespace DreamScannerApp.Services
 {
     public class StudentService : IStudentService
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
+
         public StudentService(ApplicationDbContext context)
         {
             _context = context;
@@ -25,28 +26,25 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                using(_context = new ApplicationDbContext())
+                if (student != null)
                 {
-                    if(student != null)
+                    _context.Students.Add(new StudentsEntity
                     {
-                        _context.Students.Add(new StudentsEntity
-                        {
-                            FirstName = student.FirstName,
-                            LastName = student.LastName,
-                            MiddleInitial = student.MiddleInitial,
-                            Section = student.section,
-                            StudentNumber = student.StudentNumber,
-                            Room = student.room,
-                            Gender = student.gender,
-                            DateCreated = DateTime.Now,
-                            EncodedBy = "Admin",
-                            FingerprintID = Guid.NewGuid(),
-                            Fingerprint = student.fingerprintData
-                        });
-                        return _context.SaveChanges() > 0;
-                    }
-                    return false;
+                        FirstName = student.FirstName,
+                        LastName = student.LastName,
+                        MiddleInitial = student.MiddleInitial,
+                        Section = student.section,
+                        StudentNumber = student.StudentNumber,
+                        Room = student.room,
+                        Gender = student.gender,
+                        DateCreated = DateTime.Now,
+                        EncodedBy = "Admin",
+                        FingerprintID = Guid.NewGuid(),
+                        Fingerprint = student.fingerprintData
+                    });
+                    return _context.SaveChanges() > 0;
                 }
+                return false;
             }
             catch (Exception ex)
             {
@@ -57,69 +55,54 @@ namespace DreamScannerApp.Services
 
         public bool DeleteStudent(StudentsDTO.StudentDetails student)
         {
-            using(_context = new ApplicationDbContext())
+            var studentToDelete = _context.Students.FirstOrDefault(s => s.StudentNumber == student.StudentNumber);
+            if (studentToDelete != null)
             {
-                var studentToDelete = _context.Students.FirstOrDefault(s => s.StudentNumber == student.StudentNumber);
-                if(studentToDelete != null)
-                {
-                    _context.Students.Remove(studentToDelete);
-                    return _context.SaveChanges() > 0;
-                }
-                return false;
+                _context.Students.Remove(studentToDelete);
+                return _context.SaveChanges() > 0;
             }
+            return false;
         }
 
         public List<StudentsDTO.StudentDetails> GetStudents()
         {
-            List<StudentsDTO.StudentDetails> model = new List<StudentsDTO.StudentDetails>();
-            using(_context = new ApplicationDbContext())
+            return _context.Students.Select(s => new StudentsDTO.StudentDetails
             {
-                model.AddRange(_context.Students.Select(s => new StudentsDTO.StudentDetails
-                {
-                    FirstName = s.FirstName,
-                    MiddleInitial = s.MiddleInitial,
-                    LastName = s.LastName,
-                    Section = s.Section,
-                    StudentNumber = s.StudentNumber,
-                    Gender = s.Gender,
-                    Room = s.Room,
-                }).ToList());
-                return model;
-            }
+                FirstName = s.FirstName,
+                MiddleInitial = s.MiddleInitial,
+                LastName = s.LastName,
+                Section = s.Section,
+                StudentNumber = s.StudentNumber,
+                Gender = s.Gender,
+                Room = s.Room,
+            }).ToList();
         }
 
         public List<StudentsDTO.StudentDetails> GetStudentsByStudentNumber(string studentNumber)
         {
-            List<StudentsDTO.StudentDetails> model = new List<StudentsDTO.StudentDetails>();
-            using (_context = new ApplicationDbContext())
-            {
-                model.AddRange(_context.Students.Where(s => s.StudentNumber == studentNumber).Select(s => new StudentsDTO.StudentDetails
+            return _context.Students
+                .Where(s => s.StudentNumber == studentNumber)
+                .Select(s => new StudentsDTO.StudentDetails
                 {
                     FirstName = s.FirstName,
                     MiddleInitial = s.MiddleInitial,
                     LastName = s.LastName,
                     Section = s.Section,
                     StudentNumber = s.StudentNumber,
-                }).ToList());
-                return model;
-            }
+                }).ToList();
         }
 
         public bool UpdateStudent(StudentsDTO.StudentDetails student)
         {
-            var st = _context.Students.Select(s => s.StudentNumber == student.StudentNumber).ToList();
+            var st = _context.Students.FirstOrDefault(s => s.StudentNumber == student.StudentNumber);
             if (st != null)
             {
-                _context.Students.Update(new StudentsEntity
-                {
-                    FirstName = student.FirstName,
-                    LastName = student.LastName,
-                    MiddleInitial = student.MiddleInitial,
-                    Section = student.Section,
-                    Room = student.Room,
-                    Gender = student.Gender,
-                    StudentNumber = student.StudentNumber,
-                });
+                st.LastName = student.LastName;
+                st.MiddleInitial = student.MiddleInitial;
+                st.Section = student.Section;
+                st.Room = student.Room;
+                st.Gender = student.Gender;
+
                 return _context.SaveChanges() > 0;
             }
             return false;

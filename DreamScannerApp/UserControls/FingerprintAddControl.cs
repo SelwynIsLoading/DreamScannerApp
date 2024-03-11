@@ -38,6 +38,7 @@ namespace DreamScannerApp.UserControls
                 tbStatus.Text = message;            
                 if (message.ToUpper() == "Capture Stopped".ToUpper())
                 {
+                    fingerEnrollment = new FingerEnrollment(_result);
                     ((FingerprintAdd)this.ParentForm).Close();
                 }
             });

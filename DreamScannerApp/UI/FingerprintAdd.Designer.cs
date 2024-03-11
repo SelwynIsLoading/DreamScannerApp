@@ -111,6 +111,7 @@
             Palette = kryptonCustomPaletteBase1;
             PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Fingerprint";
             Load += FingerprintAdd_Load;
             ResumeLayout(false);

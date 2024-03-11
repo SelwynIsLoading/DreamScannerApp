@@ -321,6 +321,7 @@
             Palette = kryptonCustomPaletteBase1;
             PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Main Dashboard";
             Load += MainDashboardFrm_Load;
             sideContainer.ResumeLayout(false);

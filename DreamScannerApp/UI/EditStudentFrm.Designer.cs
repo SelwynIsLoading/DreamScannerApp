@@ -114,8 +114,7 @@
             // btnUpdate
             // 
             btnUpdate.Anchor = AnchorStyles.Top;
-            btnUpdate.Location = new Point(452, 411);
-            btnUpdate.Margin = new Padding(3, 2, 3, 2);
+            btnUpdate.Location = new Point(517, 548);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.OverrideDefault.Back.Color1 = Color.Red;
             btnUpdate.OverrideDefault.Back.Color2 = Color.FromArgb(192, 0, 0);
@@ -128,7 +127,7 @@
             btnUpdate.OverrideDefault.Content.ShortText.Color1 = Color.White;
             btnUpdate.OverrideDefault.Content.ShortText.Color2 = Color.White;
             btnUpdate.OverrideDefault.Content.ShortText.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUpdate.Size = new Size(298, 32);
+            btnUpdate.Size = new Size(341, 43);
             btnUpdate.StateCommon.Back.Color1 = Color.Red;
             btnUpdate.StateCommon.Back.Color2 = Color.FromArgb(192, 0, 0);
             btnUpdate.StateCommon.Back.ColorAngle = 45F;
@@ -159,10 +158,9 @@
             cbGender.DropDownWidth = 152;
             cbGender.IntegralHeight = false;
             cbGender.Items.AddRange(new object[] { "Male", "Female" });
-            cbGender.Location = new Point(605, 354);
-            cbGender.Margin = new Padding(3, 2, 3, 2);
+            cbGender.Location = new Point(691, 472);
             cbGender.Name = "cbGender";
-            cbGender.Size = new Size(145, 33);
+            cbGender.Size = new Size(166, 36);
             cbGender.StateCommon.ComboBox.Border.Color1 = Color.FromArgb(0, 0, 64);
             cbGender.StateCommon.ComboBox.Border.Color2 = Color.FromArgb(0, 0, 64);
             cbGender.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -181,10 +179,9 @@
             cbRoom.DropDownWidth = 152;
             cbRoom.IntegralHeight = false;
             cbRoom.Items.AddRange(new object[] { "M201", "M203" });
-            cbRoom.Location = new Point(452, 354);
-            cbRoom.Margin = new Padding(3, 2, 3, 2);
+            cbRoom.Location = new Point(517, 472);
             cbRoom.Name = "cbRoom";
-            cbRoom.Size = new Size(145, 33);
+            cbRoom.Size = new Size(166, 36);
             cbRoom.StateCommon.ComboBox.Border.Color1 = Color.FromArgb(0, 0, 64);
             cbRoom.StateCommon.ComboBox.Border.Color2 = Color.FromArgb(0, 0, 64);
             cbRoom.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -204,9 +201,9 @@
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.FromArgb(0, 0, 64);
-            label8.Location = new Point(605, 325);
+            label8.Location = new Point(691, 433);
             label8.Name = "label8";
-            label8.Size = new Size(94, 24);
+            label8.Size = new Size(118, 29);
             label8.TabIndex = 62;
             label8.Text = "Gender *";
             label8.TextAlign = ContentAlignment.TopCenter;
@@ -217,9 +214,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(0, 0, 64);
-            label7.Location = new Point(452, 325);
+            label7.Location = new Point(517, 433);
             label7.Name = "label7";
-            label7.Size = new Size(79, 24);
+            label7.Size = new Size(100, 29);
             label7.TabIndex = 61;
             label7.Text = "Room *";
             label7.TextAlign = ContentAlignment.TopCenter;
@@ -230,9 +227,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(0, 0, 64);
-            label6.Location = new Point(605, 198);
+            label6.Location = new Point(691, 264);
             label6.Name = "label6";
-            label6.Size = new Size(94, 24);
+            label6.Size = new Size(119, 29);
             label6.TabIndex = 60;
             label6.Text = "Section *";
             label6.TextAlign = ContentAlignment.TopCenter;
@@ -242,10 +239,9 @@
             cbSection.DropDownWidth = 152;
             cbSection.IntegralHeight = false;
             cbSection.Items.AddRange(new object[] { "Watt", "Faraday" });
-            cbSection.Location = new Point(605, 229);
-            cbSection.Margin = new Padding(3, 2, 3, 2);
+            cbSection.Location = new Point(691, 305);
             cbSection.Name = "cbSection";
-            cbSection.Size = new Size(145, 33);
+            cbSection.Size = new Size(166, 36);
             cbSection.StateCommon.ComboBox.Border.Color1 = Color.FromArgb(0, 0, 64);
             cbSection.StateCommon.ComboBox.Border.Color2 = Color.FromArgb(0, 0, 64);
             cbSection.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -262,10 +258,9 @@
             // tbStudentNum
             // 
             tbStudentNum.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            tbStudentNum.Location = new Point(452, 290);
-            tbStudentNum.Margin = new Padding(3, 2, 3, 2);
+            tbStudentNum.Location = new Point(517, 387);
             tbStudentNum.Name = "tbStudentNum";
-            tbStudentNum.Size = new Size(298, 35);
+            tbStudentNum.Size = new Size(341, 38);
             tbStudentNum.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
             tbStudentNum.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
             tbStudentNum.StateCommon.Border.ColorAngle = 45F;
@@ -281,9 +276,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(0, 0, 64);
-            label5.Location = new Point(452, 264);
+            label5.Location = new Point(517, 352);
             label5.Name = "label5";
-            label5.Size = new Size(176, 24);
+            label5.Size = new Size(220, 29);
             label5.TabIndex = 57;
             label5.Text = "Student Number *";
             label5.TextAlign = ContentAlignment.TopCenter;
@@ -291,10 +286,9 @@
             // tbMiddleInitial
             // 
             tbMiddleInitial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            tbMiddleInitial.Location = new Point(452, 229);
-            tbMiddleInitial.Margin = new Padding(3, 2, 3, 2);
+            tbMiddleInitial.Location = new Point(517, 305);
             tbMiddleInitial.Name = "tbMiddleInitial";
-            tbMiddleInitial.Size = new Size(145, 35);
+            tbMiddleInitial.Size = new Size(166, 38);
             tbMiddleInitial.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
             tbMiddleInitial.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
             tbMiddleInitial.StateCommon.Border.ColorAngle = 45F;
@@ -310,9 +304,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
-            label4.Location = new Point(452, 198);
+            label4.Location = new Point(517, 264);
             label4.Name = "label4";
-            label4.Size = new Size(127, 24);
+            label4.Size = new Size(163, 29);
             label4.TabIndex = 55;
             label4.Text = "Middle Initial";
             label4.TextAlign = ContentAlignment.TopCenter;
@@ -320,10 +314,9 @@
             // tbLastName
             // 
             tbLastName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            tbLastName.Location = new Point(452, 162);
-            tbLastName.Margin = new Padding(3, 2, 3, 2);
+            tbLastName.Location = new Point(517, 216);
             tbLastName.Name = "tbLastName";
-            tbLastName.Size = new Size(298, 35);
+            tbLastName.Size = new Size(341, 38);
             tbLastName.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
             tbLastName.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
             tbLastName.StateCommon.Border.ColorAngle = 45F;
@@ -339,9 +332,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(0, 0, 64);
-            label3.Location = new Point(452, 137);
+            label3.Location = new Point(517, 183);
             label3.Name = "label3";
-            label3.Size = new Size(122, 24);
+            label3.Size = new Size(155, 29);
             label3.TabIndex = 53;
             label3.Text = "Last Name *";
             label3.TextAlign = ContentAlignment.TopCenter;
@@ -349,10 +342,9 @@
             // tbFname
             // 
             tbFname.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            tbFname.Location = new Point(452, 102);
-            tbFname.Margin = new Padding(3, 2, 3, 2);
+            tbFname.Location = new Point(517, 136);
             tbFname.Name = "tbFname";
-            tbFname.Size = new Size(298, 35);
+            tbFname.Size = new Size(341, 38);
             tbFname.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
             tbFname.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
             tbFname.StateCommon.Border.ColorAngle = 45F;
@@ -368,9 +360,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
-            label2.Location = new Point(452, 76);
+            label2.Location = new Point(517, 101);
             label2.Name = "label2";
-            label2.Size = new Size(125, 24);
+            label2.Size = new Size(159, 29);
             label2.TabIndex = 51;
             label2.Text = "First Name *";
             label2.TextAlign = ContentAlignment.TopCenter;
@@ -381,9 +373,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(0, 0, 64);
-            label1.Location = new Point(468, 8);
+            label1.Location = new Point(535, 11);
             label1.Name = "label1";
-            label1.Size = new Size(267, 39);
+            label1.Size = new Size(323, 48);
             label1.TabIndex = 50;
             label1.Text = "Update Student";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -392,20 +384,19 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox1.Image = Properties.Resources.Humaaans___Study_Online;
-            pictureBox1.Location = new Point(12, 8);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(14, 11);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(411, 435);
+            pictureBox1.Size = new Size(470, 580);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 66;
             pictureBox1.TabStop = false;
             // 
             // EditStudentFrm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(pictureBox1);
             Controls.Add(btnUpdate);
             Controls.Add(cbGender);
@@ -423,10 +414,12 @@
             Controls.Add(tbFname);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "EditStudentFrm";
             Palette = kryptonCustomPaletteBase1;
             PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit Student Information";
             Load += EditStudentFrm_Load;
             ((System.ComponentModel.ISupportInitialize)cbGender).EndInit();

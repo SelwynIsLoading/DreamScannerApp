@@ -323,6 +323,7 @@ namespace DreamScannerApp
             Palette = kryptonCustomPaletteBase1;
             PaletteMode = PaletteMode.Custom;
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DreamScanner Login";
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).EndInit();
             panel1.ResumeLayout(false);

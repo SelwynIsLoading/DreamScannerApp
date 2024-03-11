@@ -215,3 +215,4 @@ C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\ne
 C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UserControls.StudentsUserControls.ViewStudentsControl.resources
 C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamSca.7F97E2CA.Up2Date
 C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UI.EditStudentFrm.resources
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UI.EditStudentFrm.resources
