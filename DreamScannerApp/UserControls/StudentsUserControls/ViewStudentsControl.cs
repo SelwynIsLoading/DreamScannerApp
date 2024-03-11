@@ -61,6 +61,10 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
                         LoadData();
                     }
                 }
+                else
+                {
+                    LoadData();
+                }
             }
         }
     }

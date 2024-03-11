@@ -86,5 +86,25 @@ namespace DreamScannerApp.Services
                 return model;
             }
         }
+
+        public bool UpdateStudent(StudentsEntity student)
+        {
+            var st = _context.Students.Select(s => s.StudentNumber == student.StudentNumber).ToList();
+            if (st != null)
+            {
+                _context.Students.Update(new StudentsEntity
+                {
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    MiddleInitial = student.MiddleInitial,
+                    Section = student.Section,
+                    Room = student.Room,
+                    Gender = student.Gender,
+                    StudentNumber = student.StudentNumber,
+                });
+                return _context.SaveChanges() > 0;
+            }
+            return false;
+        }
     }
 }
