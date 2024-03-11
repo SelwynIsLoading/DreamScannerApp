@@ -2,6 +2,7 @@
 using DreamScannerApp.Interfaces;
 using DreamScannerApp.Models;
 using DreamScannerApp.Models.Entities;
+using DreamScannerApp.UserControls.StudentsUserControls;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
@@ -87,7 +88,24 @@ namespace DreamScannerApp.Services
             }
         }
 
-        public bool UpdateStudent(StudentsEntity student)
+        public List<StudentsDTO.StudentDetails> GetStudentsByStudentNumber(string studentNumber)
+        {
+            List<StudentsDTO.StudentDetails> model = new List<StudentsDTO.StudentDetails>();
+            using (_context = new ApplicationDbContext())
+            {
+                model.AddRange(_context.Students.Where(s => s.StudentNumber == studentNumber).Select(s => new StudentsDTO.StudentDetails
+                {
+                    FirstName = s.FirstName,
+                    MiddleInitial = s.MiddleInitial,
+                    LastName = s.LastName,
+                    Section = s.Section,
+                    StudentNumber = s.StudentNumber,
+                }).ToList());
+                return model;
+            }
+        }
+
+        public bool UpdateStudent(StudentsDTO.StudentDetails student)
         {
             var st = _context.Students.Select(s => s.StudentNumber == student.StudentNumber).ToList();
             if (st != null)

@@ -12,10 +12,11 @@ namespace DreamScannerApp.Interfaces
     public interface IStudentService
     {
         public bool AddStudent(StudentsDTO.CreateStudent student);
-        public bool UpdateStudent(StudentsEntity student);
+        public bool UpdateStudent(StudentsDTO.StudentDetails student);
         public bool DeleteStudent(StudentsDTO.StudentDetails student);
         //public void LogStudent(StudentsDTO.StudentLog student);
         List<StudentsDTO.StudentDetails> GetStudents();
+        List<StudentsDTO.StudentDetails> GetStudentsByStudentNumber(string studentNumber);
         //List<StudentsDTO.StudentLog> GetStudentLogs();
     }
 }

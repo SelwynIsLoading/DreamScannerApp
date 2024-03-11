@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DreamScannerApp.Interfaces;
 using DreamScannerApp.Models;
 using DreamScannerApp.Services;
+using DreamScannerApp.UI;
 
 namespace DreamScannerApp.UserControls.StudentsUserControls
 {
@@ -65,6 +66,12 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
                 {
                     LoadData();
                 }
+            }
+            if (e.ColumnIndex == 7)
+            {
+                string StudentNumber = dgStudents.Rows[e.RowIndex].Cells[3].Value.ToString();
+                EditStudentFrm editStudentFrm = new EditStudentFrm(StudentNumber, _studentService);
+                editStudentFrm.ShowDialog();
             }
         }
     }
