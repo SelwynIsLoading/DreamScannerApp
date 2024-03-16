@@ -12,7 +12,7 @@ namespace DreamScannerApp.Services
 {
     public class FingerprintHandler : DPFP.Capture.EventHandler
     {
-        private Capture? Capturer;
+        private Capture Capturer;
         public delegate void ReportCallback(string message);
         public delegate void ImageCallback(Bitmap bitmap);
         public event ReportCallback? reportCallback;
@@ -27,9 +27,14 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                Capturer = new Capture();
-                if (null != Capturer)
+                if (Capturer == null)
                 {
+                    Capturer = new Capture();
+                }
+                else if(Capturer != null)
+                {
+                    Capturer.Dispose();
+                    Capturer = new Capture();
                     Capturer.EventHandler = this;
                 }
                 else
@@ -45,7 +50,6 @@ namespace DreamScannerApp.Services
 
         public virtual void StartCapture()
         {
-            Capturer = new Capture();
             Capturer.EventHandler = this;
             if (Capturer != null)
             {

@@ -6,27 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DPFP;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DreamScannerApp.Services
 {
     public class Verification : FingerprintHandler
     {
-        private DPFP.Verification.Verification Verificator;
         public delegate void StudentDataCallback(List<StudentsDTO.StudentDetail> data);
         public delegate void StateCallback(string state); 
         public event StudentDataCallback studentDataCallback;
         public event StateCallback stateCallback;
         private readonly IStudentLogService _studentService;
         private string _ReaderSerial = "";
-        public Verification(IStudentLogService studentLogService)
+        public Verification()
         {
-            _studentService = studentLogService;
+            _studentService = Program.ServiceProvider.GetRequiredService<IStudentLogService>();
             Initialize();
-        }
-        protected override void Initialize()
-        {
-            base.Initialize();
-            Verificator = new DPFP.Verification.Verification();
         }
         protected override void Process(DPFP.Sample Sample)
         {
@@ -38,23 +33,26 @@ namespace DreamScannerApp.Services
                 GenerateStudentData(students);
                 if(students != null && students.Count() > 0)
                 {
-                    var LogResult = _studentService.LogStudent(students.FirstOrDefault(), _ReaderSerial);
-                    if(LogResult.FirstOrDefault().IsSuccess)
+                    foreach(var student in students)
                     {
-                        GenerateState(LogResult.FirstOrDefault().Message);
-                    }
-                    else
-                    {
-                        var OnBreakresult = _studentService.LogOnBreakStudent(students.FirstOrDefault(), _ReaderSerial);
-                        if(OnBreakresult != null && OnBreakresult.Count() > 0)
+                        var LogResult = _studentService.LogStudent(student, _ReaderSerial);
+                        if(LogResult.FirstOrDefault().IsSuccess)
                         {
-                            if(OnBreakresult.FirstOrDefault().IsSuccess)
+                            GenerateState(LogResult.FirstOrDefault().Message);
+                        }
+                        else
+                        {
+                            var OnBreakresult = _studentService.LogOnBreakStudent(student, _ReaderSerial);
+                            if(OnBreakresult != null && OnBreakresult.Count() > 0)
                             {
-                                GenerateState(OnBreakresult.FirstOrDefault().Message);
-                            }
-                            else
-                            {
-                                GenerateState("Student already logged in");    
+                                if(OnBreakresult.FirstOrDefault().IsSuccess)
+                                {
+                                    GenerateState(OnBreakresult.FirstOrDefault().Message);
+                                }
+                                else
+                                {
+                                    GenerateState("Student already logged in");    
+                                }
                             }
                         }
                     }

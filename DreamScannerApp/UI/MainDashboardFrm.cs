@@ -44,7 +44,7 @@ namespace DreamScannerApp.UI
             sideActive.Top = btnVerify.Top;
             sideActive.Height = btnVerify.Height;
 
-            Services.Verification verification = new Services.Verification(Program.ServiceProvider.GetRequiredService<IStudentLogService>());
+            Services.Verification verification = new Services.Verification();
             VerifyControl verify = new VerifyControl(verification);
             addUserControl(verify);
         }
