@@ -43,9 +43,7 @@ namespace DreamScannerApp.UI
         {
             sideActive.Top = btnVerify.Top;
             sideActive.Height = btnVerify.Height;
-
-            Services.Verification verification = new Services.Verification();
-            VerifyControl verify = new VerifyControl(verification);
+            VerifyControl verify = new VerifyControl();
             addUserControl(verify);
         }
 

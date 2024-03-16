@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            tbState = new TextBox();
             tbStatus = new TextBox();
             tbInOut = new TextBox();
             tbSection = new TextBox();
             tbName = new TextBox();
             pbGender = new PictureBox();
             label1 = new Label();
-            tbState = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbGender).BeginInit();
             SuspendLayout();
@@ -54,6 +54,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(623, 690);
             panel1.TabIndex = 0;
+            // 
+            // tbState
+            // 
+            tbState.Anchor = AnchorStyles.Bottom;
+            tbState.BackColor = Color.White;
+            tbState.BorderStyle = BorderStyle.None;
+            tbState.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            tbState.Location = new Point(54, 564);
+            tbState.Multiline = true;
+            tbState.Name = "tbState";
+            tbState.ReadOnly = true;
+            tbState.Size = new Size(514, 34);
+            tbState.TabIndex = 7;
+            tbState.Text = "Status";
+            tbState.TextAlign = HorizontalAlignment.Center;
             // 
             // tbStatus
             // 
@@ -136,21 +151,6 @@
             label1.Text = "Verify";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // tbState
-            // 
-            tbState.Anchor = AnchorStyles.Bottom;
-            tbState.BackColor = Color.White;
-            tbState.BorderStyle = BorderStyle.None;
-            tbState.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            tbState.Location = new Point(54, 564);
-            tbState.Multiline = true;
-            tbState.Name = "tbState";
-            tbState.ReadOnly = true;
-            tbState.Size = new Size(514, 34);
-            tbState.TabIndex = 7;
-            tbState.Text = "Status";
-            tbState.TextAlign = HorizontalAlignment.Center;
-            // 
             // VerifyControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -158,6 +158,8 @@
             Controls.Add(panel1);
             Name = "VerifyControl";
             Size = new Size(1070, 690);
+            Load += VerifyControl_Load;
+            VisibleChanged += VerifyControl_VisibleChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbGender).EndInit();

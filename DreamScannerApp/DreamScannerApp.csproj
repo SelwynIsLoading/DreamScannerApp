@@ -32,7 +32,7 @@
       <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPGuiNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPShrNET">
-      <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPShrNET.dll</HintPath>
+      <HintPath>..\..\..\Downloads\digital-persona\Digital Pesonal SDK\dll\DPFPShrNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPVerNET">
       <HintPath>..\..\digital-persona\Digital Pesonal SDK\dll\DPFPVerNET.dll</HintPath>

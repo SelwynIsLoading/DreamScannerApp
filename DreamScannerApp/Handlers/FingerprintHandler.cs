@@ -12,6 +12,7 @@ namespace DreamScannerApp.Services
 {
     public class FingerprintHandler : DPFP.Capture.EventHandler
     {
+
         private Capture Capturer;
         public delegate void ReportCallback(string message);
         public delegate void ImageCallback(Bitmap bitmap);
@@ -19,7 +20,7 @@ namespace DreamScannerApp.Services
         public event ImageCallback? imageCallback;
 
         public FingerprintHandler()
-        {            
+        {
             Initialize();
         }
 
@@ -27,28 +28,23 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                if (Capturer == null)
+                Capturer = new Capture();
+                if (Capturer != null)
                 {
-                    Capturer = new Capture();
-                }
-                else if(Capturer != null)
-                {
-                    Capturer.Dispose();
-                    Capturer = new Capture();
-                    Capturer.EventHandler = this;
+                    Capturer.EventHandler = this;                    
                 }
                 else
                 {
-                    MakeReport("Can't initiate capture operation!");    
+                    MakeReport("Can't initiate capture operation!");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                
+                MakeReport($"Can't initiate Capture: {ex.Message}");
             }
         }
 
-        public virtual void StartCapture()
+        public void StartCapture()
         {
             Capturer.EventHandler = this;
             if (Capturer != null)
@@ -56,16 +52,16 @@ namespace DreamScannerApp.Services
                 try
                 {
                     Capturer.StartCapture();
-                    MakeReport("Using The Fingerprint reader, scan your fingerprint");
+                    MakeReport("Using the fingerprint reader, scan your fingerprint.");
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MakeReport("Can't initiate Capture");
-                }
+                    MakeReport($"Can't initiate Capture: {ex.Message}");
+                }   
             }
         }
 
-        public virtual void StopCapture()
+        public void StopCapture()
         {
             if (Capturer != null)
             {

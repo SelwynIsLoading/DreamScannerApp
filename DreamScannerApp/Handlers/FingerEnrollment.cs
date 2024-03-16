@@ -26,16 +26,6 @@ namespace DreamScannerApp.Handlers
             Enroller = new DPFP.Processing.Enrollment();
             _result = result;
             Template = new Template();
-            Initialize();
-        }
-
-        public override void StartCapture()
-        {
-            base.StartCapture();
-        }
-        public override void StopCapture()
-        {
-            base.StopCapture();
         }
 
         public override void OnComplete(object Capture, string ReaderSerialNumber, Sample Sample)
@@ -61,7 +51,6 @@ namespace DreamScannerApp.Handlers
                         case DPFP.Processing.Enrollment.Status.Failed:
                             Enroller.Clear();
                             StopCapture();
-                            StartCapture();
                             break;
                         case DPFP.Processing.Enrollment.Status.Insufficient:
                             MakeReport("Need more samples: " + Enroller.FeaturesNeeded);

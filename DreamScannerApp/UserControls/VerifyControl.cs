@@ -17,15 +17,21 @@ namespace DreamScannerApp.UserControls
     public partial class VerifyControl : UserControl
     {
         private Services.Verification _verificator;
-        public VerifyControl(Services.Verification verification)
+        public VerifyControl()
         {
             InitializeComponent();
-            _verificator = verification;
+            _verificator = new Services.Verification();
             _verificator.studentDataCallback += OnStudentDataReceived;
             _verificator.reportCallback += OnStatusRecieved;
             _verificator.stateCallback += OnStateRecieved;
-            _verificator.StartCapture();
+            Disposed += VerifyControl_Disposed;
         }
+
+        private void VerifyControl_Disposed(object sender, EventArgs e)
+        {
+            _verificator.StopCapture();
+        }
+
 
         private void OnStudentDataReceived(List<StudentsDTO.StudentDetail> students)
         {
@@ -73,12 +79,12 @@ namespace DreamScannerApp.UserControls
             else
             {
                 action();
-            }   
+            }
         }
 
         public void UpdateVerification(Action action)
         {
-            if(tbName.InvokeRequired && tbSection.InvokeRequired && tbInOut.InvokeRequired)
+            if (tbName.InvokeRequired && tbSection.InvokeRequired && tbInOut.InvokeRequired)
             {
                 tbName.Invoke(action);
                 tbSection.Invoke(action);
@@ -92,7 +98,7 @@ namespace DreamScannerApp.UserControls
 
         public void UpdateStatus(Action action)
         {
-            if(tbStatus.InvokeRequired)
+            if (tbStatus.InvokeRequired)
             {
                 tbStatus.Invoke(action);
             }
@@ -102,5 +108,18 @@ namespace DreamScannerApp.UserControls
             }
         }
 
+        private void VerifyControl_Load(object sender, EventArgs e)
+        {
+            _verificator = new Services.Verification();
+            _verificator.studentDataCallback += OnStudentDataReceived;
+            _verificator.reportCallback += OnStatusRecieved;
+            _verificator.stateCallback += OnStateRecieved;
+            _verificator.StartCapture();
+        }
+
+        private void VerifyControl_VisibleChanged(object sender, EventArgs e)
+        {
+            _verificator.StopCapture();
+        }
     }
 }

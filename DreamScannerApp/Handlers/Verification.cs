@@ -21,7 +21,6 @@ namespace DreamScannerApp.Services
         public Verification()
         {
             _studentService = Program.ServiceProvider.GetRequiredService<IStudentLogService>();
-            Initialize();
         }
         protected override void Process(DPFP.Sample Sample)
         {
@@ -72,12 +71,12 @@ namespace DreamScannerApp.Services
 
         public void GenerateStudentData(List<StudentsDTO.StudentDetail> students)
         {
-            studentDataCallback.Invoke(students);
+            studentDataCallback?.Invoke(students);
         }      
         
         public void GenerateState(string state)
         {
-            stateCallback.Invoke(state);
+            stateCallback?.Invoke(state);
         }
 
     }

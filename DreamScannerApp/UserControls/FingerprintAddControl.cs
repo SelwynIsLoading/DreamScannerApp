@@ -24,7 +24,13 @@ namespace DreamScannerApp.UserControls
             fingerEnrollment = new FingerEnrollment(_result);
             fingerEnrollment.reportCallback += MakeReport;
             fingerEnrollment.imageCallback += DisplayImage;
+            Disposed += FingerprintAddControl_Disposed;
             InitializeComponent();
+        }
+
+        private void FingerprintAddControl_Disposed(object? sender, EventArgs e)
+        {
+            fingerEnrollment.StopCapture();
         }
 
         private void FingerprintAddControl_Load(object sender, EventArgs e)
