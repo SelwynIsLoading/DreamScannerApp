@@ -47,10 +47,12 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            bindingSource1 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)cbGender).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbRoom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbSection).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // kryptonCustomPaletteBase1
@@ -58,30 +60,6 @@
             kryptonCustomPaletteBase1.BaseFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             kryptonCustomPaletteBase1.BaseFontSize = 9F;
             kryptonCustomPaletteBase1.BasePaletteType = Krypton.Toolkit.BasePaletteType.Custom;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.Image = Properties.Resources.mcClose;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageCheckedNormal = Properties.Resources.mcClose;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageCheckedPressed = Properties.Resources.mcClose;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageCheckedTracking = Properties.Resources.mcClose;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageDisabled = Properties.Resources.mcClose;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageNormal = Properties.Resources.mcClose;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImagePressed = Properties.Resources.mcClose;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageTracking = Properties.Resources.mcClose;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.Image = Properties.Resources.mcMax;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageCheckedNormal = Properties.Resources.mcMax;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageCheckedPressed = Properties.Resources.mcMax;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageCheckedTracking = Properties.Resources.mcMax;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageDisabled = Properties.Resources.mcMax;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageNormal = Properties.Resources.mcMax;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImagePressed = Properties.Resources.mcMax;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageTracking = Properties.Resources.mcMax;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.Image = Properties.Resources.mcMin;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageCheckedNormal = Properties.Resources.mcMin;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageCheckedPressed = Properties.Resources.mcMin;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageCheckedTracking = Properties.Resources.mcMin;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageDisabled = Properties.Resources.mcMin;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageNormal = Properties.Resources.mcMin;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImagePressed = Properties.Resources.mcMin;
-            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageTracking = Properties.Resources.mcMin;
             kryptonCustomPaletteBase1.ButtonStyles.ButtonForm.OverrideFocus.Back.Color1 = Color.Transparent;
             kryptonCustomPaletteBase1.ButtonStyles.ButtonForm.OverrideFocus.Back.Color2 = Color.Transparent;
             kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Back.Color1 = Color.Transparent;
@@ -157,7 +135,6 @@
             // 
             cbGender.DropDownWidth = 152;
             cbGender.IntegralHeight = false;
-            cbGender.Items.AddRange(new object[] { "Male", "Female" });
             cbGender.Location = new Point(691, 472);
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(166, 36);
@@ -178,7 +155,6 @@
             // 
             cbRoom.DropDownWidth = 152;
             cbRoom.IntegralHeight = false;
-            cbRoom.Items.AddRange(new object[] { "M201", "M203" });
             cbRoom.Location = new Point(517, 472);
             cbRoom.Name = "cbRoom";
             cbRoom.Size = new Size(166, 36);
@@ -238,7 +214,6 @@
             // 
             cbSection.DropDownWidth = 152;
             cbSection.IntegralHeight = false;
-            cbSection.Items.AddRange(new object[] { "Watt", "Faraday" });
             cbSection.Location = new Point(691, 305);
             cbSection.Name = "cbSection";
             cbSection.Size = new Size(166, 36);
@@ -421,11 +396,11 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit Student Information";
-            Load += EditStudentFrm_Load;
             ((System.ComponentModel.ISupportInitialize)cbGender).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbRoom).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbSection).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -450,5 +425,6 @@
         private Label label2;
         private Label label1;
         private PictureBox pictureBox1;
+        private BindingSource bindingSource1;
     }
 }

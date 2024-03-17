@@ -53,9 +53,9 @@ namespace DreamScannerApp.Services
             }
         }
 
-        public bool DeleteStudent(StudentsDTO.StudentDetails student)
+        public bool DeleteStudent(string StudentNumber)
         {
-            var studentToDelete = _context.Students.FirstOrDefault(s => s.StudentNumber == student.StudentNumber);
+            var studentToDelete = _context.Students.FirstOrDefault(s => s.StudentNumber == StudentNumber);
             if (studentToDelete != null)
             {
                 _context.Students.Remove(studentToDelete);
@@ -84,21 +84,26 @@ namespace DreamScannerApp.Services
                 .Where(s => s.StudentNumber == studentNumber)
                 .Select(s => new StudentsDTO.StudentDetails
                 {
+                    Id = s.Id,
                     FirstName = s.FirstName,
                     MiddleInitial = s.MiddleInitial,
                     LastName = s.LastName,
                     Section = s.Section,
                     StudentNumber = s.StudentNumber,
+                    Room = s.Room,
+                    Gender = s.Gender
                 }).ToList();
         }
 
         public bool UpdateStudent(StudentsDTO.StudentDetails student)
         {
-            var st = _context.Students.FirstOrDefault(s => s.StudentNumber == student.StudentNumber);
+            var st = _context.Students.FirstOrDefault(s => s.Id == student.Id);
             if (st != null)
             {
+                st.FirstName = student.FirstName;
                 st.LastName = student.LastName;
                 st.MiddleInitial = student.MiddleInitial;
+                st.StudentNumber = student.StudentNumber;
                 st.Section = student.Section;
                 st.Room = student.Room;
                 st.Gender = student.Gender;

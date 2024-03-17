@@ -131,6 +131,29 @@ namespace DreamScannerApp.Services
             }
         }
 
+        public List<StudentsDTO.StudentLog> GetStudentLogInfo()
+        {
+            List<StudentsDTO.StudentLog> studentLogs = new List<StudentsDTO.StudentLog>();
+            var logs = _context.StudentLogs;
+            foreach (var log in logs)
+            {
+                studentLogs.Add(new StudentsDTO.StudentLog
+                {
+                    FirstName = log.FirstName,
+                    LastName = log.LastName,
+                    MiddleInitial = log.MiddleInitial,
+                    StudentNumber = log.StudentNumber,
+                    section = log.Section,
+                    room = log.Room,
+                    Date = log.Date,
+                    TimeIn = log.TimeIn,
+                    TimeOut = log.TimeOut,
+                    AttendanceStatus = log.AttendanceStatus
+                });
+            }
+            return studentLogs;
+        }
+
         private bool CheckSerial(string ReaderSerial)
         {
             return ReaderSerial switch

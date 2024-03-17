@@ -24,14 +24,9 @@ namespace DreamScannerApp.UserControls
             fingerEnrollment = new FingerEnrollment(_result);
             fingerEnrollment.reportCallback += MakeReport;
             fingerEnrollment.imageCallback += DisplayImage;
-            Disposed += FingerprintAddControl_Disposed;
             InitializeComponent();
         }
 
-        private void FingerprintAddControl_Disposed(object? sender, EventArgs e)
-        {
-            fingerEnrollment.StopCapture();
-        }
 
         private void FingerprintAddControl_Load(object sender, EventArgs e)
         {
@@ -44,6 +39,7 @@ namespace DreamScannerApp.UserControls
                 tbStatus.Text = message;            
                 if (message.ToUpper() == "Capture Stopped".ToUpper())
                 {
+                    //fingerEnrollment.StopCapture();
                     fingerEnrollment = new FingerEnrollment(_result);
                     ((FingerprintAdd)this.ParentForm).Close();
                 }

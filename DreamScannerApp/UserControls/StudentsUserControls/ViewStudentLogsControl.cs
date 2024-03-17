@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DreamScannerApp.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,36 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
 {
     public partial class ViewStudentLogsControl : UserControl
     {
+        private readonly IStudentLogService _studentLogService;
         public ViewStudentLogsControl()
         {
+            _studentLogService = Program.ServiceProvider.GetRequiredService<IStudentLogService>();
             InitializeComponent();
         }
+        private void ViewStudentLogsControl_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+        private void LoadData()
+        {
+            dgStudents.Rows.Clear();
+            var students = _studentLogService.GetStudentLogInfo();
+            foreach (var student in students)
+            {
+                string timeOut = student.TimeOut == TimeSpan.Zero ? "" : $"{Convert.ToDateTime(student.TimeOut.ToString()).ToShortTimeString()}";
+                dgStudents.Rows.Add(new object[]
+                {
+                    $"{student.LastName}, {student.FirstName} {student.MiddleInitial}",
+                    student.StudentNumber,
+                    student.section,
+                    student.room,
+                    $"{student.Date.ToShortDateString()}",
+                    $"{Convert.ToDateTime(student.TimeIn.ToString()).ToShortTimeString()}",
+                    timeOut,
+                    student.AttendanceStatus
+                });
+            }
+        }
+
     }
 }

@@ -1,16 +1,7 @@
-﻿using DPFP.Verification;
-using DreamScannerApp.Models;
+﻿using DreamScannerApp.Models;
 using DreamScannerApp.Models.Enums;
-using DreamScannerApp.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Runtime.Versioning;
 
 namespace DreamScannerApp.UserControls
 {
@@ -42,14 +33,15 @@ namespace DreamScannerApp.UserControls
                     tbName.Text = students.Select(s => s.FirstName + " " + s.MiddleInitial + " " + s.LastName).FirstOrDefault();
                     tbSection.Text = students.Select(s => s.section).FirstOrDefault().ToString();
                     tbInOut.Text = students.Select(s => s.IsIn ? "In" : "Out").FirstOrDefault();
-                    pbGender.Image = students.Select(s => s.Gender).FirstOrDefault() == StudentProperties.Gender.Female ? Resources.Female : Resources.Male;
+                    // C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\Resources\
+                    //pbGender.Image = students.Select(s => s.Gender).FirstOrDefault() == StudentProperties.Gender.Female ? Resources.Female : Resources.Male;
                 }
                 else
                 {
                     tbName.Text = "Invalid!";
                     tbSection.Text = "";
                     tbInOut.Text = "";
-                    pbGender.Image = Resources.Invalid;
+                    //pbGender.Image = Resources.Invalid;
                 }
             });
         }

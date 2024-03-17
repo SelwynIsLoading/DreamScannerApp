@@ -106,6 +106,7 @@
             btnViewLogs.StateTracking.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnViewLogs.TabIndex = 53;
             btnViewLogs.Values.Text = "View Student Logs";
+            btnViewLogs.Click += btnViewLogs_Click;
             // 
             // btnPresent
             // 

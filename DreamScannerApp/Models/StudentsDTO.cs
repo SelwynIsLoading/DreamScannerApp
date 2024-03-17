@@ -37,6 +37,7 @@ namespace DreamScannerApp.Models
 
         public class StudentDetails
         {
+            public Guid Id { get; set; } = Guid.Empty;
             public string FirstName { get; set; } = "";
             public string LastName { get; set; } = "";
             public string MiddleInitial { get; set; } = "";
@@ -59,6 +60,7 @@ namespace DreamScannerApp.Models
             public DateTime Date { get; set; }
             public TimeSpan TimeIn { get; set; }
             public TimeSpan TimeOut { get; set; }
+            public string AttendanceStatus { get; set; } = "";
         }
     }
 }

@@ -115,7 +115,7 @@ namespace DreamScannerApp.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap icons8_search_25 {
             get {
-                object obj = ResourceManager.GetObject("icons8-search-25", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_search_25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,7 +125,7 @@ namespace DreamScannerApp.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap icons8_settings_25 {
             get {
-                object obj = ResourceManager.GetObject("icons8-settings-25", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_settings_25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
