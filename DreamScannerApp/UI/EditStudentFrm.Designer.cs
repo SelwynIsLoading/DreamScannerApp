@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            kryptonCustomPaletteBase1 = new Krypton.Toolkit.KryptonCustomPaletteBase(components);
             btnUpdate = new Krypton.Toolkit.KryptonButton();
             cbGender = new Krypton.Toolkit.KryptonComboBox();
             cbRoom = new Krypton.Toolkit.KryptonComboBox();
@@ -48,46 +47,13 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             bindingSource1 = new BindingSource(components);
+            kryptonCustomPaletteBase1 = new Krypton.Toolkit.KryptonCustomPaletteBase(components);
             ((System.ComponentModel.ISupportInitialize)cbGender).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbRoom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbSection).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
-            // 
-            // kryptonCustomPaletteBase1
-            // 
-            kryptonCustomPaletteBase1.BaseFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            kryptonCustomPaletteBase1.BaseFontSize = 9F;
-            kryptonCustomPaletteBase1.BasePaletteType = Krypton.Toolkit.BasePaletteType.Custom;
-            kryptonCustomPaletteBase1.ButtonStyles.ButtonForm.OverrideFocus.Back.Color1 = Color.Transparent;
-            kryptonCustomPaletteBase1.ButtonStyles.ButtonForm.OverrideFocus.Back.Color2 = Color.Transparent;
-            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Back.Color1 = Color.Transparent;
-            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Back.Color2 = Color.Transparent;
-            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Border.Color1 = Color.Transparent;
-            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Border.Color2 = Color.Transparent;
-            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Back.Color1 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Back.Color2 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Border.Color1 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Border.Color2 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Border.Rounding = 18F;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Back.Color1 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Back.Color2 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Border.Color1 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Border.Color2 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Border.Rounding = 18F;
-            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Back.Color1 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Back.Color2 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.Color1 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.Color2 = Color.White;
-            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            kryptonCustomPaletteBase1.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = Color.White;
-            kryptonCustomPaletteBase1.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = Color.White;
-            kryptonCustomPaletteBase1.ThemeName = "";
-            kryptonCustomPaletteBase1.UseKryptonFileDialogs = true;
             // 
             // btnUpdate
             // 
@@ -366,6 +332,64 @@
             pictureBox1.TabIndex = 66;
             pictureBox1.TabStop = false;
             // 
+            // kryptonCustomPaletteBase1
+            // 
+            kryptonCustomPaletteBase1.BaseFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            kryptonCustomPaletteBase1.BaseFontSize = 9F;
+            kryptonCustomPaletteBase1.BasePaletteType = Krypton.Toolkit.BasePaletteType.Custom;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.Image = Properties.Resources.mcClose;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageCheckedNormal = Properties.Resources.mcClose;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageCheckedPressed = Properties.Resources.mcClose;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageCheckedTracking = Properties.Resources.mcClose;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageDisabled = Properties.Resources.mcClose;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageNormal = Properties.Resources.mcClose;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImagePressed = Properties.Resources.mcClose;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormClose.ImageStates.ImageTracking = Properties.Resources.mcClose;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.Image = Properties.Resources.mcMax;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageCheckedNormal = Properties.Resources.mcMax;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageCheckedPressed = Properties.Resources.mcMax;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageCheckedTracking = Properties.Resources.mcMax;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageDisabled = Properties.Resources.mcMax;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageNormal = Properties.Resources.mcMax;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImagePressed = Properties.Resources.mcMax;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMax.ImageStates.ImageTracking = Properties.Resources.mcMax;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.Image = Properties.Resources.mcMin;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageCheckedNormal = Properties.Resources.mcMin;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageCheckedPressed = Properties.Resources.mcMin;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageCheckedTracking = Properties.Resources.mcMin;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageDisabled = Properties.Resources.mcMin;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageNormal = Properties.Resources.mcMin;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImagePressed = Properties.Resources.mcMin;
+            kryptonCustomPaletteBase1.ButtonSpecs.FormMin.ImageStates.ImageTracking = Properties.Resources.mcMin;
+            kryptonCustomPaletteBase1.ButtonStyles.ButtonForm.OverrideFocus.Back.Color1 = Color.Transparent;
+            kryptonCustomPaletteBase1.ButtonStyles.ButtonForm.OverrideFocus.Back.Color2 = Color.Transparent;
+            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Back.Color1 = Color.Transparent;
+            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Back.Color2 = Color.Transparent;
+            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Border.Color1 = Color.Transparent;
+            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Border.Color2 = Color.Transparent;
+            kryptonCustomPaletteBase1.ButtonStyles.ButtonFormClose.OverrideFocus.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Back.Color1 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Back.Color2 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Border.Color1 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Border.Color2 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateActive.Border.Rounding = 18F;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Back.Color1 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Back.Color2 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Border.Color1 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Border.Color2 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            kryptonCustomPaletteBase1.FormStyles.FormCommon.StateCommon.Border.Rounding = 18F;
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Back.Color1 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Back.Color2 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.Color1 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.Color2 = Color.White;
+            kryptonCustomPaletteBase1.FormStyles.FormMain.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            kryptonCustomPaletteBase1.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = Color.White;
+            kryptonCustomPaletteBase1.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = Color.White;
+            kryptonCustomPaletteBase1.ThemeName = "";
+            kryptonCustomPaletteBase1.UseKryptonFileDialogs = true;
+            // 
             // EditStudentFrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -406,8 +430,6 @@
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonCustomPaletteBase kryptonCustomPaletteBase1;
         private Krypton.Toolkit.KryptonButton btnUpdate;
         private Krypton.Toolkit.KryptonComboBox cbGender;
         private Krypton.Toolkit.KryptonComboBox cbRoom;
@@ -426,5 +448,6 @@
         private Label label1;
         private PictureBox pictureBox1;
         private BindingSource bindingSource1;
+        private Krypton.Toolkit.KryptonCustomPaletteBase kryptonCustomPaletteBase1;
     }
 }
