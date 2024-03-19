@@ -64,6 +64,31 @@ namespace DreamScannerApp.Services
             return false;
         }
 
+        public List<StudentsDTO.StudentDetails> FilterStudents(string search)
+        {
+            var searchString = search.ToLower(); // Convert search string to lowercase for case-insensitive comparison
+
+            return _context.Students
+                .Where(s =>
+                    s.FirstName.ToLower().Contains(searchString) ||
+                    s.LastName.ToLower().Contains(searchString) ||
+                    s.StudentNumber.ToLower().Contains(searchString)
+                )
+                .Select(s => new StudentsDTO.StudentDetails
+                {
+                    FirstName = s.FirstName,
+                    MiddleInitial = s.MiddleInitial,
+                    LastName = s.LastName,
+                    Section = s.Section,
+                    StudentNumber = s.StudentNumber,
+                    Room = s.Room,
+                    Gender = s.Gender
+                })
+                .ToList();
+        }
+
+
+
         public List<StudentsDTO.StudentDetails> GetStudents()
         {
             return _context.Students.Select(s => new StudentsDTO.StudentDetails

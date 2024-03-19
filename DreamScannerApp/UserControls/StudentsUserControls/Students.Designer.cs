@@ -29,30 +29,64 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            dPicker = new Krypton.Toolkit.KryptonDateTimePicker();
+            cbFilter = new Krypton.Toolkit.KryptonComboBox();
             btnViewLogs = new Krypton.Toolkit.KryptonButton();
-            btnPresent = new Krypton.Toolkit.KryptonButton();
-            btnAll = new Krypton.Toolkit.KryptonButton();
-            btnAbsent = new Krypton.Toolkit.KryptonButton();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            btnSearch = new Krypton.Toolkit.KryptonButton();
             tbSearch = new Krypton.Toolkit.KryptonTextBox();
             pnlContainer = new Panel();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cbFilter).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(dPicker);
+            panel1.Controls.Add(cbFilter);
             panel1.Controls.Add(btnViewLogs);
-            panel1.Controls.Add(btnPresent);
-            panel1.Controls.Add(btnAll);
-            panel1.Controls.Add(btnAbsent);
-            panel1.Controls.Add(kryptonButton1);
+            panel1.Controls.Add(btnSearch);
             panel1.Controls.Add(tbSearch);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1070, 76);
             panel1.TabIndex = 1;
+            // 
+            // dPicker
+            // 
+            dPicker.CausesValidation = false;
+            dPicker.Format = DateTimePickerFormat.Short;
+            dPicker.Location = new Point(558, 16);
+            dPicker.Name = "dPicker";
+            dPicker.Size = new Size(160, 35);
+            dPicker.StateCommon.Border.Color1 = Color.Red;
+            dPicker.StateCommon.Border.Color2 = Color.Red;
+            dPicker.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            dPicker.StateCommon.Border.Rounding = 15F;
+            dPicker.StateCommon.Border.Width = 2;
+            dPicker.StateCommon.Content.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dPicker.TabIndex = 55;
+            // 
+            // cbFilter
+            // 
+            cbFilter.DropDownWidth = 152;
+            cbFilter.IntegralHeight = false;
+            cbFilter.Location = new Point(352, 18);
+            cbFilter.Name = "cbFilter";
+            cbFilter.Size = new Size(166, 34);
+            cbFilter.StateCommon.ComboBox.Border.Color1 = Color.Red;
+            cbFilter.StateCommon.ComboBox.Border.Color2 = Color.Red;
+            cbFilter.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            cbFilter.StateCommon.ComboBox.Border.Rounding = 18F;
+            cbFilter.StateCommon.ComboBox.Border.Width = 2;
+            cbFilter.StateCommon.ComboBox.Content.Color1 = Color.Black;
+            cbFilter.StateCommon.ComboBox.Content.Font = new Font("Arial", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            cbFilter.StateCommon.ComboBox.Content.Padding = new Padding(-1, -1, -1, -10);
+            cbFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            cbFilter.StateCommon.DropBack.Color1 = Color.White;
+            cbFilter.StateCommon.DropBack.Color2 = Color.White;
+            cbFilter.TabIndex = 54;
             // 
             // btnViewLogs
             // 
@@ -108,163 +142,41 @@
             btnViewLogs.Values.Text = "View Student Logs";
             btnViewLogs.Click += btnViewLogs_Click;
             // 
-            // btnPresent
+            // btnSearch
             // 
-            btnPresent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            btnPresent.Location = new Point(635, 16);
-            btnPresent.Name = "btnPresent";
-            btnPresent.OverrideDefault.Back.Color1 = Color.Red;
-            btnPresent.OverrideDefault.Back.Color2 = Color.FromArgb(192, 0, 0);
-            btnPresent.OverrideDefault.Back.ColorAngle = 130F;
-            btnPresent.OverrideDefault.Border.Color1 = Color.Red;
-            btnPresent.OverrideDefault.Border.Color2 = Color.FromArgb(192, 0, 0);
-            btnPresent.OverrideDefault.Border.ColorAngle = 130F;
-            btnPresent.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnPresent.OverrideDefault.Border.Rounding = 18F;
-            btnPresent.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnPresent.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnPresent.OverrideDefault.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPresent.Size = new Size(139, 38);
-            btnPresent.StateCommon.Back.Color1 = Color.Red;
-            btnPresent.StateCommon.Back.Color2 = Color.FromArgb(192, 0, 0);
-            btnPresent.StateCommon.Back.ColorAngle = 45F;
-            btnPresent.StateCommon.Border.Color1 = Color.Red;
-            btnPresent.StateCommon.Border.Color2 = Color.Red;
-            btnPresent.StateCommon.Border.ColorAngle = 130F;
-            btnPresent.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnPresent.StateCommon.Border.Rounding = 18F;
-            btnPresent.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnPresent.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnPresent.StateCommon.Content.ShortText.Font = new Font("Archivo", 8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPresent.StatePressed.Back.Color1 = Color.Red;
-            btnPresent.StatePressed.Back.Color2 = Color.Red;
-            btnPresent.StatePressed.Back.ColorAngle = 45F;
-            btnPresent.StatePressed.Border.Color1 = Color.Red;
-            btnPresent.StatePressed.Border.Color2 = Color.Red;
-            btnPresent.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnPresent.StatePressed.Border.Rounding = 18F;
-            btnPresent.StatePressed.Content.ShortText.Color1 = Color.White;
-            btnPresent.StatePressed.Content.ShortText.Color2 = Color.White;
-            btnPresent.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPresent.TabIndex = 52;
-            btnPresent.Values.Text = "Present";
-            // 
-            // btnAll
-            // 
-            btnAll.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            btnAll.Location = new Point(490, 16);
-            btnAll.Name = "btnAll";
-            btnAll.OverrideDefault.Back.Color1 = Color.Red;
-            btnAll.OverrideDefault.Back.Color2 = Color.FromArgb(192, 0, 0);
-            btnAll.OverrideDefault.Back.ColorAngle = 130F;
-            btnAll.OverrideDefault.Border.Color1 = Color.Red;
-            btnAll.OverrideDefault.Border.Color2 = Color.FromArgb(192, 0, 0);
-            btnAll.OverrideDefault.Border.ColorAngle = 130F;
-            btnAll.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnAll.OverrideDefault.Border.Rounding = 18F;
-            btnAll.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnAll.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnAll.OverrideDefault.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAll.Size = new Size(139, 38);
-            btnAll.StateCommon.Back.Color1 = Color.Red;
-            btnAll.StateCommon.Back.Color2 = Color.FromArgb(192, 0, 0);
-            btnAll.StateCommon.Back.ColorAngle = 45F;
-            btnAll.StateCommon.Border.Color1 = Color.Red;
-            btnAll.StateCommon.Border.Color2 = Color.Red;
-            btnAll.StateCommon.Border.ColorAngle = 130F;
-            btnAll.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnAll.StateCommon.Border.Rounding = 18F;
-            btnAll.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnAll.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnAll.StateCommon.Content.ShortText.Font = new Font("Archivo", 8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAll.StatePressed.Back.Color1 = Color.Red;
-            btnAll.StatePressed.Back.Color2 = Color.Red;
-            btnAll.StatePressed.Back.ColorAngle = 45F;
-            btnAll.StatePressed.Border.Color1 = Color.Red;
-            btnAll.StatePressed.Border.Color2 = Color.Red;
-            btnAll.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnAll.StatePressed.Border.Rounding = 18F;
-            btnAll.StatePressed.Content.ShortText.Color1 = Color.White;
-            btnAll.StatePressed.Content.ShortText.Color2 = Color.White;
-            btnAll.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAll.TabIndex = 51;
-            btnAll.Values.Text = "All";
-            // 
-            // btnAbsent
-            // 
-            btnAbsent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            btnAbsent.Location = new Point(345, 16);
-            btnAbsent.Name = "btnAbsent";
-            btnAbsent.OverrideDefault.Back.Color1 = Color.Red;
-            btnAbsent.OverrideDefault.Back.Color2 = Color.FromArgb(192, 0, 0);
-            btnAbsent.OverrideDefault.Back.ColorAngle = 130F;
-            btnAbsent.OverrideDefault.Border.Color1 = Color.Red;
-            btnAbsent.OverrideDefault.Border.Color2 = Color.FromArgb(192, 0, 0);
-            btnAbsent.OverrideDefault.Border.ColorAngle = 130F;
-            btnAbsent.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnAbsent.OverrideDefault.Border.Rounding = 18F;
-            btnAbsent.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnAbsent.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnAbsent.OverrideDefault.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAbsent.Size = new Size(139, 38);
-            btnAbsent.StateCommon.Back.Color1 = Color.Red;
-            btnAbsent.StateCommon.Back.Color2 = Color.FromArgb(192, 0, 0);
-            btnAbsent.StateCommon.Back.ColorAngle = 45F;
-            btnAbsent.StateCommon.Border.Color1 = Color.Red;
-            btnAbsent.StateCommon.Border.Color2 = Color.Red;
-            btnAbsent.StateCommon.Border.ColorAngle = 130F;
-            btnAbsent.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnAbsent.StateCommon.Border.Rounding = 18F;
-            btnAbsent.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnAbsent.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnAbsent.StateCommon.Content.ShortText.Font = new Font("Archivo", 8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAbsent.StatePressed.Back.Color1 = Color.Red;
-            btnAbsent.StatePressed.Back.Color2 = Color.Red;
-            btnAbsent.StatePressed.Back.ColorAngle = 45F;
-            btnAbsent.StatePressed.Border.Color1 = Color.Red;
-            btnAbsent.StatePressed.Border.Color2 = Color.Red;
-            btnAbsent.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnAbsent.StatePressed.Border.Rounding = 18F;
-            btnAbsent.StatePressed.Content.ShortText.Color1 = Color.White;
-            btnAbsent.StatePressed.Content.ShortText.Color2 = Color.White;
-            btnAbsent.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAbsent.TabIndex = 50;
-            btnAbsent.Values.Text = "Absent";
-            // 
-            // kryptonButton1
-            // 
-            kryptonButton1.Location = new Point(211, 16);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.White;
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.White;
-            kryptonButton1.OverrideDefault.Back.Image = Properties.Resources.icons8_search_25;
-            kryptonButton1.OverrideDefault.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
-            kryptonButton1.OverrideDefault.Border.Color1 = Color.FromArgb(250, 82, 82);
-            kryptonButton1.OverrideDefault.Border.Color2 = Color.FromArgb(250, 82, 82);
-            kryptonButton1.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            kryptonButton1.OverrideDefault.Border.Rounding = 35F;
-            kryptonButton1.OverrideDefault.Border.Width = 2;
-            kryptonButton1.Size = new Size(38, 38);
-            kryptonButton1.StateCommon.Back.Color1 = Color.White;
-            kryptonButton1.StateCommon.Back.Color2 = Color.White;
-            kryptonButton1.StateCommon.Back.Image = Properties.Resources.icons8_search_25;
-            kryptonButton1.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
-            kryptonButton1.StateCommon.Border.Color1 = Color.FromArgb(250, 82, 82);
-            kryptonButton1.StateCommon.Border.Color2 = Color.FromArgb(250, 82, 82);
-            kryptonButton1.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            kryptonButton1.StateCommon.Border.Rounding = 35F;
-            kryptonButton1.StateCommon.Border.Width = 2;
-            kryptonButton1.StatePressed.Back.Color1 = Color.White;
-            kryptonButton1.StatePressed.Back.Color2 = Color.White;
-            kryptonButton1.StatePressed.Back.Image = Properties.Resources.icons8_search_25;
-            kryptonButton1.StatePressed.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
-            kryptonButton1.StatePressed.Border.Color1 = Color.FromArgb(250, 82, 82);
-            kryptonButton1.StatePressed.Border.Color2 = Color.FromArgb(250, 82, 82);
-            kryptonButton1.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            kryptonButton1.StatePressed.Border.Rounding = 35F;
-            kryptonButton1.StatePressed.Border.Width = 2;
-            kryptonButton1.TabIndex = 40;
-            kryptonButton1.Values.Text = "";
+            btnSearch.Location = new Point(211, 16);
+            btnSearch.Name = "btnSearch";
+            btnSearch.OverrideDefault.Back.Color1 = Color.White;
+            btnSearch.OverrideDefault.Back.Color2 = Color.White;
+            btnSearch.OverrideDefault.Back.Image = Properties.Resources.icons8_search_25;
+            btnSearch.OverrideDefault.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            btnSearch.OverrideDefault.Border.Color1 = Color.FromArgb(250, 82, 82);
+            btnSearch.OverrideDefault.Border.Color2 = Color.FromArgb(250, 82, 82);
+            btnSearch.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnSearch.OverrideDefault.Border.Rounding = 35F;
+            btnSearch.OverrideDefault.Border.Width = 2;
+            btnSearch.Size = new Size(38, 38);
+            btnSearch.StateCommon.Back.Color1 = Color.White;
+            btnSearch.StateCommon.Back.Color2 = Color.White;
+            btnSearch.StateCommon.Back.Image = Properties.Resources.icons8_search_25;
+            btnSearch.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            btnSearch.StateCommon.Border.Color1 = Color.FromArgb(250, 82, 82);
+            btnSearch.StateCommon.Border.Color2 = Color.FromArgb(250, 82, 82);
+            btnSearch.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnSearch.StateCommon.Border.Rounding = 35F;
+            btnSearch.StateCommon.Border.Width = 2;
+            btnSearch.StatePressed.Back.Color1 = Color.White;
+            btnSearch.StatePressed.Back.Color2 = Color.White;
+            btnSearch.StatePressed.Back.Image = Properties.Resources.icons8_search_25;
+            btnSearch.StatePressed.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            btnSearch.StatePressed.Border.Color1 = Color.FromArgb(250, 82, 82);
+            btnSearch.StatePressed.Border.Color2 = Color.FromArgb(250, 82, 82);
+            btnSearch.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnSearch.StatePressed.Border.Rounding = 35F;
+            btnSearch.StatePressed.Border.Width = 2;
+            btnSearch.TabIndex = 40;
+            btnSearch.Values.Text = "";
+            btnSearch.Click += btnSearch_Click;
             // 
             // tbSearch
             // 
@@ -300,6 +212,7 @@
             Load += Students_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cbFilter).EndInit();
             ResumeLayout(false);
         }
 
@@ -307,11 +220,10 @@
 
         private Panel panel1;
         private Krypton.Toolkit.KryptonTextBox tbSearch;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private Krypton.Toolkit.KryptonButton btnPresent;
-        private Krypton.Toolkit.KryptonButton btnAll;
-        private Krypton.Toolkit.KryptonButton btnAbsent;
+        private Krypton.Toolkit.KryptonButton btnSearch;
         private Krypton.Toolkit.KryptonButton btnViewLogs;
         private Panel pnlContainer;
+        private Krypton.Toolkit.KryptonDateTimePicker dPicker;
+        private Krypton.Toolkit.KryptonComboBox cbFilter;
     }
 }

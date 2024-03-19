@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using DreamScannerApp.Models.Enums;
 using DreamScannerApp.Services;
 using DreamScannerApp.Handlers;
+using DreamScannerApp.Models;
 
 namespace DreamScannerApp.UserControls
 {
@@ -19,14 +20,30 @@ namespace DreamScannerApp.UserControls
     {
         private StudentService _studentService;
         private Result _result;
+        StudentsDTO.CreateStudent studentInstance { get; set; } = new StudentsDTO.CreateStudent();
         public EnrollControl(StudentService studentService, Result result)
         {
             _studentService = studentService;
             _result = result;
             InitializeComponent();
-            cbSection.DataSource = Enum.GetValues(typeof(StudentProperties.Section));
-            cbRoom.DataSource = Enum.GetValues(typeof(StudentProperties.Room));
+            InitializeComboBox();
+            InitializeFields();
+            clear();            
+        }
+
+        private void InitializeComboBox()
+        {
             cbGender.DataSource = Enum.GetValues(typeof(StudentProperties.Gender));
+            cbRoom.DataSource = Enum.GetValues(typeof(StudentProperties.Room));
+            cbSection.DataSource = Enum.GetValues(typeof(StudentProperties.Section));   
+        }
+
+        private void InitializeFields()
+        {
+            tbFname.DataBindings.Add("Text", studentInstance, "FirstName");
+            tbLastName.DataBindings.Add("Text", studentInstance, "LastName");
+            tbMiddleInitial.DataBindings.Add("Text", studentInstance, "MiddleInitial");
+            tbStudentNum.DataBindings.Add("Text", studentInstance, "StudentNumber");
         }
 
         private void btnEnrollFingerprint_Click(object sender, EventArgs e)
@@ -35,7 +52,7 @@ namespace DreamScannerApp.UserControls
             {
                 case "Enroll Fingerprint":
                     btnEnrollFingerprint.Text = "Enroll";
-                    if(!validate()) return;
+                    if(!validate()){return;}
                     FingerprintAdd finger = new FingerprintAdd(_result);
                     finger.ShowDialog();
                     break;
@@ -69,6 +86,9 @@ namespace DreamScannerApp.UserControls
             cbSection.Text = "";
             cbRoom.Text = "";
             cbGender.Text = "";
+            cbSection.SelectedIndex = -1;
+            cbRoom.SelectedIndex = -1;
+            cbGender.SelectedIndex = -1;
         }
 
         private bool validate()

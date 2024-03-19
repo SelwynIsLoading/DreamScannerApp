@@ -16,6 +16,7 @@ namespace DreamScannerApp.Interfaces
         public bool DeleteStudent(string StudentNumber);
         //public void LogStudent(StudentsDTO.StudentLog student);
         List<StudentsDTO.StudentDetails> GetStudents();
+        List<StudentsDTO.StudentDetails> FilterStudents(string search);
         List<StudentsDTO.StudentDetails> GetStudentsByStudentNumber(string studentNumber);
         //List<StudentsDTO.StudentLog> GetStudentLogs();
     }

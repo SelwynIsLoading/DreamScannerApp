@@ -124,7 +124,6 @@
             // 
             cbGender.DropDownWidth = 152;
             cbGender.IntegralHeight = false;
-            cbGender.Items.AddRange(new object[] { "Male", "Female" });
             cbGender.Location = new Point(315, 523);
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(166, 36);
@@ -145,7 +144,6 @@
             // 
             cbRoom.DropDownWidth = 152;
             cbRoom.IntegralHeight = false;
-            cbRoom.Items.AddRange(new object[] { "M201", "M203" });
             cbRoom.Location = new Point(141, 523);
             cbRoom.Name = "cbRoom";
             cbRoom.Size = new Size(166, 36);
@@ -205,7 +203,6 @@
             // 
             cbSection.DropDownWidth = 152;
             cbSection.IntegralHeight = false;
-            cbSection.Items.AddRange(new object[] { "Watt", "Faraday" });
             cbSection.Location = new Point(315, 356);
             cbSection.Name = "cbSection";
             cbSection.Size = new Size(166, 36);

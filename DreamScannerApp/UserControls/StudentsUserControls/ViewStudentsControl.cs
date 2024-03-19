@@ -19,13 +19,23 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
     {
         public readonly IStudentService _studentService;
         private List<StudentsDTO.StudentDetails> _students;
-        public ViewStudentsControl()
+        private int pageSize = 10;
+        private int currentPage = 1;
+        private Students _studentControl;
+        public ViewStudentsControl(Students students)
         {
             _studentService = Program.ServiceProvider.GetRequiredService<IStudentService>();
             InitializeComponent();
+            _studentControl = students;
+            _students = _studentService.GetStudents();
+            _studentControl.OnSearch += (sender, StudentLogFilterDTO) =>
+            {
+                _students = _studentService.FilterStudents(StudentLogFilterDTO);
+                LoadData();
+            };
         }
         private void ViewStudentsControl_Load(object sender, EventArgs e)
-        {            
+        {
             LoadData();
         }
 
@@ -34,8 +44,11 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
             dgStudents.Rows.Clear();
             try
             {
-                _students = _studentService.GetStudents();
                 _students = _students.OrderBy(s => s.LastName).ToList();
+                // Calculate pagination boundaries
+                int startIndex = (currentPage - 1) * pageSize;
+                int endIndex = Math.Min(startIndex + pageSize, _students.Count);
+                lblPage.Text = $"Page {currentPage} of {Math.Ceiling((double)_students.Count / pageSize)}";
                 foreach (var student in _students)
                 {
                     dgStudents.Rows.Add(new object[]
@@ -59,7 +72,7 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
         private void dgStudents_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // for Deleting student
-            if(e.ColumnIndex== 8)
+            if (e.ColumnIndex == 8)
             {
                 DeleteStudent(e.RowIndex);
             }
@@ -112,6 +125,25 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
                 }
             };
             editStudentFrm.ShowDialog();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                LoadData();
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int totalPages = (int)Math.Ceiling((double)dgStudents.Rows.Count / pageSize);
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                LoadData();
+            }
         }
     }
 }

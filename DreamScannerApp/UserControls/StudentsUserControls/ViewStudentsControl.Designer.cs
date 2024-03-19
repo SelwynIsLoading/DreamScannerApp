@@ -43,7 +43,9 @@
             Gender = new DataGridViewTextBoxColumn();
             Edit = new DataGridViewButtonColumn();
             Remove = new DataGridViewButtonColumn();
-            vScrollBar = new VScrollBar();
+            btnPrevious = new Button();
+            lblPage = new Label();
+            btnNext = new Button();
             ((System.ComponentModel.ISupportInitialize)dgStudents).BeginInit();
             SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             dgStudents.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dgStudents.RowTemplate.Height = 29;
             dgStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgStudents.Size = new Size(1047, 475);
+            dgStudents.Size = new Size(1070, 442);
             dgStudents.TabIndex = 0;
             dgStudents.CellClick += dgStudents_CellClick;
             // 
@@ -183,31 +185,59 @@
             Remove.ToolTipText = "Remove";
             Remove.UseColumnTextForButtonValue = true;
             // 
-            // vScrollBar
+            // btnPrevious
             // 
-            vScrollBar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            vScrollBar.Location = new Point(1050, 38);
-            vScrollBar.Name = "vScrollBar";
-            vScrollBar.Size = new Size(20, 437);
-            vScrollBar.TabIndex = 1;
+            btnPrevious.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnPrevious.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPrevious.Location = new Point(908, 443);
+            btnPrevious.Name = "btnPrevious";
+            btnPrevious.Size = new Size(64, 29);
+            btnPrevious.TabIndex = 2;
+            btnPrevious.Text = "<";
+            btnPrevious.UseVisualStyleBackColor = true;
+            btnPrevious.Click += btnPrevious_Click;
+            // 
+            // lblPage
+            // 
+            lblPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblPage.AutoSize = true;
+            lblPage.Location = new Point(824, 448);
+            lblPage.Name = "lblPage";
+            lblPage.Size = new Size(25, 20);
+            lblPage.TabIndex = 3;
+            lblPage.Text = "10";
+            // 
+            // btnNext
+            // 
+            btnNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnNext.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNext.Location = new Point(978, 444);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(64, 29);
+            btnNext.TabIndex = 4;
+            btnNext.Text = ">";
+            btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
             // 
             // ViewStudentsControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(vScrollBar);
+            Controls.Add(btnNext);
+            Controls.Add(lblPage);
+            Controls.Add(btnPrevious);
             Controls.Add(dgStudents);
             Name = "ViewStudentsControl";
             Size = new Size(1070, 475);
             Load += ViewStudentsControl_Load;
             ((System.ComponentModel.ISupportInitialize)dgStudents).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dgStudents;
-        private VScrollBar vScrollBar;
         private DataGridViewTextBoxColumn LastName;
         private DataGridViewTextBoxColumn FirstName;
         private DataGridViewTextBoxColumn MiddleInitial;
@@ -217,5 +247,8 @@
         private DataGridViewTextBoxColumn Gender;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Remove;
+        private Button btnPrevious;
+        private Label lblPage;
+        private Button btnNext;
     }
 }

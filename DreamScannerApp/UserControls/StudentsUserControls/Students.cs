@@ -16,6 +16,7 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
     public partial class Students : UserControl
     {
         ViewStudentsControl viewStudentsControl;
+        public event EventHandler<string> OnSearch;
         public Students()
         {
             InitializeComponent();
@@ -23,8 +24,7 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
 
         private void Students_Load(object sender, EventArgs e)
         {
-            viewStudentsControl = new ViewStudentsControl();
-            addUserControl(viewStudentsControl);
+            ViewStudents();
         }
         private void addUserControl(UserControl userControl)
         {
@@ -40,15 +40,39 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
             {
                 case "View Student Logs":
                     btnViewLogs.Text = "View Students";
-                    ViewStudentLogsControl viewStudentLogs = new ViewStudentLogsControl();
-                    addUserControl(viewStudentLogs);
+                    ViewStudentLogs();
                     break;
                 case "View Students":
                     btnViewLogs.Text = "View Student Logs";
-                    viewStudentsControl = new ViewStudentsControl();
-                    addUserControl(viewStudentsControl);
+                    ViewStudents();
                     break;
             }
+        }
+
+        private void ViewStudents()
+        {
+            SetButtons(false);
+            viewStudentsControl = new ViewStudentsControl(this);
+            addUserControl(viewStudentsControl);
+        }
+
+        private void ViewStudentLogs()
+        {
+            SetButtons(true);
+            ViewStudentLogsControl viewStudentLogs = new ViewStudentLogsControl();
+            addUserControl(viewStudentLogs);
+        }
+
+        private void SetButtons(bool set)
+        {
+            cbFilter.Visible = set;
+            dPicker.Visible = set;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string search = tbSearch.Text;
+            OnSearch?.Invoke(this, search);
         }
     }
 }
