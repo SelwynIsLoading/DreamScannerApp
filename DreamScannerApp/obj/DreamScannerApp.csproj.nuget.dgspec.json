@@ -45,9 +45,17 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
             "Krypton.Toolkit": {
               "target": "Package",
               "version": "[80.23.11.321, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.4.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

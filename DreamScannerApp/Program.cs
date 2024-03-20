@@ -33,7 +33,8 @@ namespace DreamScannerApp
             facade.EnsureCreated();
 
             // Run the main form
-            Application.Run(ServiceProvider.GetRequiredService<MainDashboardFrm>());
+            //Application.Run(ServiceProvider.GetRequiredService<MainDashboardFrm>());
+            Application.Run(new LoginFrm());
         }
 
         public static IServiceProvider ServiceProvider { get; set; }
@@ -46,6 +47,7 @@ namespace DreamScannerApp
                     services.AddTransient<StudentService>();
                     services.AddTransient<IStudentLogService, StudentLogService>();
                     services.AddTransient<MainDashboardFrm>();
+                    services.AddTransient<IEmailService, EmailService>();
                 });
         }
     }

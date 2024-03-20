@@ -197,6 +197,7 @@ namespace DreamScannerApp
             kryptonButton1.StateTracking.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
             kryptonButton1.TabIndex = 6;
             kryptonButton1.Values.Text = "Sign Up";
+            kryptonButton1.Click += kryptonButton1_Click;
             // 
             // btnLogin
             // 

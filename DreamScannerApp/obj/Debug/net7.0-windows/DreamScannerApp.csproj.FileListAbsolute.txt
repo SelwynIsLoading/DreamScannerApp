@@ -216,3 +216,15 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-window
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.pdb
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.genruntimeconfig.cache
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\ref\DreamScannerApp.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\MailKit.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\MimeKit.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\System.Formats.Asn1.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\System.Text.Encoding.CodePages.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Text.Encoding.CodePages.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\EPPlus.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\EPPlus.Interfaces.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\EPPlus.System.Drawing.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
