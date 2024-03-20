@@ -67,6 +67,7 @@
             dPicker.StateCommon.Border.Width = 2;
             dPicker.StateCommon.Content.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point);
             dPicker.TabIndex = 55;
+            dPicker.ValueChanged += dPicker_ValueChanged;
             // 
             // cbFilter
             // 
@@ -87,6 +88,7 @@
             cbFilter.StateCommon.DropBack.Color1 = Color.White;
             cbFilter.StateCommon.DropBack.Color2 = Color.White;
             cbFilter.TabIndex = 54;
+            cbFilter.SelectedValueChanged += cbFilter_SelectedValueChanged;
             // 
             // btnViewLogs
             // 

@@ -3,31 +3,47 @@
   "WorkspaceRootPath": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentlogscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentlogscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\services\\studentlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\services\\studentlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\studentsusercontrols\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\models\\studentlogfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\models\\studentlogfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\studentsusercontrols\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentlogscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentlogscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\interfaces\\istudentlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\interfaces\\istudentlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\studentsusercontrols\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\studentsusercontrols\\viewstudentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -38,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Students.cs [Design]",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\Students.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\StudentsUserControls\\Students.cs",
@@ -55,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "ViewStudentsControl.cs [Design]",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentsControl.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentsControl.cs",
@@ -67,25 +83,77 @@
               "EditorCaption": " [Design]"
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ViewStudentLogsControl.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentLogsControl.cs",
+              "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentLogsControl.cs",
+              "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentLogsControl.cs [Design]",
+              "RelativeToolTip": "DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentLogsControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T12:56:54.685Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:3:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ViewStudentLogsControl.cs",
+              "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentLogsControl.cs",
+              "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentLogsControl.cs",
+              "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentLogsControl.cs",
+              "RelativeToolTip": "DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentLogsControl.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAD4vyMAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T13:21:45.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentLogService.cs",
+              "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Services\\StudentLogService.cs",
+              "RelativeDocumentMoniker": "DreamScannerApp\\Services\\StudentLogService.cs",
+              "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Services\\StudentLogService.cs",
+              "RelativeToolTip": "DreamScannerApp\\Services\\StudentLogService.cs",
+              "ViewState": "AQIAAJ8AAAAAAAAAAAAqwKcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T13:12:44.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IStudentLogService.cs",
+              "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Interfaces\\IStudentLogService.cs",
+              "RelativeDocumentMoniker": "DreamScannerApp\\Interfaces\\IStudentLogService.cs",
+              "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Interfaces\\IStudentLogService.cs",
+              "RelativeToolTip": "DreamScannerApp\\Interfaces\\IStudentLogService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T13:11:39.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "StudentLogFilterDTO.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Models\\StudentLogFilterDTO.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\Models\\StudentLogFilterDTO.cs",
               "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Models\\StudentLogFilterDTO.cs",
               "RelativeToolTip": "DreamScannerApp\\Models\\StudentLogFilterDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T14:06:26.053Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "IStudentService.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Interfaces\\IStudentService.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\Interfaces\\IStudentService.cs",
@@ -98,39 +166,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "StudentService.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Services\\StudentService.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\Services\\StudentService.cs",
               "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Services\\StudentService.cs",
               "RelativeToolTip": "DreamScannerApp\\Services\\StudentService.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAswEIAAABMAAAA",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAswEIAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T13:38:54.964Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Students.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\Students.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\StudentsUserControls\\Students.cs",
               "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\Students.cs",
               "RelativeToolTip": "DreamScannerApp\\UserControls\\StudentsUserControls\\Students.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAuwEkAAAAqAAAA",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAswDsAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T13:03:49.481Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ViewStudentsControl.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentsControl.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentsControl.cs",
               "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentsControl.cs",
               "RelativeToolTip": "DreamScannerApp\\UserControls\\StudentsUserControls\\ViewStudentsControl.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAvwB4AAABIAAAA",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAQwDYAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T13:02:21.611Z",
               "EditorCaption": ""

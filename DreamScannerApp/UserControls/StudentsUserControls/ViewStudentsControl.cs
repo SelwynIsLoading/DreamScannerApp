@@ -30,7 +30,7 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
             _students = _studentService.GetStudents();
             _studentControl.OnSearch += (sender, StudentLogFilterDTO) =>
             {
-                _students = _studentService.FilterStudents(StudentLogFilterDTO);
+                _students = _studentService.FilterStudents(StudentLogFilterDTO.Filter);
                 LoadData();
             };
         }
@@ -45,7 +45,6 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
             try
             {
                 _students = _students.OrderBy(s => s.LastName).ToList();
-                // Calculate pagination boundaries
                 int startIndex = (currentPage - 1) * pageSize;
                 int endIndex = Math.Min(startIndex + pageSize, _students.Count);
                 lblPage.Text = $"Page {currentPage} of {Math.Ceiling((double)_students.Count / pageSize)}";

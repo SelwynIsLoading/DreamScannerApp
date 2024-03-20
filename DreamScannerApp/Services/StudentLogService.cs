@@ -164,5 +164,37 @@ namespace DreamScannerApp.Services
             };
         }
 
+        public List<StudentsDTO.StudentLog> FilterStudentLog(StudentLogFilterDTO filter)
+        {
+            string attendanceStatus = filter.AttendanceStatus.ToLower();
+            string searchString = filter.Filter.ToLower();
+
+            DateTime dateFilter = filter.Date != DateTime.MinValue ? filter.Date.Date : DateTime.Now.Date;
+
+            List<StudentsDTO.StudentLog> studentLogs = _context.StudentLogs
+                .Where(s => s.Date == dateFilter &&
+                            (string.IsNullOrEmpty(attendanceStatus) || s.AttendanceStatus.ToLower().Contains(attendanceStatus)) &&
+                            (string.IsNullOrEmpty(searchString) ||
+                             s.FirstName.ToLower().Contains(searchString) ||
+                             s.LastName.ToLower().Contains(searchString) ||
+                             s.StudentNumber.ToLower().Contains(searchString)))
+                .Select(s => new StudentsDTO.StudentLog
+                {
+                    FirstName = s.FirstName,
+                    LastName = s.LastName,
+                    MiddleInitial = s.MiddleInitial,
+                    StudentNumber = s.StudentNumber,
+                    section = s.Section,
+                    room = s.Room,
+                    Date = s.Date,
+                    TimeIn = s.TimeIn,
+                    TimeOut = s.TimeOut,
+                    AttendanceStatus = s.AttendanceStatus
+                })
+                .ToList();
+
+            return studentLogs;
+        }
+
     }
 }

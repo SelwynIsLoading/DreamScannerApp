@@ -1,4 +1,5 @@
 ﻿using DreamScannerApp.Interfaces;
+using DreamScannerApp.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,10 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
     public partial class Students : UserControl
     {
         ViewStudentsControl viewStudentsControl;
-        public event EventHandler<string> OnSearch;
+        public delegate void SearchEventHandler(object sender, StudentLogFilterDTO e);
+        public event SearchEventHandler OnSearch;
+
+        private StudentLogFilterDTO FilterStudent;
         public Students()
         {
             InitializeComponent();
@@ -59,7 +63,7 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
         private void ViewStudentLogs()
         {
             SetButtons(true);
-            ViewStudentLogsControl viewStudentLogs = new ViewStudentLogsControl();
+            ViewStudentLogsControl viewStudentLogs = new ViewStudentLogsControl(this);
             addUserControl(viewStudentLogs);
         }
 
@@ -71,8 +75,28 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string search = tbSearch.Text;
-            OnSearch?.Invoke(this, search);
+            FilterStudents();
+        }
+
+        private void cbFilter_SelectedValueChanged(object sender, EventArgs e)
+        {
+            FilterStudents();
+        }
+
+        private void dPicker_ValueChanged(object sender, EventArgs e)
+        {
+            FilterStudents();
+        }
+
+        private void FilterStudents()
+        {
+            FilterStudent = new StudentLogFilterDTO
+            {
+                Filter = tbSearch.Text,
+                Date = dPicker.Value,
+                AttendanceStatus = cbFilter.Text
+            };
+            OnSearch?.Invoke(this, FilterStudent);
         }
     }
 }

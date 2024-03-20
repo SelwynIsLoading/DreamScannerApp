@@ -6,17 +6,11 @@ using System.Threading.Tasks;
 
 namespace DreamScannerApp.Models
 {
-    public class StudentLogFilterDTO
+    public class StudentLogFilterDTO : EventArgs
     {
-        public string AttendanceStatus { get; } = "PRESENT";
-        public DateTime Date { get; } = DateTime.Now;
-        public string Filter { get; } = "";
+        public string AttendanceStatus { get; set; } = "PRESENT";
+        public DateTime Date { get; set; } = DateTime.Now;
+        public string Filter { get; set; } = "";
 
-        public StudentLogFilterDTO(string status, DateTime date, string filter)
-        {
-            AttendanceStatus = status;
-            Date = date;
-            Filter = filter;
-        }
     }
 }
