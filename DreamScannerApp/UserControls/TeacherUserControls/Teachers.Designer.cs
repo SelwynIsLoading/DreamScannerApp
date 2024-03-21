@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnSearch = new Krypton.Toolkit.KryptonButton();
             btnViewLogs = new Krypton.Toolkit.KryptonButton();
             btnAddTeacher = new Krypton.Toolkit.KryptonButton();
             tbSearch = new Krypton.Toolkit.KryptonTextBox();
-            btnSearch = new Krypton.Toolkit.KryptonButton();
+            containerPnl = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,6 +49,41 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1070, 76);
             panel1.TabIndex = 2;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(211, 16);
+            btnSearch.Name = "btnSearch";
+            btnSearch.OverrideDefault.Back.Color1 = Color.White;
+            btnSearch.OverrideDefault.Back.Color2 = Color.White;
+            btnSearch.OverrideDefault.Back.Image = Properties.Resources.icons8_search_25;
+            btnSearch.OverrideDefault.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            btnSearch.OverrideDefault.Border.Color1 = Color.FromArgb(250, 82, 82);
+            btnSearch.OverrideDefault.Border.Color2 = Color.FromArgb(250, 82, 82);
+            btnSearch.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnSearch.OverrideDefault.Border.Rounding = 35F;
+            btnSearch.OverrideDefault.Border.Width = 2;
+            btnSearch.Size = new Size(38, 38);
+            btnSearch.StateCommon.Back.Color1 = Color.White;
+            btnSearch.StateCommon.Back.Color2 = Color.White;
+            btnSearch.StateCommon.Back.Image = Properties.Resources.icons8_search_25;
+            btnSearch.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            btnSearch.StateCommon.Border.Color1 = Color.FromArgb(250, 82, 82);
+            btnSearch.StateCommon.Border.Color2 = Color.FromArgb(250, 82, 82);
+            btnSearch.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnSearch.StateCommon.Border.Rounding = 35F;
+            btnSearch.StateCommon.Border.Width = 2;
+            btnSearch.StatePressed.Back.Color1 = Color.White;
+            btnSearch.StatePressed.Back.Color2 = Color.White;
+            btnSearch.StatePressed.Back.Image = Properties.Resources.icons8_search_25;
+            btnSearch.StatePressed.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            btnSearch.StatePressed.Border.Color1 = Color.FromArgb(250, 82, 82);
+            btnSearch.StatePressed.Border.Color2 = Color.FromArgb(250, 82, 82);
+            btnSearch.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            btnSearch.StatePressed.Border.Rounding = 35F;
+            btnSearch.StatePressed.Border.Width = 2;
+            btnSearch.TabIndex = 54;
+            btnSearch.Values.Text = "";
             // 
             // btnViewLogs
             // 
@@ -142,6 +178,7 @@
             btnAddTeacher.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddTeacher.TabIndex = 51;
             btnAddTeacher.Values.Text = "Add Teacher";
+            btnAddTeacher.Click += btnAddTeacher_Click;
             // 
             // tbSearch
             // 
@@ -157,45 +194,19 @@
             tbSearch.StateCommon.Content.Font = new Font("Archivo", 9F, FontStyle.Regular, GraphicsUnit.Point);
             tbSearch.TabIndex = 39;
             // 
-            // btnSearch
+            // containerPnl
             // 
-            btnSearch.Location = new Point(211, 16);
-            btnSearch.Name = "btnSearch";
-            btnSearch.OverrideDefault.Back.Color1 = Color.White;
-            btnSearch.OverrideDefault.Back.Color2 = Color.White;
-            btnSearch.OverrideDefault.Back.Image = Properties.Resources.icons8_search_25;
-            btnSearch.OverrideDefault.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
-            btnSearch.OverrideDefault.Border.Color1 = Color.FromArgb(250, 82, 82);
-            btnSearch.OverrideDefault.Border.Color2 = Color.FromArgb(250, 82, 82);
-            btnSearch.OverrideDefault.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnSearch.OverrideDefault.Border.Rounding = 35F;
-            btnSearch.OverrideDefault.Border.Width = 2;
-            btnSearch.Size = new Size(38, 38);
-            btnSearch.StateCommon.Back.Color1 = Color.White;
-            btnSearch.StateCommon.Back.Color2 = Color.White;
-            btnSearch.StateCommon.Back.Image = Properties.Resources.icons8_search_25;
-            btnSearch.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
-            btnSearch.StateCommon.Border.Color1 = Color.FromArgb(250, 82, 82);
-            btnSearch.StateCommon.Border.Color2 = Color.FromArgb(250, 82, 82);
-            btnSearch.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnSearch.StateCommon.Border.Rounding = 35F;
-            btnSearch.StateCommon.Border.Width = 2;
-            btnSearch.StatePressed.Back.Color1 = Color.White;
-            btnSearch.StatePressed.Back.Color2 = Color.White;
-            btnSearch.StatePressed.Back.Image = Properties.Resources.icons8_search_25;
-            btnSearch.StatePressed.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
-            btnSearch.StatePressed.Border.Color1 = Color.FromArgb(250, 82, 82);
-            btnSearch.StatePressed.Border.Color2 = Color.FromArgb(250, 82, 82);
-            btnSearch.StatePressed.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnSearch.StatePressed.Border.Rounding = 35F;
-            btnSearch.StatePressed.Border.Width = 2;
-            btnSearch.TabIndex = 54;
-            btnSearch.Values.Text = "";
+            containerPnl.Dock = DockStyle.Fill;
+            containerPnl.Location = new Point(0, 76);
+            containerPnl.Name = "containerPnl";
+            containerPnl.Size = new Size(1070, 475);
+            containerPnl.TabIndex = 3;
             // 
             // Teachers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(containerPnl);
             Controls.Add(panel1);
             Name = "Teachers";
             Size = new Size(1070, 551);
@@ -212,5 +223,6 @@
         private Krypton.Toolkit.KryptonButton btnAddTeacher;
         private Krypton.Toolkit.KryptonTextBox tbSearch;
         private Krypton.Toolkit.KryptonButton btnSearch;
+        private Panel containerPnl;
     }
 }

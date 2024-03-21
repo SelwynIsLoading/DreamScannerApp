@@ -181,6 +181,10 @@ namespace DreamScannerApp.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("EncodedBy")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -195,6 +199,9 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -203,9 +210,11 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Room")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Room")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Section")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Subject")
                         .IsRequired()

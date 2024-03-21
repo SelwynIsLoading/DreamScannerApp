@@ -21,6 +21,9 @@ namespace DreamScannerApp.Handlers
 
         private Result _result;
 
+        public delegate void OnTemplateEventHandler(DPFP.Template template);
+        public event OnTemplateEventHandler OnTemplate;
+
         public FingerEnrollment(Result result)
         {
             Enroller = new DPFP.Processing.Enrollment();
@@ -58,6 +61,7 @@ namespace DreamScannerApp.Handlers
                     }
                     if (Enroller.FeaturesNeeded <= 0)
                     {
+                        OnTemplate?.Invoke(Template);
                         _result.fingerprintTemplate = Template.Bytes; 
                     }
                 }

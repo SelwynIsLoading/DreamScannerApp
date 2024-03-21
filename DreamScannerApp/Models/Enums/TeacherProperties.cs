@@ -14,5 +14,17 @@ namespace DreamScannerApp.Models.Enums
             M201 = 1,
             M203 = 2
         }
+        public enum Gender
+        {
+            Male = 0,
+            Female = 1,
+            None = 3
+        }
+        public enum Section
+        {
+            Watt = 0,
+            Faraday = 1,
+            None = 3
+        }
     }
 }
