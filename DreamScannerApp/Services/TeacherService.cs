@@ -59,6 +59,7 @@ namespace DreamScannerApp.Services
                     teachers.Add(new TeachersDTO
                     {
                         Id = t.Id,
+                        FingerprintId = t.FingerprintID,
                         FirstName = t.FirstName,
                         LastName = t.LastName,
                         MiddleInitial = t.MiddleInitial,

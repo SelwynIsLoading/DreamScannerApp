@@ -13,45 +13,74 @@ namespace DreamScannerApp.Services
     public class Verification : FingerprintHandler
     {
         public delegate void StudentDataCallback(List<StudentsDTO.StudentDetail> data);
+        public delegate void TeacherDataCallback(TeachersDTO data);
         public delegate void StateCallback(string state); 
         public event StudentDataCallback studentDataCallback;
         public event StateCallback stateCallback;
+        public event TeacherDataCallback teacherDataCallback;
         private readonly IStudentLogService _studentService;
+        private readonly ITeacherLogService _teacherService;
         private string _ReaderSerial = "";
         public Verification()
         {
             _studentService = Program.ServiceProvider.GetRequiredService<IStudentLogService>();
+            _teacherService = Program.ServiceProvider.GetRequiredService<ITeacherLogService>();
         }
-        protected override void Process(DPFP.Sample Sample)
+        protected override async void Process(DPFP.Sample Sample)
         {
             base.Process(Sample);
             DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
             if (features != null)
             {
-                var students = _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
-                GenerateStudentData(students);
+                var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
+                var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
                 if(students != null && students.Count() > 0)
                 {
+                    GenerateStudentData(students);
                     foreach(var student in students)
                     {
-                        var LogResult = _studentService.LogStudent(student, _ReaderSerial);
-                        if(LogResult.FirstOrDefault().IsSuccess)
+                        var LogResult = await _studentService.LogStudent(student, _ReaderSerial);
+                        if(LogResult.IsSuccess)
                         {
-                            GenerateState(LogResult.FirstOrDefault().Message);
+                            GenerateState(LogResult.Message);
                         }
                         else
                         {
-                            var OnBreakresult = _studentService.LogOnBreakStudent(student, _ReaderSerial);
-                            if(OnBreakresult != null && OnBreakresult.Count() > 0)
+                            var OnBreakresult = await _studentService.LogOnBreakStudent(student, _ReaderSerial);
+                            if(OnBreakresult != null)
                             {
-                                if(OnBreakresult.FirstOrDefault().IsSuccess)
+                                if(OnBreakresult.IsSuccess)
                                 {
-                                    GenerateState(OnBreakresult.FirstOrDefault().Message);
+                                    GenerateState(OnBreakresult.Message);
                                 }
                                 else
                                 {
                                     GenerateState("Student already logged in");    
                                 }
+                            }
+                        }
+                    }
+                }
+                if(teachers != null)
+                {
+                    GenerateTeacherData(teachers);
+                    var logResult = await _teacherService.LogTeacher(teachers, _ReaderSerial);
+                    if(logResult.IsSuccess)
+                    {
+                        GenerateState(logResult.Message);
+                    }
+                    else
+                    {
+                        var OnBreakresult = await _teacherService.LogOnBreakTeacher(teachers, _ReaderSerial);
+                        if(OnBreakresult != null)
+                        {
+                            if(OnBreakresult.IsSuccess)
+                            {
+                                GenerateState(OnBreakresult.Message);
+                            }
+                            else
+                            {
+                                GenerateState("Teacher already logged in");    
                             }
                         }
                     }
@@ -77,6 +106,11 @@ namespace DreamScannerApp.Services
         public void GenerateState(string state)
         {
             stateCallback?.Invoke(state);
+        }
+
+        public void GenerateTeacherData(TeachersDTO teachers)
+        {
+            teacherDataCallback?.Invoke(teachers);
         }
 
     }

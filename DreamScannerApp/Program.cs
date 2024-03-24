@@ -28,9 +28,27 @@ namespace DreamScannerApp
             // Initialize application configuration
             ApplicationConfiguration.Initialize();
 
-            // Initialize the database (if needed)
-            DatabaseFacade facade = new DatabaseFacade(new ApplicationDbContext());
-            facade.EnsureCreated();
+            // Configure services
+            var serviceProvider = new ServiceCollection()
+                .AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite("Data Source=school.db"))
+                .BuildServiceProvider();
+
+
+            // Apply pending migrations
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                try
+                {
+                    dbContext.Database.Migrate();
+                    Console.WriteLine("Migrations applied successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred while applying migrations: " + ex.Message);
+                }
+            }
 
             // Run the main form
             Application.Run(ServiceProvider.GetRequiredService<MainDashboardFrm>());
@@ -42,8 +60,10 @@ namespace DreamScannerApp
         {
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) => {
-                    services.AddDbContext<ApplicationDbContext>();
-                    services.AddTransient<IStudentService,StudentService>();
+                    services.AddDbContext<ApplicationDbContext>(options =>
+                        options.UseSqlite("Data Source=school.db"));
+
+                    services.AddTransient<IStudentService, StudentService>();
                     services.AddTransient<StudentService>();
                     services.AddTransient<IStudentLogService, StudentLogService>();
                     services.AddTransient<MainDashboardFrm>();
@@ -52,6 +72,8 @@ namespace DreamScannerApp
                     services.AddTransient<ITeacherLogService, TeacherLogService>();
                 });
         }
+
+
     }
 
 }

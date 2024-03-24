@@ -10,6 +10,7 @@ namespace DreamScannerApp.Models
     public class TeachersDTO
     {
         public Guid Id { get; set; }
+        public Guid FingerprintId { get; set; } = Guid.Empty;
         public string FirstName { get; set; } = "";
         public string LastName { get; set; } = "";
         public string MiddleInitial { get; set; } = "";
@@ -21,5 +22,6 @@ namespace DreamScannerApp.Models
         public byte[]? Fingerprint { get; set; }
         public DateTime TimeFrom { get; set; }
         public DateTime TimeTo { get; set; }
+        public bool IsIn { get; set; } = false;
     }
 }

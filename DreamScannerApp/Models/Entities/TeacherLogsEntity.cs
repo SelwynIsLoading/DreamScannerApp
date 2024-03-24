@@ -15,8 +15,10 @@ namespace DreamScannerApp.Models.Entities
         public string Subject { get; set; } = "";
         public TeacherProperties.room Room { get; set; }
         public TeacherProperties.Section Section { get; set; }
-        public DateTime TimeIn { get; set; }
-        public DateTime TimeOut { get; set; }
+        public DateTime Date { get; set; }
+        public TimeSpan TimeIn { get; set; }
+        public TimeSpan TimeOut { get; set; }
         public string AttendanceStatus { get; set; } = "";
+        public int AttendanceState { get; set; } = 0;
     }
 }

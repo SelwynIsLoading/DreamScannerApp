@@ -127,8 +127,14 @@ namespace DreamScannerApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("AttendanceState")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("AttendanceStatus")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateCreated")
@@ -163,10 +169,10 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimeIn")
+                    b.Property<TimeSpan>("TimeIn")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimeOut")
+                    b.Property<TimeSpan>("TimeOut")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

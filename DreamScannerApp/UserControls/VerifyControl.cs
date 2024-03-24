@@ -1,5 +1,6 @@
 ﻿using DreamScannerApp.Models;
 using DreamScannerApp.Models.Enums;
+using DreamScannerApp.Properties;
 using System.Data;
 using System.Runtime.Versioning;
 
@@ -13,9 +14,31 @@ namespace DreamScannerApp.UserControls
             InitializeComponent();
             _verificator = new Services.Verification();
             _verificator.studentDataCallback += OnStudentDataReceived;
+            _verificator.teacherDataCallback += OnTeacherDataReceived;
             _verificator.reportCallback += OnStatusRecieved;
             _verificator.stateCallback += OnStateRecieved;
             Disposed += VerifyControl_Disposed;
+        }
+
+        private void OnTeacherDataReceived(TeachersDTO t)
+        {
+            UpdateVerification(() =>
+            {
+                if(t != null)
+                {
+                    tbName.Text = t.FirstName + " " + t.MiddleInitial + " " + t.LastName;
+                    tbSection.Text = t.Section.ToString();
+                    tbInOut.Text = t.IsIn ? "In" : "Out";
+                    pbGender.Image = t.Gender == TeacherProperties.Gender.Female ? Resources.Female : Resources.Male;
+                }
+                else
+                {
+                    tbName.Text = "Invalid!";
+                    tbSection.Text = "";
+                    tbInOut.Text = "";
+                    pbGender.Image = Resources.Invalid;
+                }
+            });
         }
 
         private void VerifyControl_Disposed(object sender, EventArgs e)
@@ -33,15 +56,14 @@ namespace DreamScannerApp.UserControls
                     tbName.Text = students.Select(s => s.FirstName + " " + s.MiddleInitial + " " + s.LastName).FirstOrDefault();
                     tbSection.Text = students.Select(s => s.section).FirstOrDefault().ToString();
                     tbInOut.Text = students.Select(s => s.IsIn ? "In" : "Out").FirstOrDefault();
-                    // C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\Resources\
-                    //pbGender.Image = students.Select(s => s.Gender).FirstOrDefault() == StudentProperties.Gender.Female ? Resources.Female : Resources.Male;
+                    pbGender.Image = students.Select(s => s.Gender).FirstOrDefault() == StudentProperties.Gender.Female ? Resources.Female : Resources.Male;
                 }
                 else
                 {
                     tbName.Text = "Invalid!";
                     tbSection.Text = "";
                     tbInOut.Text = "";
-                    //pbGender.Image = Resources.Invalid;
+                    pbGender.Image = Resources.Invalid;
                 }
             });
         }
@@ -104,6 +126,7 @@ namespace DreamScannerApp.UserControls
         {
             _verificator = new Services.Verification();
             _verificator.studentDataCallback += OnStudentDataReceived;
+            _verificator.teacherDataCallback += OnTeacherDataReceived;
             _verificator.reportCallback += OnStatusRecieved;
             _verificator.stateCallback += OnStateRecieved;
             _verificator.StartCapture();

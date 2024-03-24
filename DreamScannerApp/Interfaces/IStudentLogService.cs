@@ -9,10 +9,10 @@ namespace DreamScannerApp.Interfaces
 {
     public interface IStudentLogService
     {
-        public List<Handlers.StudentLogResult> LogStudent(Models.StudentsDTO.StudentDetail student, string ReaderSerial);
-        public List<Handlers.StudentLogResult> LogOnBreakStudent(Models.StudentsDTO.StudentDetail student, string ReaderSerial);
-        public List<Models.StudentsDTO.StudentDetail> VerifyStudentFingerprint(DPFP.FeatureSet featureSet, string ReaderSerial);
-        public List<StudentsDTO.StudentLog> GetStudentLogInfo();
-        public List<StudentsDTO.StudentLog> FilterStudentLog(Models.StudentLogFilterDTO filter);
+        public Task<Handlers.StudentLogResult> LogStudent(StudentsDTO.StudentDetail student, string ReaderSerial);
+        public Task<Handlers.StudentLogResult> LogOnBreakStudent(StudentsDTO.StudentDetail student, string ReaderSerial);
+        public Task<List<StudentsDTO.StudentDetail>> VerifyStudentFingerprint(DPFP.FeatureSet featureSet, string ReaderSerial);
+        public Task<List<StudentsDTO.StudentLog>> GetStudentLogInfo();
+        public Task<List<StudentsDTO.StudentLog>> FilterStudentLog(StudentLogFilterDTO filter);
     }
 }

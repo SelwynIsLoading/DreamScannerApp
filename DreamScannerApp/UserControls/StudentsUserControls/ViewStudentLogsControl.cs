@@ -28,9 +28,9 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
             }
             InitializeComponent();
         }
-        private void ViewStudentLogsControl_Load(object sender, EventArgs e)
+        private async void ViewStudentLogsControl_Load(object sender, EventArgs e)
         {
-            model = _studentLogService.GetStudentLogInfo();
+            model = await _studentLogService.GetStudentLogInfo();
             LoadData();
         }
         private void LoadData()
@@ -53,9 +53,9 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
             }
         }
 
-        private void OnFilter(object sender, StudentLogFilterDTO e)
+        private async void OnFilter(object sender, StudentLogFilterDTO e)
         {
-            model = _studentLogService.FilterStudentLog(e);
+            model = await _studentLogService.FilterStudentLog(e);
             LoadData();
         }   
 

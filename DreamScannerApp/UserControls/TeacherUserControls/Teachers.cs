@@ -20,8 +20,7 @@ namespace DreamScannerApp.UserControls.TeacherUserControls
 
         private void Teachers_Load(object sender, EventArgs e)
         {
-            ViewTeacherControl viewTeacher = new ViewTeacherControl();
-            addUserControl(viewTeacher);
+            ViewTeachers();
         }
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
@@ -32,8 +31,17 @@ namespace DreamScannerApp.UserControls.TeacherUserControls
 
         private void btnViewLogs_Click(object sender, EventArgs e)
         {
-            ViewTeacherLogsControl viewLogs = new ViewTeacherLogsControl();
-            addUserControl(viewLogs);
+            switch (btnViewLogs.Text)
+            {
+                case "View Teacher Logs":
+                    btnViewLogs.Text = "View Teachers";
+                    ViewLogs();
+                    break;
+                case "View Teachers":
+                    btnViewLogs.Text = "View Teacher Logs";
+                    ViewTeachers();
+                    break;
+            }
 
         }
         private void addUserControl(UserControl userControl)
@@ -42,6 +50,18 @@ namespace DreamScannerApp.UserControls.TeacherUserControls
             containerPnl.Controls.Clear();
             containerPnl.Controls.Add(userControl);
             userControl.BringToFront();
+        }
+
+        private void ViewLogs()
+        {
+            ViewTeacherLogControl viewLogs = new ViewTeacherLogControl();
+            addUserControl(viewLogs);
+        }
+
+        private void ViewTeachers()
+        {
+            ViewTeacherControl viewTeacher = new ViewTeacherControl();
+            addUserControl(viewTeacher);
         }
 
     }

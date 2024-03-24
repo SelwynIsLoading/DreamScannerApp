@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DreamScannerApp.Models.Entities;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DreamScannerApp.Services
 {
     public class ApplicationDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            optionsBuilder.UseSqlite(@"Data Source=school.db");
+
         }
 
         public DbSet<StudentsEntity> Students { get; set; }

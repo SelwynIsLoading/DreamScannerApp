@@ -3295,6 +3295,7 @@
       "Krypton.Toolkit >= 80.23.11.321",
       "MailKit >= 4.4.0",
       "Microsoft.EntityFrameworkCore >= 7.0.16",
+      "Microsoft.EntityFrameworkCore.Design >= 7.0.16",
       "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.16",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.16",
       "Microsoft.Extensions.Configuration >= 8.0.0",
@@ -3359,6 +3360,12 @@
             "version": "[4.4.0, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.16, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[7.0.16, )"
           },
