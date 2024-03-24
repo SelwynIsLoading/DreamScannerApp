@@ -94,6 +94,7 @@
             dgTeachers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgTeachers.Size = new Size(1070, 442);
             dgTeachers.TabIndex = 1;
+            dgTeachers.CellClick += dgTeachers_CellClick;
             // 
             // Name
             // 

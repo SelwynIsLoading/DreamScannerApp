@@ -153,9 +153,11 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Room")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Room")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Section")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Subject")
                         .IsRequired()

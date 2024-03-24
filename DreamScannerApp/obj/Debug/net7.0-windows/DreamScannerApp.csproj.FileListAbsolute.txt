@@ -230,3 +230,4 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-window
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UserControls.TeacherUserControls.ViewTeacherControl.resources
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UI.AddTeacher.resources
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UI.EditTeacherFrm.resources

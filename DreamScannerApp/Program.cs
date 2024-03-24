@@ -49,6 +49,7 @@ namespace DreamScannerApp
                     services.AddTransient<MainDashboardFrm>();
                     services.AddTransient<IEmailService, EmailService>();
                     services.AddTransient<ITeacherService, TeacherService>();
+                    services.AddTransient<ITeacherLogService, TeacherLogService>();
                 });
         }
     }

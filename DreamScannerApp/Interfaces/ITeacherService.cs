@@ -1,4 +1,5 @@
 ﻿using DreamScannerApp.Models;
+using DreamScannerApp.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace DreamScannerApp.Interfaces
     {
         public Task EnrollTeacher(List<TeachersDTO> teacher);
         public Task<List<TeachersDTO>> GetTeachers();
+        public Task UpdateTeacher(TeachersDTO teacher);
+        public Task RemoveTeacher(Guid id);
     }
 }
