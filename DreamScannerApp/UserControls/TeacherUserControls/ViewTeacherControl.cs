@@ -43,8 +43,8 @@ namespace DreamScannerApp.UserControls.TeacherUserControls
                         $"{teacher.LastName}, {teacher.FirstName} {teacher.MiddleInitial}",
                         teacher.Subject,
                         teacher.Room,
-                        teacher.TimeFrom.ToShortTimeString(),
-                        teacher.TimeTo.ToShortTimeString(),
+                        new DateTime(teacher.TimeFrom.Ticks).ToShortTimeString(),
+                        new DateTime(teacher.TimeTo.Ticks).ToShortTimeString(),
                         teacher.Gender
                     });
                     dgTeachers.Rows[rowIndex].Tag = teacher.Id;

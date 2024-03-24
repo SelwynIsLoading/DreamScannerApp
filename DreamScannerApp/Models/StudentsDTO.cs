@@ -73,5 +73,20 @@ namespace DreamScannerApp.Models
             public TimeSpan TimeOut { get; set; }
             public string AttendanceStatus { get; set; } = "";
         }
+
+        public class StudentLogReport
+        {
+            public string FirstName { get; set; } = "";
+            public string LastName { get; set; } = "";
+            public string MiddleInitial { get; set; } = "";
+            public string StudentNumber { get; set; } = "";
+            public StudentProperties.Section section { get; set; } = StudentProperties.Section.None;
+            public StudentProperties.Room room { get; set; } = StudentProperties.Room.Unknown;
+            public StudentProperties.Gender gender { get; set; } = StudentProperties.Gender.None;
+            public string Date { get; set; } = "";
+            public string TimeIn { get; set; } = "";
+            public string TimeOut { get; set; } = "";
+            public string AttendanceStatus { get; set; } = "";
+        }
     }
 }

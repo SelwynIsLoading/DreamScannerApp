@@ -18,7 +18,7 @@ namespace DreamScannerApp.Models.Entities
         public TeacherProperties.Gender Gender { get; set; }
         public TeacherProperties.Section Section { get; set; }
         public byte[]? Fingerprint { get; set; }
-        public DateTime TimeFrom { get; set; }
-        public DateTime TimeTo { get; set; }
+        public TimeSpan TimeFrom { get; set; }
+        public TimeSpan TimeTo { get; set; }
     }
 }

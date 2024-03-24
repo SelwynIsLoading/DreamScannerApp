@@ -36,6 +36,7 @@
             tbName = new TextBox();
             pbGender = new PictureBox();
             label1 = new Label();
+            chkHold = new Krypton.Toolkit.KryptonCheckBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbGender).BeginInit();
             SuspendLayout();
@@ -43,6 +44,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panel1.Controls.Add(chkHold);
             panel1.Controls.Add(tbState);
             panel1.Controls.Add(tbStatus);
             panel1.Controls.Add(tbInOut);
@@ -61,7 +63,7 @@
             tbState.BackColor = Color.White;
             tbState.BorderStyle = BorderStyle.None;
             tbState.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            tbState.Location = new Point(159, 564);
+            tbState.Location = new Point(159, 521);
             tbState.Multiline = true;
             tbState.Name = "tbState";
             tbState.ReadOnly = true;
@@ -76,7 +78,7 @@
             tbStatus.BackColor = Color.White;
             tbStatus.BorderStyle = BorderStyle.None;
             tbStatus.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            tbStatus.Location = new Point(159, 614);
+            tbStatus.Location = new Point(159, 571);
             tbStatus.Multiline = true;
             tbStatus.Name = "tbStatus";
             tbStatus.ReadOnly = true;
@@ -91,7 +93,7 @@
             tbInOut.BackColor = Color.White;
             tbInOut.BorderStyle = BorderStyle.None;
             tbInOut.Font = new Font("Arial", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            tbInOut.Location = new Point(159, 508);
+            tbInOut.Location = new Point(159, 465);
             tbInOut.Name = "tbInOut";
             tbInOut.ReadOnly = true;
             tbInOut.Size = new Size(514, 38);
@@ -105,7 +107,7 @@
             tbSection.BackColor = Color.White;
             tbSection.BorderStyle = BorderStyle.None;
             tbSection.Font = new Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            tbSection.Location = new Point(159, 414);
+            tbSection.Location = new Point(159, 371);
             tbSection.Name = "tbSection";
             tbSection.ReadOnly = true;
             tbSection.Size = new Size(514, 32);
@@ -119,7 +121,7 @@
             tbName.BackColor = Color.White;
             tbName.BorderStyle = BorderStyle.None;
             tbName.Font = new Font("Arial", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            tbName.Location = new Point(159, 371);
+            tbName.Location = new Point(159, 328);
             tbName.Name = "tbName";
             tbName.ReadOnly = true;
             tbName.Size = new Size(514, 38);
@@ -131,7 +133,7 @@
             // 
             pbGender.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             pbGender.Image = Properties.Resources.Invalid;
-            pbGender.Location = new Point(310, 149);
+            pbGender.Location = new Point(310, 106);
             pbGender.Name = "pbGender";
             pbGender.Size = new Size(213, 180);
             pbGender.SizeMode = PictureBoxSizeMode.Zoom;
@@ -150,6 +152,15 @@
             label1.TabIndex = 1;
             label1.Text = "Verify";
             label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // chkHold
+            // 
+            chkHold.Location = new Point(366, 653);
+            chkHold.Name = "chkHold";
+            chkHold.Size = new Size(106, 22);
+            chkHold.StateCommon.ShortText.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            chkHold.TabIndex = 9;
+            chkHold.Values.Text = "Hold Logging";
             // 
             // VerifyControl
             // 
@@ -176,5 +187,6 @@
         private TextBox tbName;
         private TextBox tbStatus;
         private TextBox tbState;
+        private Krypton.Toolkit.KryptonCheckBox chkHold;
     }
 }

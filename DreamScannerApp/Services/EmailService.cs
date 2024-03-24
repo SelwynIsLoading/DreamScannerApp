@@ -21,17 +21,19 @@ namespace DreamScannerApp.Services
                 message.To.Add(new MailboxAddress("Recipient", email.RecipientEmail));
                 message.Subject = email.Subject;
 
+                var bodyBuilder = new BodyBuilder();
+                bodyBuilder.TextBody = "Please find attached the student log Excel file.";
+
                 var attachment = new MimePart("application", "octet-stream")
                 {
-                    Content = new MimeContent(File.OpenRead(email.FilePath)),
+                    Content = new MimeContent(new MemoryStream(email.AttachmentData), ContentEncoding.Default),
                     ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
                     ContentTransferEncoding = ContentEncoding.Base64,
-                    FileName = Path.GetFileName(email.FilePath)
+                    FileName = email.AttachmentFileName
                 };
 
-                var multipart = new Multipart("mixed");
-                multipart.Add(attachment);
-                message.Body = multipart;
+                bodyBuilder.Attachments.Add(attachment);
+                message.Body = bodyBuilder.ToMessageBody();
 
                 using (var smtpClient = new SmtpClient())
                 {

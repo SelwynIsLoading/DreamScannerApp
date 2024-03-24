@@ -101,8 +101,8 @@ namespace DreamScannerApp.UI
                     Gender = (TeacherProperties.Gender)cbGender.SelectedItem,
                     Section = (TeacherProperties.Section)cbSection.SelectedItem,
                     Fingerprint = fingerprintData,
-                    TimeFrom = tFrom.Value,
-                    TimeTo = tTo.Value
+                    TimeFrom = tFrom.Value.TimeOfDay,
+                    TimeTo = tTo.Value.TimeOfDay
                 });
                 await _teacherService.EnrollTeacher(teachers);
                 MessageBox.Show("Teacher enrolled successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

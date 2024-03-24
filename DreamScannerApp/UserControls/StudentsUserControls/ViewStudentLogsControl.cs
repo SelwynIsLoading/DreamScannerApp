@@ -38,7 +38,6 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
             dgStudents.Rows.Clear();
             foreach (var student in model)
             {
-                string timeOut = student.TimeOut == TimeSpan.Zero ? "" : $"{Convert.ToDateTime(student.TimeOut.ToString()).ToShortTimeString()}";
                 dgStudents.Rows.Add(new object[]
                 {
                     $"{student.LastName}, {student.FirstName} {student.MiddleInitial}",
@@ -46,8 +45,8 @@ namespace DreamScannerApp.UserControls.StudentsUserControls
                     student.section,
                     student.room,
                     $"{student.Date.ToShortDateString()}",
-                    $"{Convert.ToDateTime(student.TimeIn.ToString()).ToShortTimeString()}",
-                    timeOut,
+                    new DateTime(student.TimeIn.Ticks).ToShortTimeString(),
+                    student.TimeOut == TimeSpan.Zero ? "" : new DateTime(student.TimeOut.Ticks).ToShortTimeString(),
                     student.AttendanceStatus
                 });
             }

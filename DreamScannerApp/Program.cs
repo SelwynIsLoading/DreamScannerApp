@@ -70,6 +70,7 @@ namespace DreamScannerApp
                     services.AddTransient<IEmailService, EmailService>();
                     services.AddTransient<ITeacherService, TeacherService>();
                     services.AddTransient<ITeacherLogService, TeacherLogService>();
+                    services.AddTransient<IExcelService, ExcelService>();
                 });
         }
 

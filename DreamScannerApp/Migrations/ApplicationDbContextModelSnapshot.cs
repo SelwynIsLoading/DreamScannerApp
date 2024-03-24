@@ -228,10 +228,10 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimeFrom")
+                    b.Property<TimeSpan>("TimeFrom")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimeTo")
+                    b.Property<TimeSpan>("TimeTo")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

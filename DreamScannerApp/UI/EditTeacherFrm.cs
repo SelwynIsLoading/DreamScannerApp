@@ -36,8 +36,8 @@ namespace DreamScannerApp.UI
             tbMiddleInitial.Text = _teacher.MiddleInitial;
             tbSubject.Text = _teacher.Subject;
             tbEmail.Text = _teacher.Email;
-            tFrom.Value = _teacher.TimeFrom;
-            tTo.Value = _teacher.TimeTo;
+            tFrom.Value = Convert.ToDateTime(_teacher.TimeFrom);
+            tTo.Value = Convert.ToDateTime(_teacher.TimeTo);
             cbGender.SelectedIndex = (int)_teacher.Gender;
             cbRoom.SelectedIndex = (int)_teacher.Room;
             cbSection.SelectedIndex = (int)_teacher.Section;
@@ -61,8 +61,8 @@ namespace DreamScannerApp.UI
                     MiddleInitial = tbMiddleInitial.Text,
                     Subject = tbSubject.Text,
                     Email = tbEmail.Text,
-                    TimeFrom = tFrom.Value,
-                    TimeTo = tTo.Value,
+                    TimeFrom = tFrom.Value.TimeOfDay,
+                    TimeTo = tTo.Value.TimeOfDay,
                     Gender = (Models.Enums.TeacherProperties.Gender)cbGender.SelectedItem,
                     Room = (Models.Enums.TeacherProperties.room)cbRoom.SelectedItem,
                     Section = (Models.Enums.TeacherProperties.Section)cbSection.SelectedItem

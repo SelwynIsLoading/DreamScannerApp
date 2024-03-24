@@ -20,11 +20,15 @@ namespace DreamScannerApp.Services
         public event TeacherDataCallback teacherDataCallback;
         private readonly IStudentLogService _studentService;
         private readonly ITeacherLogService _teacherService;
+        private readonly IExcelService _excelService;
+        private readonly IEmailService _emailService;
         private string _ReaderSerial = "";
         public Verification()
         {
             _studentService = Program.ServiceProvider.GetRequiredService<IStudentLogService>();
             _teacherService = Program.ServiceProvider.GetRequiredService<ITeacherLogService>();
+            _excelService = Program.ServiceProvider.GetRequiredService<IExcelService>();
+            _emailService = Program.ServiceProvider.GetRequiredService<IEmailService>();
         }
         protected override async void Process(DPFP.Sample Sample)
         {
@@ -71,16 +75,43 @@ namespace DreamScannerApp.Services
                     }
                     else
                     {
-                        var OnBreakresult = await _teacherService.LogOnBreakTeacher(teachers, _ReaderSerial);
-                        if(OnBreakresult != null)
+                        if(DialogResult.Yes == MessageBox.Show("Do you want to log out?", "Teacher Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                         {
-                            if(OnBreakresult.IsSuccess)
+                            try
                             {
-                                GenerateState(OnBreakresult.Message);
+                                MemoryStream excelStream = new MemoryStream();
+                                var presentStudents = await _teacherService.GetPresentStudents();
+                                await _excelService.ExcportToExcel(presentStudents, excelStream);
+                                EmailDTO email = new EmailDTO
+                                {
+                                    SenderEmail = "dreamscannerapp@gmail.com",
+                                    SenderPassword = "fzcn pefe jcvc smqa",
+                                    RecipientEmail = "2000821@ub.edu.ph",
+                                    Subject = "Attendance Report",
+                                    AttachmentData = excelStream.ToArray(),
+                                    AttachmentFileName = "AttendanceReport.xlsx"
+                                };
+                                await _emailService.SendEmail(email);
+                                MessageBox.Show("Email sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                            else
+                            catch(Exception ex)
                             {
-                                GenerateState("Teacher already logged in");    
+                                MessageBox.Show($"Failed to send email: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            var OnBreakresult = await _teacherService.LogOnBreakTeacher(teachers, _ReaderSerial);
+                            if(OnBreakresult != null)
+                            {
+                                if(OnBreakresult.IsSuccess)
+                                {
+                                    GenerateState(OnBreakresult.Message);
+                                }
+                                else
+                                {
+                                    GenerateState("Teacher already logged in");    
+                                }
                             }
                         }
                     }

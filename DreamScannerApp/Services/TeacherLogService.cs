@@ -85,6 +85,7 @@ namespace DreamScannerApp.Services
                         {
                             return new TeachersDTO
                             {
+                                Id = t.Id,
                                 FirstName = t.FirstName,
                                 LastName = t.LastName,
                                 MiddleInitial = t.MiddleInitial,
@@ -142,6 +143,36 @@ namespace DreamScannerApp.Services
                 "3fa23b39-d804-6a4e-918e-73e7f59f4717" => false,
                 _ => false
             };
+        }
+
+        public async Task<List<StudentsDTO.StudentLogReport>> GetPresentStudents()
+        {
+            try
+            {
+                var presentStudents = await _context.StudentLogs.Where(w => w.Date == DateTime.Now.Date).ToListAsync();
+                List<StudentsDTO.StudentLogReport> students = new List<StudentsDTO.StudentLogReport>();
+                presentStudents.ForEach(p =>
+                {
+                    students.Add(new StudentsDTO.StudentLogReport
+                    {
+                        FirstName = p.FirstName,
+                        LastName = p.LastName,
+                        MiddleInitial = p.MiddleInitial,
+                        StudentNumber = p.StudentNumber,
+                        section = p.Section,
+                        room = p.Room,
+                        Date = p.Date.ToShortDateString(),
+                        TimeIn = p.TimeIn == TimeSpan.Zero ? "" : new DateTime(p.TimeIn.Ticks).ToShortTimeString(),
+                        TimeOut = p.TimeOut == TimeSpan.Zero ? "" : new DateTime(p.TimeOut.Ticks).ToShortTimeString(),
+                        AttendanceStatus = p.AttendanceStatus
+                    });
+                });
+                return students;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

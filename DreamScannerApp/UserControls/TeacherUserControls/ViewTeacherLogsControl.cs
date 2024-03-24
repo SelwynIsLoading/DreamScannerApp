@@ -43,8 +43,8 @@ namespace DreamScannerApp.UserControls.TeacherUserControls
                         teacher.Subject,
                         teacher.Room,
                         teacher.Section,
-                        Convert.ToDateTime(teacher.TimeIn.ToString()).ToShortTimeString(),
-                        teacher.TimeOut == TimeSpan.Zero ? "" : Convert.ToDateTime(teacher.TimeOut.ToString()).ToShortTimeString(),
+                        new DateTime(teacher.TimeIn.Ticks).ToShortTimeString(),
+                        teacher.TimeOut == TimeSpan.Zero ? "" : new DateTime(teacher.TimeOut.Ticks).ToShortTimeString(),
                         teacher.AttendanceStatus
                     });
                     dgTeachers.Rows[rowIndex].Tag = teacher.Id;
