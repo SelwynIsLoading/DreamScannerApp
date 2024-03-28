@@ -9,6 +9,6 @@ namespace DreamScannerApp.Interfaces
 {
     public interface IExcelService
     {
-        public Task<Handlers.TeacherLogResult> ExcportToExcel(List<StudentsDTO.StudentLogReport> students, Stream stream);
+        public Task<Handlers.TeacherLogResult> StudentExcelReport(List<StudentsDTO.StudentLogReport> students, Stream stream);
     }
 }

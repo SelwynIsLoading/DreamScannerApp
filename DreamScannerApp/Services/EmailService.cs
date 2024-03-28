@@ -22,7 +22,7 @@ namespace DreamScannerApp.Services
                 message.Subject = email.Subject;
 
                 var bodyBuilder = new BodyBuilder();
-                bodyBuilder.TextBody = "Please find attached the student log Excel file.";
+                bodyBuilder.TextBody = $"Please find attached the student log Excel file as of {DateTime.Now}";
 
                 var attachment = new MimePart("application", "octet-stream")
                 {

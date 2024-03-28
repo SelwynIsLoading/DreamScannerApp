@@ -174,5 +174,39 @@ namespace DreamScannerApp.Services
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<List<TeacherLogsModel>> GetTeacherLogsById(Guid id)
+        {
+            try
+            {
+                List<TeacherLogsModel> logs = new List<TeacherLogsModel>();
+                var teacherLogs = await _context.TeacherLogs.Where(w => w.Id == id && w.Date == DateTime.Now.Date).ToListAsync();
+                var teacher = await _context.Teachers.FirstOrDefaultAsync(w => w.FingerprintID == teacherLogs.Select(s => s.FingerprintID).FirstOrDefault());
+                if (teacherLogs != null && teacher != null)
+                {
+                    teacherLogs.ForEach(t =>
+                    {
+                        logs.Add(new TeacherLogsModel
+                        {
+                            FirstName = teacher.FirstName,
+                            LastName = teacher.LastName,
+                            MiddleInitial = teacher.MiddleInitial,
+                            Subject = teacher.Subject,
+                            Room = teacher.Room,
+                            Section = teacher.Section,
+                            Date = t.Date,
+                            TimeIn = t.TimeIn,
+                            TimeOut = t.TimeOut,
+                            AttendanceStatus = teacher.TimeFrom <= t.TimeIn ? "Present" : ""
+                        });
+                    });
+                }
+                return logs;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

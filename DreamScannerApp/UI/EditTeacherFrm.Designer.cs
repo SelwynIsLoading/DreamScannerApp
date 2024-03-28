@@ -146,9 +146,11 @@
             // tTo
             // 
             tTo.CausesValidation = false;
+            tTo.CustomFormat = "HH:mm";
             tTo.Format = DateTimePickerFormat.Time;
             tTo.Location = new Point(276, 419);
             tTo.Name = "tTo";
+            tTo.ShowUpDown = true;
             tTo.Size = new Size(173, 35);
             tTo.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
             tTo.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
@@ -187,9 +189,11 @@
             // tFrom
             // 
             tFrom.CausesValidation = false;
+            tFrom.CustomFormat = "HH:mm";
             tFrom.Format = DateTimePickerFormat.Time;
             tFrom.Location = new Point(74, 419);
             tFrom.Name = "tFrom";
+            tFrom.ShowUpDown = true;
             tFrom.Size = new Size(160, 35);
             tFrom.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
             tFrom.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);

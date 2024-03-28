@@ -36,8 +36,8 @@ namespace DreamScannerApp.UI
             tbMiddleInitial.Text = _teacher.MiddleInitial;
             tbSubject.Text = _teacher.Subject;
             tbEmail.Text = _teacher.Email;
-            tFrom.Value = Convert.ToDateTime(_teacher.TimeFrom);
-            tTo.Value = Convert.ToDateTime(_teacher.TimeTo);
+            tFrom.Value = new DateTime(_teacher.TimeFrom.Ticks);
+            tTo.Value = new DateTime(_teacher.TimeTo.Ticks);
             cbGender.SelectedIndex = (int)_teacher.Gender;
             cbRoom.SelectedIndex = (int)_teacher.Room;
             cbSection.SelectedIndex = (int)_teacher.Section;

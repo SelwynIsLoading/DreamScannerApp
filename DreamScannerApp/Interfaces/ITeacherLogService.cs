@@ -16,5 +16,6 @@ namespace DreamScannerApp.Interfaces
         public Task<Handlers.TeacherLogResult> LogTeacher(TeachersDTO student, string ReaderSerial);
         public Task<Handlers.TeacherLogResult> LogOnBreakTeacher(TeachersDTO teacher, string ReaderSerial);
         public Task<List<StudentsDTO.StudentLogReport>> GetPresentStudents();
+        public Task<List<TeacherLogsModel>> GetTeacherLogsById(Guid id);
     }
 }
