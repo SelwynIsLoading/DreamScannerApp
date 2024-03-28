@@ -98,6 +98,7 @@ namespace DreamScannerApp.Services
                 {
                     MemoryStream excelStream = new MemoryStream();
                     var presentStudents = await _teacherService.GetPresentStudents();
+                    var teacherLogs = await _teacherService.GetTeacherLogs();
                     await _excelService.StudentExcelReport(presentStudents, excelStream);
                     EmailDTO email = new EmailDTO
                     {

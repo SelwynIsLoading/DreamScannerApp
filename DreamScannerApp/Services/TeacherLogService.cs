@@ -38,8 +38,8 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                var teacherLogs = await _context.Teachers.Where(w => w.FingerprintID == teacher.FingerprintId).AsSplitQuery().AsNoTracking().FirstOrDefaultAsync();
-                var teacherEntered = await _context.TeacherLogs.Where(w => w.FingerprintID == teacher.FingerprintId && w.Date == DateTime.Now.Date).AsSplitQuery().AsNoTracking().FirstOrDefaultAsync();
+                var teacherLogs = await _context.Teachers.Where(w => w.FingerprintID == teacher.FingerprintId).AsNoTracking().FirstOrDefaultAsync();
+                var teacherEntered = await _context.TeacherLogs.Where(w => w.FingerprintID == teacher.FingerprintId && w.Date == DateTime.Now.Date).AsNoTracking().FirstOrDefaultAsync();
                 if (teacherLogs != null && teacherEntered == null)
                 {
                     _context.TeacherLogs.Add(new TeacherLogsEntity
@@ -111,29 +111,54 @@ namespace DreamScannerApp.Services
         {
             try
             {
+                var currentDate = DateTime.Today;
                 string _message = "";
-                var teacherEntered = await _context.TeacherLogs.Where(w => w.FingerprintID == teacher.FingerprintId && w.Date == DateTime.Now.Date).FirstOrDefaultAsync();
-                if (teacherEntered != null && teacherEntered.AttendanceState == 1 && !CheckSerial(ReaderSerial))
+                var teacherEntered = await _context.TeacherLogs
+                    .Where(w => w.FingerprintID == teacher.FingerprintId && w.Date == currentDate).ToListAsync();
+
+                if (teacherEntered != null)
                 {
-                    teacherEntered.TimeOut = DateTime.Now.TimeOfDay;
-                    teacherEntered.AttendanceStatus = "On Break";
-                    teacherEntered.AttendanceState = 2;
-                    _message = "Teacher Logged Out Successfully!";
+                    teacherEntered.ForEach(t =>
+                    {
+                        if (t.AttendanceState == 1 && !CheckSerial(ReaderSerial))
+                        {
+                            // Teacher is logging out
+                            t.TimeOut = DateTime.Now.TimeOfDay;
+                            t.AttendanceStatus = "On Break";
+                            t.AttendanceState = 3;
+                            _message = "Teacher Logged Out Successfully!";
+                        }
+                        else if (t.AttendanceState == 3 && CheckSerial(ReaderSerial))
+                        {
+                            // Teacher is logging back in
+                            _context.TeacherLogs.Add(new TeacherLogsEntity
+                            {
+                                FingerprintID = teacher.FingerprintId,
+                                FirstName = teacher.FirstName,
+                                LastName = teacher.LastName,
+                                MiddleInitial = teacher.MiddleInitial,
+                                Subject = teacher.Subject,
+                                Room = teacher.Room,
+                                Section = teacher.Section,
+                                Date = currentDate,
+                                TimeIn = DateTime.Now.TimeOfDay,
+                                TimeOut = TimeSpan.Zero,
+                                AttendanceStatus = "Present",
+                                AttendanceState = 1
+                            });
+                            _message = "Teacher Logged In Successfully!";
+                        }
+                    });
                 }
-                if(teacherEntered != null && teacherEntered.AttendanceState == 2 && CheckSerial(ReaderSerial))
-                {
-                    teacherEntered.TimeOut = TimeSpan.Zero;
-                    teacherEntered.AttendanceStatus = "Present";
-                    teacherEntered.AttendanceState = 1;
-                    _message = "Teacher Logged In Successfully!";
-                }
+
                 return new TeacherLogResult { IsSuccess = await _context.SaveChangesAsync() > 0, Message = _message };
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("Failed to log teacher activity.", ex);
             }
         }
+
 
         private bool CheckSerial(string ReaderSerial)
         {
@@ -167,7 +192,7 @@ namespace DreamScannerApp.Services
                         AttendanceStatus = p.AttendanceStatus
                     });
                 });
-                return students;
+                return students.OrderBy(ob => ob.LastName).ToList();
             }
             catch(Exception ex)
             {
@@ -179,34 +204,30 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                List<TeacherLogsModel> logs = new List<TeacherLogsModel>();
-                var teacherLogs = await _context.TeacherLogs.Where(w => w.Id == id && w.Date == DateTime.Now.Date).ToListAsync();
-                var teacher = await _context.Teachers.FirstOrDefaultAsync(w => w.FingerprintID == teacherLogs.Select(s => s.FingerprintID).FirstOrDefault());
-                if (teacherLogs != null && teacher != null)
-                {
-                    teacherLogs.ForEach(t =>
+                var logs = await _context.TeacherLogs
+                    .Where(t => t.Id == id && t.Date == DateTime.Today)
+                    .Select(t => new TeacherLogsModel
                     {
-                        logs.Add(new TeacherLogsModel
-                        {
-                            FirstName = teacher.FirstName,
-                            LastName = teacher.LastName,
-                            MiddleInitial = teacher.MiddleInitial,
-                            Subject = teacher.Subject,
-                            Room = teacher.Room,
-                            Section = teacher.Section,
-                            Date = t.Date,
-                            TimeIn = t.TimeIn,
-                            TimeOut = t.TimeOut,
-                            AttendanceStatus = teacher.TimeFrom <= t.TimeIn ? "Present" : ""
-                        });
-                    });
-                }
+                        FirstName = t.FirstName,
+                        LastName = t.LastName,
+                        MiddleInitial = t.MiddleInitial,
+                        Subject = t.Subject,
+                        Room = t.Room,
+                        Section = t.Section,
+                        Date = t.Date,
+                        TimeIn = t.TimeIn,
+                        TimeOut = t.TimeOut,
+                        AttendanceStatus = t.AttendanceStatus
+                    })
+                    .ToListAsync();
+
                 return logs;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("Failed to get teacher logs.", ex);
             }
         }
+
     }
 }
