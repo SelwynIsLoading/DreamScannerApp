@@ -20,5 +20,6 @@ namespace DreamScannerApp.Services
         public DbSet<TeachersEntity> Teachers { get; set; }
         public DbSet<StudentLogsEntity> StudentLogs { get; set; }
         public DbSet<TeacherLogsEntity> TeacherLogs { get; set; }
+        public DbSet<SettingsEntity> Settings { get; set; }
     }
 }

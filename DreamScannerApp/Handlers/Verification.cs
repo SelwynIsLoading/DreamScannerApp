@@ -64,27 +64,19 @@ namespace DreamScannerApp.Services
             {
                 var logResult = await _studentService.LogStudent(student, _ReaderSerial);
                 if (logResult.IsSuccess)
-                {
                     GenerateState(logResult.Message);
-                }
                 else
-                {
-                    await HandleStudentLoggingError(student);
-                }
+                    await HandleStudentLogging(student);
             }
         }
 
-        private async Task HandleStudentLoggingError(StudentsDTO.StudentDetail student)
+        private async Task HandleStudentLogging(StudentsDTO.StudentDetail student)
         {
             var onBreakResult = await _studentService.LogOnBreakStudent(student, _ReaderSerial);
             if (onBreakResult != null && onBreakResult.IsSuccess)
-            {
                 GenerateState(onBreakResult.Message);
-            }
             else
-            {
                 GenerateState("Student already logged in");
-            }
         }
 
         private async Task ProcessTeachers(TeachersDTO teachers)
@@ -136,13 +128,9 @@ namespace DreamScannerApp.Services
             {
                 var onBreakResult = await _teacherService.LogOnBreakTeacher(teachers, _ReaderSerial);
                 if (onBreakResult != null && onBreakResult.IsSuccess)
-                {
                     GenerateState(onBreakResult.Message);
-                }
                 else
-                {
                     GenerateState("Teacher already logged in");
-                }
             }
             catch (Exception ex)
             {
