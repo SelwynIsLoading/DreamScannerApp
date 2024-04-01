@@ -7,6 +7,9 @@
     <Compile Update="UI\AddTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\AdminVerificationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\EditStudentFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -22,10 +25,16 @@
     <Compile Update="UI\MainDashboardFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserControls\ControllerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\EnrollControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\FingerprintAddControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\GeneralControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\MainControl.cs">

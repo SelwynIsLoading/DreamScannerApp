@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            chkHold = new Krypton.Toolkit.KryptonCheckBox();
             tbState = new TextBox();
             tbStatus = new TextBox();
             tbInOut = new TextBox();
@@ -36,7 +37,6 @@
             tbName = new TextBox();
             pbGender = new PictureBox();
             label1 = new Label();
-            chkHold = new Krypton.Toolkit.KryptonCheckBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbGender).BeginInit();
             SuspendLayout();
@@ -56,6 +56,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(832, 690);
             panel1.TabIndex = 0;
+            // 
+            // chkHold
+            // 
+            chkHold.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chkHold.Location = new Point(366, 653);
+            chkHold.Name = "chkHold";
+            chkHold.Size = new Size(106, 22);
+            chkHold.StateCommon.ShortText.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            chkHold.TabIndex = 9;
+            chkHold.Values.Text = "Hold Logging";
+            chkHold.CheckedChanged += chkHold_CheckedChanged;
             // 
             // tbState
             // 
@@ -152,15 +163,6 @@
             label1.TabIndex = 1;
             label1.Text = "Verify";
             label1.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // chkHold
-            // 
-            chkHold.Location = new Point(366, 653);
-            chkHold.Name = "chkHold";
-            chkHold.Size = new Size(106, 22);
-            chkHold.StateCommon.ShortText.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            chkHold.TabIndex = 9;
-            chkHold.Values.Text = "Hold Logging";
             // 
             // VerifyControl
             // 

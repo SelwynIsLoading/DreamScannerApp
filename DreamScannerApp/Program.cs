@@ -71,6 +71,8 @@ namespace DreamScannerApp
                     services.AddTransient<ITeacherService, TeacherService>();
                     services.AddTransient<ITeacherLogService, TeacherLogService>();
                     services.AddTransient<IExcelService, ExcelService>();
+                    services.AddTransient<ISettingsService, SettingsService>();
+                    services.AddTransient<IArduinoService, ArduinoService>();
                 });
         }
 

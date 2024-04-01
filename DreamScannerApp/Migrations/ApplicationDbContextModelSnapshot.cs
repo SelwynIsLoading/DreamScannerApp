@@ -31,6 +31,9 @@ namespace DreamScannerApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<TimeSpan>("BreakTime")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("TEXT");
 
@@ -43,6 +46,9 @@ namespace DreamScannerApp.Migrations
 
                     b.Property<bool>("IsLoggingEnabled")
                         .HasColumnType("INTEGER");
+
+                    b.Property<TimeSpan>("LunchTime")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -97,6 +103,9 @@ namespace DreamScannerApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<TimeSpan>("TimeOut")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("TotalHours")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -170,6 +179,10 @@ namespace DreamScannerApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateCreated")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EncodedBy")

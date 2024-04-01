@@ -11,6 +11,8 @@ namespace DreamScannerApp.Models.Entities
         public bool IsLoggingEnabled { get; set; }
         public string ArduinoPort { get; set; }
         public string ArduinoBaudRate { get; set; }
+        public TimeSpan BreakTime { get; set; }
+        public TimeSpan LunchTime { get; set; }
 
     }
 }

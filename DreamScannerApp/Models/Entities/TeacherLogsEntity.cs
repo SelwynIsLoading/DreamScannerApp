@@ -13,6 +13,7 @@ namespace DreamScannerApp.Models.Entities
         public string LastName { get; set; } = "";
         public string MiddleInitial { get; set; } = "";
         public string Subject { get; set; } = "";
+        public string Email { get; set; } = "";
         public TeacherProperties.room Room { get; set; }
         public TeacherProperties.Section Section { get; set; }
         public DateTime Date { get; set; }

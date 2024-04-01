@@ -49,6 +49,7 @@ namespace DreamScannerApp.Services
                         LastName = teacher.LastName,
                         MiddleInitial = teacher.MiddleInitial,
                         Subject = teacher.Subject,
+                        Email = teacher.Email,
                         Room = teacher.Room,
                         Section = teacher.Section,
                         Date = DateTime.Now.Date,
@@ -91,6 +92,7 @@ namespace DreamScannerApp.Services
                                 MiddleInitial = t.MiddleInitial,
                                 Subject = t.Subject,
                                 Section = t.Section,
+                                Email = t.Email,
                                 Room = t.Room,
                                 Gender = t.Gender,
                                 IsIn = CheckSerial(ReaderSerial),
@@ -205,7 +207,7 @@ namespace DreamScannerApp.Services
             try
             {
                 var logs = await _context.TeacherLogs
-                    .Where(t => t.Id == id && t.Date == DateTime.Today)
+                    .Where(t => t.FingerprintID == id && t.Date == DateTime.Today)
                     .Select(t => new TeacherLogsModel
                     {
                         FirstName = t.FirstName,

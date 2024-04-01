@@ -1,6 +1,8 @@
 ﻿using DreamScannerApp.Models;
 using DreamScannerApp.Models.Enums;
 using DreamScannerApp.Properties;
+using DreamScannerApp.UI;
+using System.ComponentModel;
 using System.Data;
 using System.Runtime.Versioning;
 
@@ -17,6 +19,7 @@ namespace DreamScannerApp.UserControls
             _verificator.teacherDataCallback += OnTeacherDataReceived;
             _verificator.reportCallback += OnStatusRecieved;
             _verificator.stateCallback += OnStateRecieved;
+            _verificator.invalidCallback += OnInvalidRecieved;
             Disposed += VerifyControl_Disposed;
         }
 
@@ -24,19 +27,12 @@ namespace DreamScannerApp.UserControls
         {
             UpdateVerification(() =>
             {
-                if(t != null)
+                if (t != null)
                 {
                     tbName.Text = t.FirstName + " " + t.MiddleInitial + " " + t.LastName;
                     tbSection.Text = t.Section.ToString();
                     tbInOut.Text = t.IsIn ? "In" : "Out";
                     pbGender.Image = t.Gender == TeacherProperties.Gender.Female ? Resources.Female : Resources.Male;
-                }
-                else
-                {
-                    tbName.Text = "Invalid!";
-                    tbSection.Text = "";
-                    tbInOut.Text = "";
-                    pbGender.Image = Resources.Invalid;
                 }
             });
         }
@@ -58,13 +54,6 @@ namespace DreamScannerApp.UserControls
                     tbInOut.Text = students.Select(s => s.IsIn ? "In" : "Out").FirstOrDefault();
                     pbGender.Image = students.Select(s => s.Gender).FirstOrDefault() == StudentProperties.Gender.Female ? Resources.Female : Resources.Male;
                 }
-                else
-                {
-                    tbName.Text = "Invalid!";
-                    tbSection.Text = "";
-                    tbInOut.Text = "";
-                    pbGender.Image = Resources.Invalid;
-                }
             });
         }
 
@@ -84,6 +73,17 @@ namespace DreamScannerApp.UserControls
             });
         }
 
+        private void OnInvalidRecieved()
+        {
+            UpdateVerification(() =>
+            {
+                tbName.Text = "Invalid!";
+                tbSection.Text = "";
+                tbInOut.Text = "";
+                pbGender.Image = Resources.Invalid;
+            });
+        }
+
         public void UpdateState(Action action)
         {
             if (tbState.InvokeRequired)
@@ -98,11 +98,12 @@ namespace DreamScannerApp.UserControls
 
         public void UpdateVerification(Action action)
         {
-            if (tbName.InvokeRequired && tbSection.InvokeRequired && tbInOut.InvokeRequired)
+            if (tbName.InvokeRequired && tbSection.InvokeRequired && tbInOut.InvokeRequired || pbGender.InvokeRequired)
             {
                 tbName.Invoke(action);
                 tbSection.Invoke(action);
                 tbInOut.Invoke(action);
+                pbGender.Invoke(action);
             }
             else
             {
@@ -129,12 +130,31 @@ namespace DreamScannerApp.UserControls
             _verificator.teacherDataCallback += OnTeacherDataReceived;
             _verificator.reportCallback += OnStatusRecieved;
             _verificator.stateCallback += OnStateRecieved;
+            _verificator.invalidCallback += OnInvalidRecieved;
             _verificator.StartCapture();
+            chkHold.Checked = Properties.Settings.Default.IsHold;
         }
 
         private void VerifyControl_VisibleChanged(object sender, EventArgs e)
         {
             _verificator.StopCapture();
+        }
+
+        private void chkHold_CheckedChanged(object sender, EventArgs e)
+        {
+            _verificator.StopCapture();
+            AdminVerificationFrm adminVerificationFrm = new AdminVerificationFrm();
+            adminVerificationFrm.ShowDialog();
+            if(adminVerificationFrm.isVerified)
+            {
+                Properties.Settings.Default.IsHold = chkHold.Checked;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                chkHold.Checked = !chkHold.Checked;
+            }
+            _verificator.StartCapture();
         }
     }
 }

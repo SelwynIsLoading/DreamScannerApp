@@ -72,12 +72,13 @@ namespace DreamScannerApp.Services
                     TimeSpan timeDifference = DateTime.Now.TimeOfDay - studentEntered.TimeOut;
                     double totalMinutes = timeDifference.TotalMinutes;
 
-                    if (totalMinutes >= 1) // TODO: change to 15 minutes threshold
+                    if (totalMinutes >= Properties.Settings.Default.breakMinutes.TotalMinutes) // TODO: change to 15 minutes threshold
                     {
+                        double excessMinutes = totalMinutes - Properties.Settings.Default.breakMinutes.TotalMinutes;
                         studentEntered.TimeOut = DateTime.Now.TimeOfDay;
-                        studentEntered.AttendanceStatus = $"Over break: {totalMinutes.ToString("N1")}";
+                        studentEntered.AttendanceStatus = $"Over break: {excessMinutes.ToString("N1")}";
                         studentEntered.AttendanceState = 1;
-                        _message = $"Over break excess: {totalMinutes.ToString("N1")} minutes";
+                        _message = $"Over break excess: {excessMinutes.ToString("N1")} minutes";
                     }
                     else
                     {

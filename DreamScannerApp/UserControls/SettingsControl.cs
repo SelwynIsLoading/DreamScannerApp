@@ -42,12 +42,18 @@ namespace DreamScannerApp.UserControls
         {
             btnActive.Width = btnReports.Width;
             btnActive.Left = btnReports.Left;
+
+            GeneralControl general = new GeneralControl();
+            addUserControl(general);
         }
 
         private void btnController_Click(object sender, EventArgs e)
         {
             btnActive.Width = btnController.Width;
             btnActive.Left = btnController.Left;
+
+            ControllerControl controller = new ControllerControl();
+            addUserControl(controller);
         }
 
         private void addUserControl(UserControl userControl)

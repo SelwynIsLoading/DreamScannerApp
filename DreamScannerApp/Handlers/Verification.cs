@@ -15,14 +15,18 @@ namespace DreamScannerApp.Services
     {
         public delegate void StudentDataCallback(List<StudentsDTO.StudentDetail> data);
         public delegate void TeacherDataCallback(TeachersDTO data);
-        public delegate void StateCallback(string state); 
+        public delegate void StateCallback(string state);
+        public delegate void InvalidCallback();
         public event StudentDataCallback studentDataCallback;
         public event StateCallback stateCallback;
         public event TeacherDataCallback teacherDataCallback;
+        public event InvalidCallback invalidCallback;
         private readonly IStudentLogService _studentService;
         private readonly ITeacherLogService _teacherService;
+        private readonly ISettingsService _settingsService;
         private readonly IExcelService _excelService;
         private readonly IEmailService _emailService;
+        private readonly IArduinoService _arduinoService;
         private string _ReaderSerial = "";
         public Verification()
         {
@@ -30,6 +34,9 @@ namespace DreamScannerApp.Services
             _teacherService = Program.ServiceProvider.GetRequiredService<ITeacherLogService>();
             _excelService = Program.ServiceProvider.GetRequiredService<IExcelService>();
             _emailService = Program.ServiceProvider.GetRequiredService<IEmailService>();
+            _settingsService = Program.ServiceProvider.GetRequiredService<ISettingsService>();
+            _arduinoService = Program.ServiceProvider.GetRequiredService<IArduinoService>();
+
         }
         protected override async void Process(DPFP.Sample Sample)
         {
@@ -40,26 +47,44 @@ namespace DreamScannerApp.Services
 
             var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
             var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
+            var isHold = Properties.Settings.Default.IsHold;
 
             if (students != null && students.Any())
             {
+                GenerateStudentData(students);
+                await _arduinoService.DoorOpenAsync();
+                await Task.Delay(1);
+                await _arduinoService.DoorCloseAsync();
+                if(isHold)
+                {
+                    GenerateState("Logging is disabled");
+                    return;
+                }
                 await ProcessStudents(students);
+                return;
             }
 
             if (teachers != null)
             {
-                await ProcessTeachers(teachers);
+                await _arduinoService.DoorOpenAsync();
+                await Task.Delay(1);
+                await _arduinoService.DoorCloseAsync();
+                GenerateTeacherData(teachers);
+                if(isHold)
+                {
+                    GenerateState("Logging is disabled");
+                    return;
+                }
+                await ProcessTeachers(teachers);  
+                return;
             }
-            else
-            {
-                // handle intruder here
-            }
+
+            GenerateInvalid();
+            await _arduinoService.InvalidAsync();
         }
 
         private async Task ProcessStudents(List<StudentsDTO.StudentDetail> students)
-        {
-            GenerateStudentData(students);
-
+        {            
             foreach (var student in students)
             {
                 var logResult = await _studentService.LogStudent(student, _ReaderSerial);
@@ -81,7 +106,6 @@ namespace DreamScannerApp.Services
 
         private async Task ProcessTeachers(TeachersDTO teachers)
         {
-            GenerateTeacherData(teachers);
 
             var logResult = await _teacherService.LogTeacher(teachers, _ReaderSerial);
             if (logResult.IsSuccess)
@@ -104,7 +128,7 @@ namespace DreamScannerApp.Services
                     {
                         SenderEmail = "dreamscannerapp@gmail.com",
                         SenderPassword = "fzcn pefe jcvc smqa",
-                        RecipientEmail = "2000821@ub.edu.ph",
+                        RecipientEmail = teachers.Email,
                         Subject = "Attendance Report",
                         AttachmentData = excelStream.ToArray(),
                         AttachmentFileName = "AttendanceReport.xlsx"
@@ -159,6 +183,11 @@ namespace DreamScannerApp.Services
         public void GenerateTeacherData(TeachersDTO teachers)
         {
             teacherDataCallback?.Invoke(teachers);
+        }
+
+        public void GenerateInvalid()
+        {
+            invalidCallback?.Invoke();
         }
 
         private bool CheckSerial(string ReaderSerial)

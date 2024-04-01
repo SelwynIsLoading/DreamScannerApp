@@ -104,7 +104,7 @@
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(166, 59);
             btnReports.TabIndex = 7;
-            btnReports.Text = "Reports";
+            btnReports.Text = "General";
             btnReports.UseVisualStyleBackColor = false;
             btnReports.Click += btnReports_Click;
             // 
