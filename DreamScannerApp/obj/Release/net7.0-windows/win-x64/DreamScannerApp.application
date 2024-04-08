@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="DreamScannerApp.dll.manifest" size="29540">
+    <dependentAssembly dependencyType="install" codebase="DreamScannerApp.dll.manifest" size="4266">
       <assemblyIdentity name="DreamScannerApp.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>q1zLjpZKUey/lTfT4tDhgXcvGNvJWp0qooXRkMtRAe0=</dsig:DigestValue>
+        <dsig:DigestValue>wil4zF2pE00Uxt2mtxg8HLz6+UaCqsqltIxsMH/H0hg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

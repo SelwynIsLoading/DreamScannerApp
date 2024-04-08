@@ -101,3 +101,9 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-wind
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\win-x64\refint\DreamScannerApp.dll
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\win-x64\DreamScannerApp.pdb
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\win-x64\ref\DreamScannerApp.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\win-x64\DreamScannerApp.dll.config
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\win-x64\System.IO.Ports.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\win-x64\DreamScannerApp.UI.AdminVerificationFrm.resources
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\win-x64\DreamScannerApp.UserControls.ControllerControl.resources
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\win-x64\DreamScannerApp.UserControls.GeneralControl.resources
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\win-x64\DreamScannerApp.UserControls.TeacherUserControls.ViewTeacherLogControl.resources
