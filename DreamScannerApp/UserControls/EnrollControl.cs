@@ -67,7 +67,8 @@ namespace DreamScannerApp.UserControls
                         section = Enum.TryParse<StudentProperties.Section>(cbSection.SelectedValue.ToString(), out var section) ? section : StudentProperties.Section.None,
                         room = Enum.TryParse<StudentProperties.Room>(cbRoom.SelectedValue.ToString(), out var room) ? room : StudentProperties.Room.Unknown,
                         gender = Enum.TryParse<StudentProperties.Gender>(cbGender.SelectedValue.ToString(), out var gender) ? gender : StudentProperties.Gender.None,
-                        fingerprintData = _result.fingerprintTemplate
+                        fingerprintData = _result.fingerprintTemplate,
+                        isRepresentative = chkRepresentative.Checked
                     };
                     if (_studentService.AddStudent(student))
                     {

@@ -48,6 +48,7 @@
             pictureBox1 = new PictureBox();
             bindingSource1 = new BindingSource(components);
             kryptonCustomPaletteBase1 = new Krypton.Toolkit.KryptonCustomPaletteBase(components);
+            chkRepresentative = new Krypton.Toolkit.KryptonCheckBox();
             ((System.ComponentModel.ISupportInitialize)cbGender).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbRoom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbSection).BeginInit();
@@ -390,12 +391,23 @@
             kryptonCustomPaletteBase1.ThemeName = "";
             kryptonCustomPaletteBase1.UseKryptonFileDialogs = true;
             // 
+            // chkRepresentative
+            // 
+            chkRepresentative.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chkRepresentative.Location = new Point(705, 108);
+            chkRepresentative.Name = "chkRepresentative";
+            chkRepresentative.Size = new Size(153, 22);
+            chkRepresentative.StateCommon.ShortText.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            chkRepresentative.TabIndex = 67;
+            chkRepresentative.Values.Text = "Class Representative";
+            // 
             // EditStudentFrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(914, 600);
+            Controls.Add(chkRepresentative);
             Controls.Add(pictureBox1);
             Controls.Add(btnUpdate);
             Controls.Add(cbGender);
@@ -449,5 +461,6 @@
         private PictureBox pictureBox1;
         private BindingSource bindingSource1;
         private Krypton.Toolkit.KryptonCustomPaletteBase kryptonCustomPaletteBase1;
+        private Krypton.Toolkit.KryptonCheckBox chkRepresentative;
     }
 }

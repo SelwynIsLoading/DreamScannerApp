@@ -40,7 +40,8 @@ namespace DreamScannerApp.Services
                         DateCreated = DateTime.Now,
                         EncodedBy = "Admin",
                         FingerprintID = Guid.NewGuid(),
-                        Fingerprint = student.fingerprintData
+                        Fingerprint = student.fingerprintData,
+                        isRepresentative = student.isRepresentative
                     });
                     return _context.SaveChanges() > 0;
                 }
@@ -116,7 +117,8 @@ namespace DreamScannerApp.Services
                     Section = s.Section,
                     StudentNumber = s.StudentNumber,
                     Room = s.Room,
-                    Gender = s.Gender
+                    Gender = s.Gender,
+                    isRepresentative = s.isRepresentative
                 }).ToList();
         }
 
@@ -132,6 +134,7 @@ namespace DreamScannerApp.Services
                 st.Section = student.Section;
                 st.Room = student.Room;
                 st.Gender = student.Gender;
+                st.isRepresentative = student.isRepresentative;
 
                 return _context.SaveChanges() > 0;
             }

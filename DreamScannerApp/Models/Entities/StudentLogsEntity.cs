@@ -26,7 +26,7 @@ namespace DreamScannerApp.Models.Entities
         public TimeSpan TimeIn { get; set; }
         public TimeSpan TimeOut { get; set; }
         public int AttendanceState { get; set; }
-        public string AttendanceStatus { get; set; } 
-        public decimal TotalHours { get; set; } 
+        public string AttendanceStatus { get; set; }
+        public AttendanceLogEntity AttendanceLogs { get; set; }
     }
 }

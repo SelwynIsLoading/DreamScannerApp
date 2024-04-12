@@ -32,6 +32,7 @@ namespace DreamScannerApp.Models
             [Required(ErrorMessage = "Room is required.")]
             public StudentProperties.Room room { get; set; } = StudentProperties.Room.Unknown;
             public byte[]? fingerprintData { get; set; }
+            public bool isRepresentative { get; set; } = false;
         }
         public class StudentDetail
         {
@@ -56,6 +57,7 @@ namespace DreamScannerApp.Models
             public StudentProperties.Section Section { get; set; }
             public StudentProperties.Room Room { get; set; } 
             public StudentProperties.Gender Gender { get; set; } 
+            public bool isRepresentative { get; set; } = false;
         }
 
         public class StudentLog

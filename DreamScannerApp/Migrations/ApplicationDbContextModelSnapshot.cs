@@ -17,6 +17,48 @@ namespace DreamScannerApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.16");
 
+            modelBuilder.Entity("DreamScannerApp.Models.Entities.AttendanceLogEntity", b =>
+                {
+                    b.Property<Guid>("AttendanceLogId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("FingerprintId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("LogTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Remarks")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AttendanceLogId");
+
+                    b.ToTable("AttendanceLogs");
+                });
+
+            modelBuilder.Entity("DreamScannerApp.Models.Entities.ClassAdminsEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EncodedBy")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("FingerprintID")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ClassAdmins");
+                });
+
             modelBuilder.Entity("DreamScannerApp.Models.Entities.SettingsEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -55,10 +97,34 @@ namespace DreamScannerApp.Migrations
                     b.ToTable("Settings");
                 });
 
+            modelBuilder.Entity("DreamScannerApp.Models.Entities.StudentClassAdmin", b =>
+                {
+                    b.Property<Guid>("StudentClassAdminId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("ClassAdminId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("StudentClassAdminId");
+
+                    b.HasIndex("ClassAdminId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("StudentClassAdmins");
+                });
+
             modelBuilder.Entity("DreamScannerApp.Models.Entities.StudentLogsEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("AttendanceLogsAttendanceLogId")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("AttendanceState")
@@ -105,10 +171,9 @@ namespace DreamScannerApp.Migrations
                     b.Property<TimeSpan>("TimeOut")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("TotalHours")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("AttendanceLogsAttendanceLogId");
 
                     b.ToTable("StudentLogs");
                 });
@@ -156,6 +221,9 @@ namespace DreamScannerApp.Migrations
                     b.Property<string>("StudentNumber")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("isRepresentative")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -282,6 +350,41 @@ namespace DreamScannerApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("DreamScannerApp.Models.Entities.StudentClassAdmin", b =>
+                {
+                    b.HasOne("DreamScannerApp.Models.Entities.ClassAdminsEntity", "ClassAdmin")
+                        .WithMany("StudentClassAdmins")
+                        .HasForeignKey("ClassAdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DreamScannerApp.Models.Entities.StudentsEntity", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ClassAdmin");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("DreamScannerApp.Models.Entities.StudentLogsEntity", b =>
+                {
+                    b.HasOne("DreamScannerApp.Models.Entities.AttendanceLogEntity", "AttendanceLogs")
+                        .WithMany()
+                        .HasForeignKey("AttendanceLogsAttendanceLogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AttendanceLogs");
+                });
+
+            modelBuilder.Entity("DreamScannerApp.Models.Entities.ClassAdminsEntity", b =>
+                {
+                    b.Navigation("StudentClassAdmins");
                 });
 #pragma warning restore 612, 618
         }

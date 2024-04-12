@@ -41,6 +41,7 @@ namespace DreamScannerApp.UI
                 cbGender.SelectedIndex = (int)_studentDetails.Gender - 1;
                 cbRoom.SelectedIndex = (int)_studentDetails.Room - 1;
                 cbSection.SelectedIndex = (int)_studentDetails.Section - 1;
+                chkRepresentative.Checked = _studentDetails.isRepresentative;
             }
             else
             {
@@ -68,7 +69,8 @@ namespace DreamScannerApp.UI
                 StudentNumber = tbStudentNum.Text,
                 Gender = (StudentProperties.Gender)Enum.Parse(typeof(StudentProperties.Gender), cbGender.SelectedItem.ToString()),
                 Room = (StudentProperties.Room)Enum.Parse(typeof(StudentProperties.Room), cbRoom.SelectedItem.ToString()),
-                Section = (StudentProperties.Section)Enum.Parse(typeof(StudentProperties.Section), cbSection.SelectedItem.ToString())
+                Section = (StudentProperties.Section)Enum.Parse(typeof(StudentProperties.Section), cbSection.SelectedItem.ToString()),
+                isRepresentative = chkRepresentative.Checked
             };
 
             try

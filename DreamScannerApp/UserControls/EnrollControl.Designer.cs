@@ -46,6 +46,7 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            chkRepresentative = new Krypton.Toolkit.KryptonCheckBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbGender).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbRoom).BeginInit();
@@ -57,6 +58,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(chkRepresentative);
             panel1.Controls.Add(btnEnrollFingerprint);
             panel1.Controls.Add(cbGender);
             panel1.Controls.Add(cbRoom);
@@ -355,6 +357,16 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
+            // chkRepresentative
+            // 
+            chkRepresentative.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chkRepresentative.Location = new Point(328, 158);
+            chkRepresentative.Name = "chkRepresentative";
+            chkRepresentative.Size = new Size(153, 22);
+            chkRepresentative.StateCommon.ShortText.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            chkRepresentative.TabIndex = 68;
+            chkRepresentative.Values.Text = "Class Representative";
+            // 
             // EnrollControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -393,5 +405,6 @@
         private Krypton.Toolkit.KryptonComboBox cbGender;
         private Krypton.Toolkit.KryptonComboBox cbRoom;
         private Krypton.Toolkit.KryptonButton btnEnrollFingerprint;
+        private Krypton.Toolkit.KryptonCheckBox chkRepresentative;
     }
 }
