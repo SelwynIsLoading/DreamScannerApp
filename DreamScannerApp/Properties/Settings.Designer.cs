@@ -94,5 +94,29 @@ namespace DreamScannerApp.Properties {
                 this["BaudRate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int InvalidTries {
+            get {
+                return ((int)(this["InvalidTries"]));
+            }
+            set {
+                this["InvalidTries"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RoomPlaced {
+            get {
+                return ((string)(this["RoomPlaced"]));
+            }
+            set {
+                this["RoomPlaced"] = value;
+            }
+        }
     }
 }

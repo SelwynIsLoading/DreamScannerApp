@@ -36,9 +36,16 @@
             Recess = new Label();
             cbRecess = new Krypton.Toolkit.KryptonComboBox();
             label2 = new Label();
+            label3 = new Label();
+            label6 = new Label();
+            cbInvalidTries = new Krypton.Toolkit.KryptonComboBox();
+            label7 = new Label();
+            cbRoomPlaced = new Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)cbBreakTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbLunchTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbRecess).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cbInvalidTries).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cbRoomPlaced).BeginInit();
             SuspendLayout();
             // 
             // btnSave
@@ -89,7 +96,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
-            label4.Location = new Point(430, 168);
+            label4.Location = new Point(233, 168);
             label4.Name = "label4";
             label4.Size = new Size(166, 29);
             label4.TabIndex = 68;
@@ -101,7 +108,7 @@
             cbBreakTime.Anchor = AnchorStyles.Top;
             cbBreakTime.DropDownWidth = 152;
             cbBreakTime.IntegralHeight = false;
-            cbBreakTime.Location = new Point(420, 200);
+            cbBreakTime.Location = new Point(223, 200);
             cbBreakTime.Name = "cbBreakTime";
             cbBreakTime.Size = new Size(230, 36);
             cbBreakTime.StateCommon.ComboBox.Border.Color1 = Color.FromArgb(0, 0, 64);
@@ -123,7 +130,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(0, 0, 64);
-            label1.Location = new Point(430, 242);
+            label1.Location = new Point(233, 242);
             label1.Name = "label1";
             label1.Size = new Size(157, 29);
             label1.TabIndex = 70;
@@ -135,7 +142,7 @@
             cbLunchTime.Anchor = AnchorStyles.Top;
             cbLunchTime.DropDownWidth = 152;
             cbLunchTime.IntegralHeight = false;
-            cbLunchTime.Location = new Point(420, 274);
+            cbLunchTime.Location = new Point(223, 274);
             cbLunchTime.Name = "cbLunchTime";
             cbLunchTime.Size = new Size(230, 36);
             cbLunchTime.StateCommon.ComboBox.Border.Color1 = Color.FromArgb(0, 0, 64);
@@ -157,7 +164,7 @@
             Recess.AutoSize = true;
             Recess.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             Recess.ForeColor = Color.FromArgb(0, 0, 64);
-            Recess.Location = new Point(430, 314);
+            Recess.Location = new Point(233, 314);
             Recess.Name = "Recess";
             Recess.Size = new Size(100, 29);
             Recess.TabIndex = 72;
@@ -169,7 +176,7 @@
             cbRecess.Anchor = AnchorStyles.Top;
             cbRecess.DropDownWidth = 152;
             cbRecess.IntegralHeight = false;
-            cbRecess.Location = new Point(420, 346);
+            cbRecess.Location = new Point(223, 346);
             cbRecess.Name = "cbRecess";
             cbRecess.Size = new Size(230, 36);
             cbRecess.StateCommon.ComboBox.Border.Color1 = Color.FromArgb(0, 0, 64);
@@ -191,18 +198,106 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
-            label2.Location = new Point(374, 31);
+            label2.Location = new Point(177, 31);
             label2.Name = "label2";
             label2.Size = new Size(322, 48);
             label2.TabIndex = 113;
             label2.Text = "Set Break Time";
             label2.TextAlign = ContentAlignment.TopCenter;
             // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(0, 0, 64);
+            label3.Location = new Point(632, 31);
+            label3.Name = "label3";
+            label3.Size = new Size(194, 48);
+            label3.TabIndex = 119;
+            label3.Text = "Intruders";
+            label3.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top;
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.FromArgb(0, 0, 64);
+            label6.Location = new Point(632, 242);
+            label6.Name = "label6";
+            label6.Size = new Size(157, 29);
+            label6.TabIndex = 117;
+            label6.Text = "Invalid Tries";
+            label6.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // cbInvalidTries
+            // 
+            cbInvalidTries.Anchor = AnchorStyles.Top;
+            cbInvalidTries.DropDownWidth = 152;
+            cbInvalidTries.IntegralHeight = false;
+            cbInvalidTries.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
+            cbInvalidTries.Location = new Point(622, 274);
+            cbInvalidTries.Name = "cbInvalidTries";
+            cbInvalidTries.Size = new Size(230, 36);
+            cbInvalidTries.StateCommon.ComboBox.Border.Color1 = Color.FromArgb(0, 0, 64);
+            cbInvalidTries.StateCommon.ComboBox.Border.Color2 = Color.FromArgb(0, 0, 64);
+            cbInvalidTries.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            cbInvalidTries.StateCommon.ComboBox.Border.Rounding = 18F;
+            cbInvalidTries.StateCommon.ComboBox.Border.Width = 2;
+            cbInvalidTries.StateCommon.ComboBox.Content.Color1 = Color.Black;
+            cbInvalidTries.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            cbInvalidTries.StateCommon.ComboBox.Content.Padding = new Padding(-1, -1, -1, -10);
+            cbInvalidTries.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            cbInvalidTries.StateCommon.DropBack.Color1 = Color.White;
+            cbInvalidTries.StateCommon.DropBack.Color2 = Color.White;
+            cbInvalidTries.TabIndex = 116;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top;
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.FromArgb(0, 0, 64);
+            label7.Location = new Point(632, 168);
+            label7.Name = "label7";
+            label7.Size = new Size(170, 29);
+            label7.TabIndex = 115;
+            label7.Text = "Room Placed";
+            label7.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // cbRoomPlaced
+            // 
+            cbRoomPlaced.Anchor = AnchorStyles.Top;
+            cbRoomPlaced.DropDownWidth = 152;
+            cbRoomPlaced.IntegralHeight = false;
+            cbRoomPlaced.Items.AddRange(new object[] { "M201", "M203" });
+            cbRoomPlaced.Location = new Point(622, 200);
+            cbRoomPlaced.Name = "cbRoomPlaced";
+            cbRoomPlaced.Size = new Size(230, 36);
+            cbRoomPlaced.StateCommon.ComboBox.Border.Color1 = Color.FromArgb(0, 0, 64);
+            cbRoomPlaced.StateCommon.ComboBox.Border.Color2 = Color.FromArgb(0, 0, 64);
+            cbRoomPlaced.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            cbRoomPlaced.StateCommon.ComboBox.Border.Rounding = 18F;
+            cbRoomPlaced.StateCommon.ComboBox.Border.Width = 2;
+            cbRoomPlaced.StateCommon.ComboBox.Content.Color1 = Color.Black;
+            cbRoomPlaced.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            cbRoomPlaced.StateCommon.ComboBox.Content.Padding = new Padding(-1, -1, -1, -10);
+            cbRoomPlaced.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            cbRoomPlaced.StateCommon.DropBack.Color1 = Color.White;
+            cbRoomPlaced.StateCommon.DropBack.Color2 = Color.White;
+            cbRoomPlaced.TabIndex = 114;
+            // 
             // GeneralControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(label3);
+            Controls.Add(label6);
+            Controls.Add(cbInvalidTries);
+            Controls.Add(label7);
+            Controls.Add(cbRoomPlaced);
             Controls.Add(label2);
             Controls.Add(Recess);
             Controls.Add(cbRecess);
@@ -217,6 +312,8 @@
             ((System.ComponentModel.ISupportInitialize)cbBreakTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbLunchTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbRecess).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cbInvalidTries).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cbRoomPlaced).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -231,5 +328,10 @@
         private Label Recess;
         private Krypton.Toolkit.KryptonComboBox cbRecess;
         private Label label2;
+        private Label label3;
+        private Label label6;
+        private Krypton.Toolkit.KryptonComboBox cbInvalidTries;
+        private Label label7;
+        private Krypton.Toolkit.KryptonComboBox cbRoomPlaced;
     }
 }

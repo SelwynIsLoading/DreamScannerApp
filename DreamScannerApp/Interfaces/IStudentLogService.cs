@@ -14,5 +14,6 @@ namespace DreamScannerApp.Interfaces
         public Task<List<StudentsDTO.StudentDetail>> VerifyStudentFingerprint(DPFP.FeatureSet featureSet, string ReaderSerial);
         public Task<List<StudentsDTO.StudentLog>> GetStudentLogInfo();
         public Task<List<StudentsDTO.StudentLog>> FilterStudentLog(StudentLogFilterDTO filter);
+        public Task AddLog(Guid FingerprintId, DateTime LogDate, string Remarks);
     }
 }

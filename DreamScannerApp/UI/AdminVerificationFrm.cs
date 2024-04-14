@@ -27,9 +27,7 @@ namespace DreamScannerApp.UI
         {
             _verificator.studentDataCallback += OnStudentDataReceived;
             _verificator.teacherDataCallback += OnTeacherDataReceived;
-            _verificator.invalidCallback += OnInvalidDataReceived;
-            Properties.Settings.Default.IsHold = true;
-            Properties.Settings.Default.Save();
+            _verificator.invalidCallback += OnInvalidDataReceived;            
             _verificator.StartCapture();
         }
 
@@ -37,6 +35,8 @@ namespace DreamScannerApp.UI
         {
             UpdateVerification(() =>
             {
+                Properties.Settings.Default.IsHold = false;
+                Properties.Settings.Default.Save();
                 MessageBox.Show("Invalid fingerprint");
             });
         }
@@ -45,6 +45,8 @@ namespace DreamScannerApp.UI
         {
             UpdateVerification(() =>
             {
+                Properties.Settings.Default.IsHold = true;
+                Properties.Settings.Default.Save();
                 isVerified = true;
                 this.Close();
             });
@@ -54,6 +56,8 @@ namespace DreamScannerApp.UI
         {
             UpdateVerification(() =>
             {
+                Properties.Settings.Default.IsHold = true;
+                Properties.Settings.Default.Save();
                 isVerified = true;
                 this.Close();
             });

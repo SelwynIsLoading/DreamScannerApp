@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            chkRepresentative = new Krypton.Toolkit.KryptonCheckBox();
             btnEnrollFingerprint = new Krypton.Toolkit.KryptonButton();
             cbGender = new Krypton.Toolkit.KryptonComboBox();
             cbRoom = new Krypton.Toolkit.KryptonComboBox();
@@ -46,7 +47,6 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            chkRepresentative = new Krypton.Toolkit.KryptonCheckBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbGender).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbRoom).BeginInit();
@@ -79,6 +79,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(612, 690);
             panel1.TabIndex = 0;
+            // 
+            // chkRepresentative
+            // 
+            chkRepresentative.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            chkRepresentative.Location = new Point(328, 158);
+            chkRepresentative.Name = "chkRepresentative";
+            chkRepresentative.Size = new Size(153, 22);
+            chkRepresentative.StateCommon.ShortText.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            chkRepresentative.TabIndex = 68;
+            chkRepresentative.Values.Text = "Class Representative";
             // 
             // btnEnrollFingerprint
             // 
@@ -356,16 +366,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
-            // 
-            // chkRepresentative
-            // 
-            chkRepresentative.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            chkRepresentative.Location = new Point(328, 158);
-            chkRepresentative.Name = "chkRepresentative";
-            chkRepresentative.Size = new Size(153, 22);
-            chkRepresentative.StateCommon.ShortText.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            chkRepresentative.TabIndex = 68;
-            chkRepresentative.Values.Text = "Class Representative";
             // 
             // EnrollControl
             // 

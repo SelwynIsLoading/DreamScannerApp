@@ -22,6 +22,8 @@ namespace DreamScannerApp.UserControls
             cbBreakTime.DataSource = Enum.GetValues(typeof(DreamScannerApp.Models.Enums.Settings.Minutes));
             cbLunchTime.DataSource = Enum.GetValues(typeof(DreamScannerApp.Models.Enums.Settings.LunchTime));
             cbRecess.DataSource = Enum.GetValues(typeof(DreamScannerApp.Models.Enums.Settings.RecessTime));
+            cbInvalidTries.SelectedItem = Properties.Settings.Default.InvalidTries;
+            cbRoomPlaced.SelectedItem = Properties.Settings.Default.RoomPlaced;
             LoadData();
         }
 
@@ -49,6 +51,19 @@ namespace DreamScannerApp.UserControls
                 Properties.Settings.Default.recessMinutes = ConvertEnumToIntToTimeSpan((DreamScannerApp.Models.Enums.Settings.RecessTime)cbRecess.SelectedItem);
             }
 
+            if (cbInvalidTries.SelectedIndex != -1)
+            {
+                if (int.TryParse(cbInvalidTries.SelectedItem.ToString(), out int selectedValue))
+                {
+                    Properties.Settings.Default.InvalidTries = selectedValue;
+                }
+            }
+
+            if (cbRoomPlaced.SelectedIndex != -1)
+            {
+                Properties.Settings.Default.RoomPlaced = (string)cbRoomPlaced.SelectedItem;
+            }
+
             Properties.Settings.Default.Save();
             MessageBox.Show("Settings saved!");
         }
@@ -70,5 +85,6 @@ namespace DreamScannerApp.UserControls
             int minutes = (int)timeInterval;
             return TimeSpan.FromMinutes(minutes);
         }
+
     }
 }

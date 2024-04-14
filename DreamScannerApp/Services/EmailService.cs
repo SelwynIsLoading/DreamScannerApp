@@ -17,8 +17,8 @@ namespace DreamScannerApp.Services
             try
             {
                 var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("Sender", email.SenderEmail));
-                message.To.Add(new MailboxAddress("Recipient", email.RecipientEmail));
+                message.From.Add(new MailboxAddress("DreamScanner Attendance Report", email.SenderEmail));
+                message.To.Add(new MailboxAddress("Teacher", email.RecipientEmail));
                 message.Subject = email.Subject;
 
                 var bodyBuilder = new BodyBuilder();

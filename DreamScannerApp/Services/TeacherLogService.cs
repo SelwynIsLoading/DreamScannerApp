@@ -3,6 +3,7 @@ using DreamScannerApp.Handlers;
 using DreamScannerApp.Interfaces;
 using DreamScannerApp.Models;
 using DreamScannerApp.Models.Entities;
+using DreamScannerApp.UserControls.StudentsUserControls;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
@@ -176,24 +177,31 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                var presentStudents = await _context.StudentLogs.Where(w => w.Date == DateTime.Now.Date).ToListAsync();
+                var presentStudents = await _context.StudentLogs.Include(i => i.AttendanceLogs).Where(w => w.Date == DateTime.Now.Date).ToListAsync();
+                var logs = await _context.AttendanceLogs.ToListAsync();
                 List<StudentsDTO.StudentLogReport> students = new List<StudentsDTO.StudentLogReport>();
-                presentStudents.ForEach(p =>
+                foreach (var student in presentStudents)
                 {
+
+                    var logsForStudent = await _context.AttendanceLogs
+                        .Where(w => w.FingerprintId == student.FingerprintID && w.LogTime.Date == DateTime.Now.Date)
+                        .ToListAsync();
+
                     students.Add(new StudentsDTO.StudentLogReport
                     {
-                        FirstName = p.FirstName,
-                        LastName = p.LastName,
-                        MiddleInitial = p.MiddleInitial,
-                        StudentNumber = p.StudentNumber,
-                        section = p.Section,
-                        room = p.Room,
-                        Date = p.Date.ToShortDateString(),
-                        TimeIn = p.TimeIn == TimeSpan.Zero ? "" : new DateTime(p.TimeIn.Ticks).ToShortTimeString(),
-                        TimeOut = p.TimeOut == TimeSpan.Zero ? "" : new DateTime(p.TimeOut.Ticks).ToShortTimeString(),
-                        AttendanceStatus = p.AttendanceStatus
+                        FirstName = student.FirstName,
+                        LastName = student.LastName,
+                        MiddleInitial = student.MiddleInitial,
+                        StudentNumber = student.StudentNumber,
+                        section = student.Section,
+                        room = student.Room,
+                        Date = student.Date.ToShortDateString(),
+                        TimeIn = student.TimeIn == TimeSpan.Zero ? "" : new DateTime(student.TimeIn.Ticks).ToShortTimeString(),
+                        TimeOut = student.TimeOut == TimeSpan.Zero ? "" : new DateTime(student.TimeOut.Ticks).ToShortTimeString(),
+                        AttendanceStatus = student.AttendanceStatus,
+                        AttendanceLogs = logsForStudent
                     });
-                });
+                }
                 return students.OrderBy(ob => ob.LastName).ToList();
             }
             catch(Exception ex)

@@ -15,26 +15,48 @@ namespace DreamScannerApp.Services
     {
         public async Task<Handlers.TeacherLogResult> StudentExcelReport(List<StudentsDTO.StudentLogReport> students, Stream stream)
         {
-            await Task.Run(() =>
+            try
             {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 using (ExcelPackage excel = new ExcelPackage())
                 {
                     ExcelWorksheet worksheet = excel.Workbook.Worksheets.Add("Attendance Log");
                     AddHeaders(worksheet);
-                    for (int i = 0; i < students.Count; i++)
+                    int rowIndex = 2; // Start from row 2 to skip header row
+
+                    await Task.Run(() =>
                     {
-                        AddStudentData(worksheet, students[i], i + 2);
-                    }
-                    excel.SaveAs(stream);                    
+                        foreach (var student in students)
+                        {
+                            if (student.AttendanceLogs != null)
+                            {
+                                foreach (var attendanceLog in student.AttendanceLogs)
+                                {
+                                    AddStudentData(worksheet, student, attendanceLog, rowIndex++);
+                                }
+                            }
+                        }
+                    });
+
+                    excel.SaveAs(stream);
                 }
-            });
-            return new Handlers.TeacherLogResult
+
+                return new Handlers.TeacherLogResult
+                {
+                    IsSuccess = true,
+                    Message = "Exported to Excel",
+                };
+            }
+            catch (Exception ex)
             {
-                IsSuccess = true,
-                Message = "Exported to Excel",
-            };
+                return new Handlers.TeacherLogResult
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
         }
+
 
         public async Task<TeacherLogResult> TeacherExcelReport(List<TeacherLogsModel> teachers, Stream stream)
         {
@@ -57,7 +79,7 @@ namespace DreamScannerApp.Services
 
         private void AddHeaders(ExcelWorksheet worksheet)
         {
-            string[] headers = { "Name", "Student Number", "Section", "Room", "Date", "Time In", "Time Out", "Attendance Status" };
+            string[] headers = { "Name", "Student Number", "Section", "Room", "Date", "Log Time", "Remarks" };
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -79,16 +101,15 @@ namespace DreamScannerApp.Services
             }
         }
 
-        private void AddStudentData(ExcelWorksheet worksheet, StudentsDTO.StudentLogReport student, int rowIndex)
+        private void AddStudentData(ExcelWorksheet worksheet, StudentsDTO.StudentLogReport student, Models.Entities.AttendanceLogEntity attendanceLog, int rowIndex)
         {
             worksheet.Cells[rowIndex, 1].Value = $"{student.LastName}, {student.FirstName} {student.MiddleInitial}";
             worksheet.Cells[rowIndex, 2].Value = student.StudentNumber;
             worksheet.Cells[rowIndex, 3].Value = student.section;
             worksheet.Cells[rowIndex, 4].Value = student.room;
-            worksheet.Cells[rowIndex, 5].Value = student.Date;
-            worksheet.Cells[rowIndex, 6].Value = student.TimeIn;
-            worksheet.Cells[rowIndex, 7].Value = student.TimeOut;
-            worksheet.Cells[rowIndex, 8].Value = student.AttendanceStatus;
+            worksheet.Cells[rowIndex, 5].Value = attendanceLog.LogTime.ToShortDateString();
+            worksheet.Cells[rowIndex, 6].Value = attendanceLog.LogTime.ToShortTimeString();
+            worksheet.Cells[rowIndex, 7].Value = attendanceLog.Remarks;
         }
 
         private void AddTeacherData(ExcelWorksheet worksheet, TeacherLogsModel teacher, int rowIndex)

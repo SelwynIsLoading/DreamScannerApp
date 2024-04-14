@@ -107,88 +107,92 @@ namespace DreamScannerApp.Services
         public async Task<Handlers.StudentLogResult> LogOnBreakStudent(StudentsDTO.StudentDetail student, string ReaderSerial)
         {
             #region Old Code
+            try
+            {
+                string _message = "";
+                var studentEntered = await _context.StudentLogs.Include(i => i.AttendanceLogs).Where(s => s.FingerprintID == student.FingerprintID && s.Date == DateTime.Now.Date).FirstOrDefaultAsync();
+                if (studentEntered != null && studentEntered.AttendanceState == 1 && !CheckSerial(ReaderSerial))
+                {
+                    studentEntered.TimeOut = DateTime.Now.TimeOfDay;
+                    studentEntered.AttendanceStatus = "On Break";
+                    studentEntered.AttendanceState = 2;
+                    _message = "Student Logged Out Successfully!";
+                }
+                if (studentEntered != null && studentEntered.AttendanceState == 2 && CheckSerial(ReaderSerial))
+                {
+                    TimeSpan timeDifference = DateTime.Now.TimeOfDay - studentEntered.TimeOut;
+                    double totalMinutes = timeDifference.TotalMinutes;
+
+                    if (totalMinutes >= Properties.Settings.Default.breakMinutes.TotalMinutes) // TODO: change to 15 minutes threshold
+                    {
+                        double excessMinutes = totalMinutes - Properties.Settings.Default.breakMinutes.TotalMinutes;
+                        _message = $"Over break excess: {excessMinutes.ToString("N1")} minutes";
+                        studentEntered.TimeOut = DateTime.Now.TimeOfDay;
+                        studentEntered.AttendanceStatus = _message;
+                        studentEntered.AttendanceState = 1;
+                        await AddLog(student.FingerprintID, DateTime.Now, _message);
+                    }
+                    else
+                    {
+                        studentEntered.TimeOut = DateTime.Now.TimeOfDay;
+                        studentEntered.AttendanceStatus = "Present";
+                        studentEntered.AttendanceState = 1;
+                        _message = "Student Logged In Successfully!";
+                        await AddLog(student.FingerprintID, DateTime.Now, _message);
+                    }
+                }
+                return new Handlers.StudentLogResult { IsSuccess = await _context.SaveChangesAsync() > 0, BreakMinutes = TimeSpan.Zero, Message = _message };
+            }
+            catch (Exception ex)
+            {
+                return new Handlers.StudentLogResult { IsSuccess = false, Message = ex.Message };
+            }
+            #endregion
+            #region New Code
             //try
             //{
-            //    string _message = "";
-            //    var studentEntered = await _context.StudentLogs.Where(s => s.FingerprintID == student.FingerprintID && s.Date == DateTime.Now.Date).FirstOrDefaultAsync();
-            //    if (studentEntered != null && studentEntered.AttendanceState == 1 && !CheckSerial(ReaderSerial))
+            //    var studentEntered = await _context.StudentLogs
+            //        .Include(i => i.AttendanceLogs)
+            //        .Where(s => s.FingerprintID == student.FingerprintID && s.Date == DateTime.Now.Date)
+            //        .FirstOrDefaultAsync();
+
+            //    if (studentEntered == null)
+            //        return new Handlers.StudentLogResult { IsSuccess = false, Message = "Student not found." };
+
+            //    if (studentEntered.AttendanceState != 1)
+            //        return new Handlers.StudentLogResult { IsSuccess = false, Message = "Student is not logged in." };
+
+            //    TimeSpan timeDifference = DateTime.Now.TimeOfDay - studentEntered.TimeOut;
+            //    double totalMinutes = timeDifference.TotalMinutes;
+
+            //    if (totalMinutes < Properties.Settings.Default.breakMinutes.TotalMinutes) // Check if student is back before the break threshold
             //    {
             //        studentEntered.TimeOut = DateTime.Now.TimeOfDay;
-            //        studentEntered.AttendanceStatus = "On Break";
-            //        studentEntered.AttendanceState = 2;
-            //        _message = "Student Logged Out Successfully!";
+            //        studentEntered.AttendanceStatus = "Present";
+            //        studentEntered.AttendanceLogs.FingerprintId = student.FingerprintID; 
+            //        studentEntered.AttendanceLogs.LogTime = DateTime.Now;
+            //        studentEntered.AttendanceLogs.Remarks = "Present";
+            //        return new Handlers.StudentLogResult { IsSuccess = await _context.SaveChangesAsync() > 0, Message = "Student Logged In Successfully!" };
             //    }
-            //    if (studentEntered != null && studentEntered.AttendanceState == 2 && CheckSerial(ReaderSerial))
-            //    {
-            //        TimeSpan timeDifference = DateTime.Now.TimeOfDay - studentEntered.TimeOut;
-            //        double totalMinutes = timeDifference.TotalMinutes;
 
-            //        if (totalMinutes >= Properties.Settings.Default.breakMinutes.TotalMinutes) // TODO: change to 15 minutes threshold
-            //        {
-            //            double excessMinutes = totalMinutes - Properties.Settings.Default.breakMinutes.TotalMinutes;
-            //            studentEntered.TimeOut = DateTime.Now.TimeOfDay;
-            //            studentEntered.AttendanceStatus = $"Over break: {excessMinutes.ToString("N1")}";
-            //            studentEntered.AttendanceState = 1;
-            //            _message = $"Over break excess: {excessMinutes.ToString("N1")} minutes";
-            //        }
-            //        else
-            //        {
-            //            studentEntered.TimeOut = DateTime.Now.TimeOfDay;
-            //            studentEntered.AttendanceStatus = "Present";
-            //            studentEntered.AttendanceState = 1;
-            //            _message = "Student Logged In Successfully!";
-            //        }
-            //    }
-            //    return new Handlers.StudentLogResult { IsSuccess = await _context.SaveChangesAsync() > 0, BreakMinutes = TimeSpan.Zero, Message = _message };
+            //    // Student is back after break threshold
+            //    double excessMinutes = totalMinutes - Properties.Settings.Default.breakMinutes.TotalMinutes;
+            //    string status = $"Over break: {excessMinutes.ToString("N1")}";
+
+            //    studentEntered.TimeOut = DateTime.Now.TimeOfDay;
+            //    studentEntered.AttendanceStatus = status; // Set status with excess break time
+            //    studentEntered.AttendanceState = 1;
+            //    studentEntered.AttendanceLogs.FingerprintId = student.FingerprintID;
+            //    studentEntered.AttendanceLogs.LogTime = DateTime.Now;
+            //    studentEntered.AttendanceLogs.Remarks = status;
+
+            //    return new Handlers.StudentLogResult { IsSuccess = await _context.SaveChangesAsync() > 0, Message = $"Over break excess: {excessMinutes.ToString("N1")} minutes" };
             //}
             //catch (Exception ex)
             //{
             //    return new Handlers.StudentLogResult { IsSuccess = false, Message = ex.Message };
             //}
             #endregion
-            try
-            {
-                var studentEntered = await _context.StudentLogs
-                    .Include(i => i.AttendanceLogs)
-                    .Where(s => s.FingerprintID == student.FingerprintID && s.Date == DateTime.Now.Date)
-                    .FirstOrDefaultAsync();
-
-                if (studentEntered == null)
-                    return new Handlers.StudentLogResult { IsSuccess = false, Message = "Student not found." };
-
-                if (studentEntered.AttendanceState != 1)
-                    return new Handlers.StudentLogResult { IsSuccess = false, Message = "Student is not logged in." };
-
-                TimeSpan timeDifference = DateTime.Now.TimeOfDay - studentEntered.TimeOut;
-                double totalMinutes = timeDifference.TotalMinutes;
-
-                if (totalMinutes < Properties.Settings.Default.breakMinutes.TotalMinutes) // Check if student is back before the break threshold
-                {
-                    studentEntered.TimeOut = DateTime.Now.TimeOfDay;
-                    studentEntered.AttendanceStatus = "Present";
-                    studentEntered.AttendanceLogs.FingerprintId = student.FingerprintID; 
-                    studentEntered.AttendanceLogs.LogTime = DateTime.Now;
-                    studentEntered.AttendanceLogs.Remarks = "Present";
-                    return new Handlers.StudentLogResult { IsSuccess = await _context.SaveChangesAsync() > 0, Message = "Student Logged In Successfully!" };
-                }
-
-                // Student is back after break threshold
-                double excessMinutes = totalMinutes - Properties.Settings.Default.breakMinutes.TotalMinutes;
-                string status = $"Over break: {excessMinutes.ToString("N1")}";
-
-                studentEntered.TimeOut = DateTime.Now.TimeOfDay;
-                studentEntered.AttendanceStatus = status; // Set status with excess break time
-                studentEntered.AttendanceState = 1;
-                studentEntered.AttendanceLogs.FingerprintId = student.FingerprintID;
-                studentEntered.AttendanceLogs.LogTime = DateTime.Now;
-                studentEntered.AttendanceLogs.Remarks = status;
-
-                return new Handlers.StudentLogResult { IsSuccess = await _context.SaveChangesAsync() > 0, Message = $"Over break excess: {excessMinutes.ToString("N1")} minutes" };
-            }
-            catch (Exception ex)
-            {
-                return new Handlers.StudentLogResult { IsSuccess = false, Message = ex.Message };
-            }
         }
 
         public async Task<List<StudentsDTO.StudentDetail>> VerifyStudentFingerprint(DPFP.FeatureSet featureSet, string ReaderSerial)
@@ -318,5 +322,16 @@ namespace DreamScannerApp.Services
             }
         }
 
+        public async Task AddLog(Guid FingerprintId, DateTime LogDate, string Remarks)
+        {
+            var log = new AttendanceLogEntity
+            {
+                FingerprintId = FingerprintId,
+                LogTime = LogDate,
+                Remarks = Remarks
+            };
+            await _context.AttendanceLogs.AddAsync(log);
+            await _context.SaveChangesAsync();
+        }
     }
 }

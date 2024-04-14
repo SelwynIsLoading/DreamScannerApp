@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using DPFP;
 using Microsoft.Extensions.DependencyInjection;
 using DreamScannerApp.Handlers;
+using Telegram.Bot.Types;
+using Telegram.Bot;
 
 namespace DreamScannerApp.Services
 {
@@ -28,6 +30,8 @@ namespace DreamScannerApp.Services
         private readonly IEmailService _emailService;
         private readonly IArduinoService _arduinoService;
         private string _ReaderSerial = "";
+
+        private int InvalidAttempts = 0;
         public Verification()
         {
             _studentService = Program.ServiceProvider.GetRequiredService<IStudentLogService>();
@@ -36,7 +40,6 @@ namespace DreamScannerApp.Services
             _emailService = Program.ServiceProvider.GetRequiredService<IEmailService>();
             _settingsService = Program.ServiceProvider.GetRequiredService<ISettingsService>();
             _arduinoService = Program.ServiceProvider.GetRequiredService<IArduinoService>();
-
         }
         protected override async void Process(DPFP.Sample Sample)
         {
@@ -55,7 +58,8 @@ namespace DreamScannerApp.Services
                 await _arduinoService.DoorOpenAsync();
                 await Task.Delay(1);
                 await _arduinoService.DoorCloseAsync();
-                if(isHold)
+                InvalidAttempts = 0;
+                if (isHold)
                 {
                     GenerateState("Logging is disabled");
                     return;
@@ -70,7 +74,8 @@ namespace DreamScannerApp.Services
                 await Task.Delay(1);
                 await _arduinoService.DoorCloseAsync();
                 GenerateTeacherData(teachers);
-                if(isHold)
+                InvalidAttempts = 0;
+                if (isHold)
                 {
                     GenerateState("Logging is disabled");
                     return;
@@ -79,6 +84,7 @@ namespace DreamScannerApp.Services
                 return;
             }
 
+            InvalidAttemptsCount();
             GenerateInvalid();
             await _arduinoService.InvalidAsync();
         }
@@ -198,6 +204,22 @@ namespace DreamScannerApp.Services
                 "3fa23b39-d804-6a4e-918e-73e7f59f4717" => false,
                 _ => false
             };
+        }
+
+        private async void InvalidAttemptsCount()
+        {
+            InvalidAttempts++;
+            
+            if (InvalidAttempts == 3)
+            {
+                var bot = new TelegramBotClient("6913256102:AAFno3RqCBd2toPI5dYAdn6MC2bBUzPDDN4");
+                long chatId = -1002041033089;
+
+                // Send a dummy message to your channel
+                // Send an alert message
+                await bot.SendTextMessageAsync(chatId, $"🚨 Alert: Intruder Alert at room {Properties.Settings.Default.RoomPlaced}!");
+                InvalidAttempts = 0;
+            }
         }
 
     }

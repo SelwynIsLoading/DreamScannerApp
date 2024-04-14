@@ -89,6 +89,7 @@ namespace DreamScannerApp.Models
             public string TimeIn { get; set; } = "";
             public string TimeOut { get; set; } = "";
             public string AttendanceStatus { get; set; } = "";
+            public List<AttendanceLogEntity>? AttendanceLogs { get; set; } = null;
         }
     }
 }
