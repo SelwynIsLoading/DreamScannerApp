@@ -35,7 +35,7 @@ namespace DreamScannerApp
             kryptonPictureBox1 = new KryptonPictureBox();
             panel1 = new Panel();
             label4 = new Label();
-            kryptonButton1 = new KryptonButton();
+            btnSignUp = new KryptonButton();
             btnLogin = new KryptonButton();
             kryptonTextBox2 = new KryptonTextBox();
             label3 = new Label();
@@ -119,7 +119,7 @@ namespace DreamScannerApp
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(kryptonButton1);
+            panel1.Controls.Add(btnSignUp);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(kryptonTextBox2);
             panel1.Controls.Add(label3);
@@ -145,59 +145,59 @@ namespace DreamScannerApp
             label4.Text = "- or use Fingerprint to Login - ";
             label4.TextAlign = ContentAlignment.TopCenter;
             // 
-            // kryptonButton1
+            // btnSignUp
             // 
-            kryptonButton1.Anchor = AnchorStyles.Top;
-            kryptonButton1.Location = new Point(32, 360);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.Red;
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(192, 0, 0);
-            kryptonButton1.OverrideDefault.Back.ColorAngle = 130F;
-            kryptonButton1.OverrideDefault.Border.Color1 = Color.Red;
-            kryptonButton1.OverrideDefault.Border.Color2 = Color.FromArgb(192, 0, 0);
-            kryptonButton1.OverrideDefault.Border.ColorAngle = 130F;
-            kryptonButton1.OverrideDefault.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
-            kryptonButton1.OverrideDefault.Border.Rounding = 18F;
-            kryptonButton1.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton1.OverrideDefault.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonButton1.Size = new Size(164, 42);
-            kryptonButton1.StateCommon.Back.Color1 = Color.White;
-            kryptonButton1.StateCommon.Back.Color2 = Color.White;
-            kryptonButton1.StateCommon.Back.ColorAngle = 45F;
-            kryptonButton1.StateCommon.Border.Color1 = Color.Red;
-            kryptonButton1.StateCommon.Border.Color2 = Color.Red;
-            kryptonButton1.StateCommon.Border.ColorAngle = 130F;
-            kryptonButton1.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
-            kryptonButton1.StateCommon.Border.Rounding = 18F;
-            kryptonButton1.StateCommon.Border.Width = 2;
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.Red;
-            kryptonButton1.StateCommon.Content.ShortText.Color2 = Color.Red;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Archivo", 8F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonButton1.StatePressed.Back.Color1 = Color.White;
-            kryptonButton1.StatePressed.Back.Color2 = Color.White;
-            kryptonButton1.StatePressed.Back.ColorAngle = 45F;
-            kryptonButton1.StatePressed.Border.Color1 = Color.Red;
-            kryptonButton1.StatePressed.Border.Color2 = Color.Red;
-            kryptonButton1.StatePressed.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
-            kryptonButton1.StatePressed.Border.Rounding = 18F;
-            kryptonButton1.StatePressed.Content.ShortText.Color1 = Color.Red;
-            kryptonButton1.StatePressed.Content.ShortText.Color2 = Color.Red;
-            kryptonButton1.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonButton1.StateTracking.Back.Color1 = Color.Red;
-            kryptonButton1.StateTracking.Back.Color2 = Color.FromArgb(192, 0, 0);
-            kryptonButton1.StateTracking.Back.ColorAngle = 130F;
-            kryptonButton1.StateTracking.Border.Color1 = Color.Red;
-            kryptonButton1.StateTracking.Border.Color2 = Color.FromArgb(192, 0, 0);
-            kryptonButton1.StateTracking.Border.ColorAngle = 45F;
-            kryptonButton1.StateTracking.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
-            kryptonButton1.StateTracking.Border.Rounding = 18F;
-            kryptonButton1.StateTracking.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateTracking.Content.ShortText.Color2 = Color.White;
-            kryptonButton1.StateTracking.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            kryptonButton1.TabIndex = 6;
-            kryptonButton1.Values.Text = "Sign Up";
-            kryptonButton1.Click += kryptonButton1_Click;
+            btnSignUp.Anchor = AnchorStyles.Top;
+            btnSignUp.Location = new Point(32, 360);
+            btnSignUp.Name = "btnSignUp";
+            btnSignUp.OverrideDefault.Back.Color1 = Color.Red;
+            btnSignUp.OverrideDefault.Back.Color2 = Color.FromArgb(192, 0, 0);
+            btnSignUp.OverrideDefault.Back.ColorAngle = 130F;
+            btnSignUp.OverrideDefault.Border.Color1 = Color.Red;
+            btnSignUp.OverrideDefault.Border.Color2 = Color.FromArgb(192, 0, 0);
+            btnSignUp.OverrideDefault.Border.ColorAngle = 130F;
+            btnSignUp.OverrideDefault.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            btnSignUp.OverrideDefault.Border.Rounding = 18F;
+            btnSignUp.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnSignUp.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnSignUp.OverrideDefault.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSignUp.Size = new Size(164, 42);
+            btnSignUp.StateCommon.Back.Color1 = Color.White;
+            btnSignUp.StateCommon.Back.Color2 = Color.White;
+            btnSignUp.StateCommon.Back.ColorAngle = 45F;
+            btnSignUp.StateCommon.Border.Color1 = Color.Red;
+            btnSignUp.StateCommon.Border.Color2 = Color.Red;
+            btnSignUp.StateCommon.Border.ColorAngle = 130F;
+            btnSignUp.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            btnSignUp.StateCommon.Border.Rounding = 18F;
+            btnSignUp.StateCommon.Border.Width = 2;
+            btnSignUp.StateCommon.Content.ShortText.Color1 = Color.Red;
+            btnSignUp.StateCommon.Content.ShortText.Color2 = Color.Red;
+            btnSignUp.StateCommon.Content.ShortText.Font = new Font("Archivo", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSignUp.StatePressed.Back.Color1 = Color.White;
+            btnSignUp.StatePressed.Back.Color2 = Color.White;
+            btnSignUp.StatePressed.Back.ColorAngle = 45F;
+            btnSignUp.StatePressed.Border.Color1 = Color.Red;
+            btnSignUp.StatePressed.Border.Color2 = Color.Red;
+            btnSignUp.StatePressed.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            btnSignUp.StatePressed.Border.Rounding = 18F;
+            btnSignUp.StatePressed.Content.ShortText.Color1 = Color.Red;
+            btnSignUp.StatePressed.Content.ShortText.Color2 = Color.Red;
+            btnSignUp.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSignUp.StateTracking.Back.Color1 = Color.Red;
+            btnSignUp.StateTracking.Back.Color2 = Color.FromArgb(192, 0, 0);
+            btnSignUp.StateTracking.Back.ColorAngle = 130F;
+            btnSignUp.StateTracking.Border.Color1 = Color.Red;
+            btnSignUp.StateTracking.Border.Color2 = Color.FromArgb(192, 0, 0);
+            btnSignUp.StateTracking.Border.ColorAngle = 45F;
+            btnSignUp.StateTracking.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            btnSignUp.StateTracking.Border.Rounding = 18F;
+            btnSignUp.StateTracking.Content.ShortText.Color1 = Color.White;
+            btnSignUp.StateTracking.Content.ShortText.Color2 = Color.White;
+            btnSignUp.StateTracking.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSignUp.TabIndex = 6;
+            btnSignUp.Values.Text = "Sign Up";
+            btnSignUp.Click += btnSignUp_Click;
             // 
             // btnLogin
             // 
@@ -326,6 +326,7 @@ namespace DreamScannerApp
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DreamScanner Login";
+            Load += LoginFrm_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -343,7 +344,7 @@ namespace DreamScannerApp
         private Label label3;
         private KryptonTextBox kryptonTextBox1;
         private Label label2;
-        private KryptonButton kryptonButton1;
+        private KryptonButton btnSignUp;
         private Label label4;
     }
 }

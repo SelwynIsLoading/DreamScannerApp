@@ -51,7 +51,7 @@ namespace DreamScannerApp
             }
 
             // Run the main form
-            Application.Run(ServiceProvider.GetRequiredService<MainDashboardFrm>());
+            Application.Run(new LoginFrm());
             //Application.Run(new LoginFrm());
         }
 

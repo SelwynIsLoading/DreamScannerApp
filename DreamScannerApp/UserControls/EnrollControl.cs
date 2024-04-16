@@ -70,6 +70,11 @@ namespace DreamScannerApp.UserControls
                         fingerprintData = _result.fingerprintTemplate,
                         isRepresentative = chkRepresentative.Checked
                     };
+                    if(student.fingerprintData == null)
+                    {
+                        MessageBox.Show("Please enroll fingerprint first!", "DreamScanner Enroll", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     if (_studentService.AddStudent(student))
                     {
                         MessageBox.Show("Student Successfully Enrolled!", "DreamScanner Enroll", MessageBoxButtons.OK, MessageBoxIcon.Information);

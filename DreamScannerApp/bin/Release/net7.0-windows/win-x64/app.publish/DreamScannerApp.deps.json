@@ -22,6 +22,7 @@
           "Microsoft.NET.ILLink.Analyzers": "7.0.100-1.23211.1",
           "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1",
           "System.IO.Ports": "8.0.0",
+          "Telegram.Bot": "19.0.0",
           "DPFPDevNET": "1.6.1.0",
           "DPFPEngNET": "1.6.1.0",
           "DPFPGuiNET": "1.6.1.0",
@@ -607,6 +608,14 @@
           "System.CodeDom": "4.4.0"
         }
       },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
       "runtime.linux-arm.runtime.native.System.IO.Ports/8.0.0": {},
       "runtime.linux-arm64.runtime.native.System.IO.Ports/8.0.0": {},
       "runtime.linux-x64.runtime.native.System.IO.Ports/8.0.0": {},
@@ -745,6 +754,17 @@
           "lib/net7.0/System.Text.Json.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Telegram.Bot/19.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Telegram.Bot.dll": {
+            "assemblyVersion": "19.0.0.0",
+            "fileVersion": "19.0.0.0"
           }
         }
       },
@@ -1160,6 +1180,13 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
     "runtime.linux-arm.runtime.native.System.IO.Ports/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1320,6 +1347,13 @@
       "sha512": "sha512-OdrZO2WjkiEG6ajEFRABTRCi/wuXQPxeV6g8xvUJqdxMvvuCCEk86zPla8UiIQJz3durtUEbNyY/3lIhS0yZvQ==",
       "path": "system.text.json/8.0.0",
       "hashPath": "system.text.json.8.0.0.nupkg.sha512"
+    },
+    "Telegram.Bot/19.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q16IOitgjGoaJOuqgKQy0FeF+hr/ncmlX2esrhCC7aiyhSX7roYEriWaGAHkQZR8QzbImjFfl4eQh2IxcnOrPg==",
+      "path": "telegram.bot/19.0.0",
+      "hashPath": "telegram.bot.19.0.0.nupkg.sha512"
     },
     "DPFPDevNET/1.6.1.0": {
       "type": "reference",

@@ -25,6 +25,9 @@
     <Compile Update="UI\MainDashboardFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\RegistrationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControls\ControllerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
