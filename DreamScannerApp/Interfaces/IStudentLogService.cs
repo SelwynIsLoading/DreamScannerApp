@@ -1,4 +1,5 @@
-﻿using DreamScannerApp.Models;
+﻿using DreamScannerApp.Handlers;
+using DreamScannerApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace DreamScannerApp.Interfaces
         public Task<List<StudentsDTO.StudentLog>> GetStudentLogInfo();
         public Task<List<StudentsDTO.StudentLog>> FilterStudentLog(StudentLogFilterDTO filter);
         public Task AddLog(Guid FingerprintId, DateTime LogDate, string Remarks);
+        public Task<SaveResults> VerifyAdmin(DPFP.FeatureSet featureset);
     }
 }

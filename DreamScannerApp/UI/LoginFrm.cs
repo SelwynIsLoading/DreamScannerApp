@@ -21,22 +21,24 @@ namespace DreamScannerApp
         private void LoginFrm_Load(object sender, EventArgs e)
         {
             _verification.StartCapture();
-            _verification.studentDataCallback += _verification_studentDataCallback;
+            _verification.adminCallback += (verified) => {
+                AdminVerification(verified);
+            };
         }
 
-        private void _verification_studentDataCallback(List<StudentsDTO.StudentDetail> data)
+        private void AdminVerification(bool isVerified)
         {
-            if (data == null || data.Count == 0)
-            {
-                MessageBox.Show("No student found");
-                return;
-            }
-            else
+            if (isVerified)
             {
                 _verification.StopCapture();
                 MainDashboardFrm main = new MainDashboardFrm();
                 main.ShowDialog();
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No student found");
+                return;
             }
         }
 

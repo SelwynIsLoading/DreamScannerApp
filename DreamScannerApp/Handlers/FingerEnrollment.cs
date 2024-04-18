@@ -19,15 +19,13 @@ namespace DreamScannerApp.Handlers
 
         private string ReaderSerial = "";
 
-        private Result _result;
 
         public delegate void OnTemplateEventHandler(DPFP.Template template);
         public event OnTemplateEventHandler OnTemplate;
 
-        public FingerEnrollment(Result result)
+        public FingerEnrollment()
         {
             Enroller = new DPFP.Processing.Enrollment();
-            _result = result;
             Template = new Template();
         }
 
@@ -62,7 +60,6 @@ namespace DreamScannerApp.Handlers
                     if (Enroller.FeaturesNeeded <= 0)
                     {
                         OnTemplate?.Invoke(Template);
-                        _result.fingerprintTemplate = Template.Bytes; 
                     }
                 }
             }

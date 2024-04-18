@@ -17,6 +17,46 @@ namespace DreamScannerApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.16");
 
+            modelBuilder.Entity("DreamScannerApp.Models.Entities.AdminEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EncodedBy")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<byte[]>("FingerprintData")
+                        .HasColumnType("BLOB");
+
+                    b.Property<Guid>("FingerprintID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admins");
+                });
+
             modelBuilder.Entity("DreamScannerApp.Models.Entities.AttendanceLogEntity", b =>
                 {
                     b.Property<Guid>("AttendanceLogId")

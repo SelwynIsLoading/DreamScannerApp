@@ -17,11 +17,9 @@ namespace DreamScannerApp.UserControls
     public partial class FingerprintAddControl : UserControl
     {
         private FingerEnrollment fingerEnrollment;
-        private Result _result;
-        public FingerprintAddControl(Result result)
+        public FingerprintAddControl()
         {
-            _result = result;
-            fingerEnrollment = new FingerEnrollment(_result);
+            fingerEnrollment = new FingerEnrollment();
             fingerEnrollment.reportCallback += MakeReport;
             fingerEnrollment.imageCallback += DisplayImage;
             InitializeComponent();
@@ -30,6 +28,10 @@ namespace DreamScannerApp.UserControls
 
         private void FingerprintAddControl_Load(object sender, EventArgs e)
         {
+            fingerEnrollment.OnTemplate += (template) =>
+            {
+                ((FingerprintAdd)this.ParentForm!).GetTemplate(template);
+            };
             fingerEnrollment.StartCapture();
         }
 
@@ -40,8 +42,8 @@ namespace DreamScannerApp.UserControls
                 if (message.ToUpper() == "Capture Stopped".ToUpper())
                 {
                     //fingerEnrollment.StopCapture();
-                    fingerEnrollment = new FingerEnrollment(_result);
-                    ((FingerprintAdd)this.ParentForm).Close();
+                    fingerEnrollment = new FingerEnrollment();
+                    ((FingerprintAdd)this.ParentForm!).Close();
                 }
             });
         }

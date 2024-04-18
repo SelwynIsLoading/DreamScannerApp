@@ -10,6 +10,10 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using static DPFP.Verification.Verification;
 using Microsoft.EntityFrameworkCore.Update;
+using DreamScannerApp.Handlers;
+using DPFP;
+using Org.BouncyCastle.Bcpg.Sig;
+using DreamScannerApp.UserControls.StudentsUserControls;
 
 namespace DreamScannerApp.Services
 {
@@ -332,6 +336,38 @@ namespace DreamScannerApp.Services
             };
             await _context.AttendanceLogs.AddAsync(log);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<SaveResults> VerifyAdmin(FeatureSet featureset)
+        {
+            try
+            {
+                List<StudentsDTO.StudentDetail> studentList = new List<StudentsDTO.StudentDetail>();
+                var students = await _context.Admins.ToListAsync();
+                foreach (var student in students)
+                {
+                    if (student.FingerprintData != null)
+                    {
+                        Stream stream = new MemoryStream(student.FingerprintData);
+                        DPFP.Template template = new DPFP.Template(stream);
+                        DPFP.Verification.Verification verificator = new DPFP.Verification.Verification();
+                        DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
+
+                        verificator.Verify(featureset, template, ref result);
+
+                        if (result.Verified)
+                        {
+                            return new SaveResults { IsSaved = true, Message = student.UserName };
+                        }
+                    }
+
+                }
+                return new SaveResults { IsSaved = false, Message = "No Record found" };
+            }
+            catch (Exception ex)
+            {
+                return new SaveResults { IsSaved = false, Message = ex.Message };
+            }
         }
     }
 }

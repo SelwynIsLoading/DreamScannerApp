@@ -96,14 +96,14 @@
             containerPnl.Dock = DockStyle.Fill;
             containerPnl.Location = new Point(0, 0);
             containerPnl.Name = "containerPnl";
-            containerPnl.Size = new Size(1041, 735);
+            containerPnl.Size = new Size(1052, 643);
             containerPnl.TabIndex = 0;
             // 
             // RegistrationFrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1041, 735);
+            ClientSize = new Size(1052, 643);
             Controls.Add(containerPnl);
             Name = "RegistrationFrm";
             Palette = kryptonCustomPaletteBase1;

@@ -247,3 +247,4 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-window
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\Telegram.Bot.dll
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UI.RegistrationFrm.resources
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UserControls.AdminRegistrationControl.resources

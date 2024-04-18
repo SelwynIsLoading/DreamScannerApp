@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamScannerApp.Handlers;
 using DreamScannerApp.Models;
 using DreamScannerApp.Models.Entities;
 using DreamScannerApp.Services;
@@ -18,6 +19,7 @@ namespace DreamScannerApp.Interfaces
         List<StudentsDTO.StudentDetails> GetStudents();
         List<StudentsDTO.StudentDetails> FilterStudents(string search);
         List<StudentsDTO.StudentDetails> GetStudentsByStudentNumber(string studentNumber);
+        public Task<SaveResults> AddAdminAsync(AdminEntity admin);
         //List<StudentsDTO.StudentLog> GetStudentLogs();
     }
 }

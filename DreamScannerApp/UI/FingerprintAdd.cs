@@ -17,16 +17,17 @@ namespace DreamScannerApp.UI
 {
     public partial class FingerprintAdd : KryptonForm
     {
-        private Result _result;
-        public FingerprintAdd(Result result)
+        public delegate void SetFingerprintTemplate(DPFP.Template template);
+        public event SetFingerprintTemplate OnTemplate;
+        private DPFP.Template _template { get; set; } = new DPFP.Template();
+        public FingerprintAdd()
         {
             InitializeComponent();
-            _result = result;
         }
 
         private void FingerprintAdd_Load(object sender, EventArgs e)
         {
-            FingerprintAddControl fingerprintAddControl = new FingerprintAddControl(_result);
+            FingerprintAddControl fingerprintAddControl = new FingerprintAddControl();
             addUserControl(fingerprintAddControl);
         }
         private void addUserControl(UserControl userControl)
@@ -35,6 +36,12 @@ namespace DreamScannerApp.UI
             containerPnl.Controls.Clear();
             containerPnl.Controls.Add(userControl);
             userControl.BringToFront();
+        }
+
+        public void GetTemplate(DPFP.Template template)
+        {
+            _template = template;
+            OnTemplate?.Invoke(_template);
         }
     }
 }

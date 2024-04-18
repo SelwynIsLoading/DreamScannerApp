@@ -52,8 +52,7 @@ namespace DreamScannerApp.UI
             sideActive.Top = btnEnroll.Top;
             sideActive.Height = btnEnroll.Height;
 
-            Result _result = new Result();
-            EnrollControl enroll = new EnrollControl(Program.ServiceProvider.GetRequiredService<StudentService>(), _result);
+            EnrollControl enroll = new EnrollControl();
             addUserControl(enroll);
         }
 

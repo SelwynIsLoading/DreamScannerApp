@@ -32,8 +32,7 @@ namespace DreamScannerApp.UI
 
         private void RegistrationFrm_Load(object sender, EventArgs e)
         {
-            Result _result = new Result();
-            EnrollControl enroll = new EnrollControl(Program.ServiceProvider.GetRequiredService<StudentService>(), _result);
+            AdminRegistrationControl enroll = new AdminRegistrationControl();
             addUserControl(enroll);
         }
     }

@@ -25,7 +25,7 @@ namespace DreamScannerApp.UserControls.TeacherUserControls
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
         {
-            AddTeacher addTeacher = new AddTeacher(new Handlers.FingerEnrollment(new Services.Result()));
+            AddTeacher addTeacher = new AddTeacher(new Handlers.FingerEnrollment());
             addTeacher.ShowDialog();
         }
 

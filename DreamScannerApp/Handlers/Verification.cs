@@ -19,6 +19,8 @@ namespace DreamScannerApp.Services
         public delegate void TeacherDataCallback(TeachersDTO data);
         public delegate void StateCallback(string state);
         public delegate void InvalidCallback();
+        public delegate void AdminCallback(bool verified);
+        public event AdminCallback adminCallback;
         public event StudentDataCallback studentDataCallback;
         public event StateCallback stateCallback;
         public event TeacherDataCallback teacherDataCallback;
@@ -48,10 +50,19 @@ namespace DreamScannerApp.Services
 
             if (features == null) return;
 
+            var admin = await _studentService.VerifyAdmin(features);
             var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
             var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
             var isHold = Properties.Settings.Default.IsHold;
 
+            if (admin.IsSaved)
+            {
+                adminCallback?.Invoke(true);
+            }
+            else
+            {
+                adminCallback?.Invoke(false);
+            }
             if (students != null && students.Any())
             {
                 GenerateStudentData(students);

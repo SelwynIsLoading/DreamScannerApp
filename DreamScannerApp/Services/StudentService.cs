@@ -22,6 +22,23 @@ namespace DreamScannerApp.Services
             _context = context;
         }
 
+        public async Task<SaveResults> AddAdminAsync(AdminEntity admin)
+        {
+            try
+            {
+                if(admin == null)
+                {
+                    return new SaveResults { IsSaved = false, Message = "Please Fillup all the fields!" };
+                }
+                await _context.Admins.AddAsync(admin);
+                return new SaveResults { IsSaved = await _context.SaveChangesAsync() > 0, Message = "Saved." };
+            }
+            catch (Exception ex)
+            {
+                return new SaveResults { IsSaved = false, Message = ex.Message };
+            }
+        }
+
         public bool AddStudent(StudentsDTO.CreateStudent student)
         {
             try

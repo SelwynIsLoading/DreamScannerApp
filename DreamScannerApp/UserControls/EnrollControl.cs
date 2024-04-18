@@ -13,6 +13,8 @@ using DreamScannerApp.Models.Enums;
 using DreamScannerApp.Services;
 using DreamScannerApp.Handlers;
 using DreamScannerApp.Models;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection.Metadata.Ecma335;
 
 namespace DreamScannerApp.UserControls
 {
@@ -21,10 +23,10 @@ namespace DreamScannerApp.UserControls
         private StudentService _studentService;
         private Result _result;
         StudentsDTO.CreateStudent studentInstance { get; set; } = new StudentsDTO.CreateStudent();
-        public EnrollControl(StudentService studentService, Result result)
+        public EnrollControl()
         {
-            _studentService = studentService;
-            _result = result;
+            _studentService = Program.ServiceProvider.GetRequiredService<StudentService>();
+            _result = new Result();
             InitializeComponent();
             InitializeComboBox();
             InitializeFields();
@@ -53,7 +55,11 @@ namespace DreamScannerApp.UserControls
                 case "Enroll Fingerprint":
                     btnEnrollFingerprint.Text = "Enroll";
                     if(!validate()){return;}
-                    FingerprintAdd finger = new FingerprintAdd(_result);
+                    FingerprintAdd finger = new FingerprintAdd();
+                    finger.OnTemplate += (template) =>
+                    {
+                        _result.fingerprintTemplate = template.Bytes;
+                    };
                     finger.ShowDialog();
                     break;
                 case "Enroll":
@@ -111,5 +117,6 @@ namespace DreamScannerApp.UserControls
             }
             return true;
         }
+
     }
 }
