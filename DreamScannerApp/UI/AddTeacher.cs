@@ -29,8 +29,10 @@ namespace DreamScannerApp.UI
         {
             _teacherService = Program.ServiceProvider.GetRequiredService<ITeacherService>();
             InitializeComponent();
-            Enroller = fingerEnrollment;
-            Enroller.OnTemplate += OnTemplate;
+            Enroller = new FingerEnrollment();
+            Enroller.OnTemplate += (template) => {
+                fingerprintData = template.Bytes;
+            };
             Enroller.reportCallback += OnReportCallback;
             InitializeComboBox();
         }
@@ -53,11 +55,6 @@ namespace DreamScannerApp.UI
             {
                 action();
             }
-        }
-
-        private void OnTemplate(Template template)
-        {
-            fingerprintData = template != null ? template.Bytes : null;
         }
 
         private void btnEnroll_Click(object sender, EventArgs e)
@@ -104,6 +101,11 @@ namespace DreamScannerApp.UI
                     TimeFrom = tFrom.Value.TimeOfDay,
                     TimeTo = tTo.Value.TimeOfDay
                 });
+                if(fingerprintData == null)
+                {
+                    MessageBox.Show("Please enroll fingerprint", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 await _teacherService.EnrollTeacher(teachers);
                 MessageBox.Show("Teacher enrolled successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFields();
