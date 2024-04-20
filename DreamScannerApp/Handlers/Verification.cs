@@ -63,7 +63,7 @@ namespace DreamScannerApp.Services
             {
                 adminCallback?.Invoke(false);
             }
-            if (students != null && students.Any())
+            if (students != null)
             {
                 GenerateStudentData(students);
                 await _arduinoService.DoorOpenAsync();

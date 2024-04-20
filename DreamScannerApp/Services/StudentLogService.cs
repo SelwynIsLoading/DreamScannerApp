@@ -216,7 +216,7 @@ namespace DreamScannerApp.Services
 
                         verificator.Verify(featureSet, template, ref result);
 
-                        var inAdminVerification = Properties.Settings.Default.IsHold ? result.Verified : result.Verified && student.isRepresentative;
+                        var inAdminVerification = Properties.Settings.Default.IsHold ? result.Verified && student.isRepresentative : result.Verified;
                         if (inAdminVerification)
                         {
                             studentList.Add(new StudentsDTO.StudentDetail
