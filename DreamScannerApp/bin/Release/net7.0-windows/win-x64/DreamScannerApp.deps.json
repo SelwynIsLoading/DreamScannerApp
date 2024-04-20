@@ -19,8 +19,6 @@
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
-          "Microsoft.NET.ILLink.Analyzers": "7.0.100-1.23211.1",
-          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1",
           "System.IO.Ports": "8.0.0",
           "Telegram.Bot": "19.0.0",
           "DPFPDevNET": "1.6.1.0",
@@ -599,8 +597,6 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23211.1": {},
-      "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {},
       "Microsoft.Win32.SystemEvents/7.0.0": {},
       "MimeKit/4.4.0": {
         "dependencies": {
@@ -1163,20 +1159,6 @@
       "sha512": "sha512-irv0HuqoH8Ig5i2fO+8dmDNdFdsrO+DoQcedwIlb810qpZHBNQHZLW7C/AHBQDgLLpw2T96vmMAy/aE4Yj55Sg==",
       "path": "microsoft.io.recyclablememorystream/3.0.0",
       "hashPath": "microsoft.io.recyclablememorystream.3.0.0.nupkg.sha512"
-    },
-    "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23211.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0GvbEgDGcUQA9KuWcQU1WwYHXt1tBzNr1Nls/M57rM7NA/AndFwCaCEoJpJkmxRY7xLlPDBnmGp8h5+FNqUngg==",
-      "path": "microsoft.net.illink.analyzers/7.0.100-1.23211.1",
-      "hashPath": "microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512"
-    },
-    "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tvG8XZYLjT0o3WicCyKBZysVWo1jC9HdCFmNRmddx3WbAz0UCsd0qKZqpiEo99VLA8Re+FzWK51OcRldQPbt2Q==",
-      "path": "microsoft.net.illink.tasks/7.0.100-1.23211.1",
-      "hashPath": "microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512"
     },
     "Microsoft.Win32.SystemEvents/7.0.0": {
       "type": "package",

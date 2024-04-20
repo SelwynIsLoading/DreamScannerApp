@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AVJGqQq8BftME0DSk5kGSNFQfN/WhhYEXa2TOAx+4e8lr4JmcS6OSQGWv7yQ1qZr7dqUBQzpOcdjrICgaQgL1g==",
+  "dgSpecHash": "RZZ7mSni9m/Yyvtj5hFH/E5WcEPVpM6bI9m4JQ/3dpD3CpWR0005TWNXrinrl2TpInHUULEO2h4zn3jEUgAxDA==",
   "success": true,
   "projectFilePath": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\DreamScannerApp.csproj",
   "expectedPackageFiles": [
@@ -51,8 +51,6 @@
     "C:\\Users\\cauba\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\8.0.0\\microsoft.extensions.options.configurationextensions.8.0.0.nupkg.sha512",
     "C:\\Users\\cauba\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\cauba\\.nuget\\packages\\microsoft.io.recyclablememorystream\\3.0.0\\microsoft.io.recyclablememorystream.3.0.0.nupkg.sha512",
-    "C:\\Users\\cauba\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23211.1\\microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",
-    "C:\\Users\\cauba\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23211.1\\microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
     "C:\\Users\\cauba\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\cauba\\.nuget\\packages\\mimekit\\4.4.0\\mimekit.4.4.0.nupkg.sha512",
     "C:\\Users\\cauba\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",

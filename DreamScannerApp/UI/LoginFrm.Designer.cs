@@ -37,9 +37,9 @@ namespace DreamScannerApp
             label4 = new Label();
             btnSignUp = new KryptonButton();
             btnLogin = new KryptonButton();
-            kryptonTextBox2 = new KryptonTextBox();
+            tbPassword = new KryptonTextBox();
             label3 = new Label();
-            kryptonTextBox1 = new KryptonTextBox();
+            tbUserName = new KryptonTextBox();
             label2 = new Label();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).BeginInit();
@@ -121,9 +121,9 @@ namespace DreamScannerApp
             panel1.Controls.Add(label4);
             panel1.Controls.Add(btnSignUp);
             panel1.Controls.Add(btnLogin);
-            panel1.Controls.Add(kryptonTextBox2);
+            panel1.Controls.Add(tbPassword);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(kryptonTextBox1);
+            panel1.Controls.Add(tbUserName);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
@@ -239,23 +239,24 @@ namespace DreamScannerApp
             btnLogin.StatePressed.Content.ShortText.Font = new Font("Archivo", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogin.TabIndex = 5;
             btnLogin.Values.Text = "Login";
+            btnLogin.Click += btnLogin_Click;
             // 
-            // kryptonTextBox2
+            // tbPassword
             // 
-            kryptonTextBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            kryptonTextBox2.Location = new Point(32, 273);
-            kryptonTextBox2.Name = "kryptonTextBox2";
-            kryptonTextBox2.PasswordChar = '●';
-            kryptonTextBox2.Size = new Size(369, 38);
-            kryptonTextBox2.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
-            kryptonTextBox2.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
-            kryptonTextBox2.StateCommon.Border.ColorAngle = 45F;
-            kryptonTextBox2.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
-            kryptonTextBox2.StateCommon.Border.Rounding = 18F;
-            kryptonTextBox2.StateCommon.Border.Width = 2;
-            kryptonTextBox2.StateCommon.Content.Font = new Font("Archivo", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            kryptonTextBox2.TabIndex = 4;
-            kryptonTextBox2.UseSystemPasswordChar = true;
+            tbPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            tbPassword.Location = new Point(32, 273);
+            tbPassword.Name = "tbPassword";
+            tbPassword.PasswordChar = '●';
+            tbPassword.Size = new Size(369, 38);
+            tbPassword.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
+            tbPassword.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
+            tbPassword.StateCommon.Border.ColorAngle = 45F;
+            tbPassword.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            tbPassword.StateCommon.Border.Rounding = 18F;
+            tbPassword.StateCommon.Border.Width = 2;
+            tbPassword.StateCommon.Content.Font = new Font("Archivo", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            tbPassword.TabIndex = 4;
+            tbPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -270,20 +271,20 @@ namespace DreamScannerApp
             label3.Text = "Password";
             label3.TextAlign = ContentAlignment.TopCenter;
             // 
-            // kryptonTextBox1
+            // tbUserName
             // 
-            kryptonTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            kryptonTextBox1.Location = new Point(32, 195);
-            kryptonTextBox1.Name = "kryptonTextBox1";
-            kryptonTextBox1.Size = new Size(369, 38);
-            kryptonTextBox1.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
-            kryptonTextBox1.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
-            kryptonTextBox1.StateCommon.Border.ColorAngle = 45F;
-            kryptonTextBox1.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
-            kryptonTextBox1.StateCommon.Border.Rounding = 18F;
-            kryptonTextBox1.StateCommon.Border.Width = 2;
-            kryptonTextBox1.StateCommon.Content.Font = new Font("Archivo", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            kryptonTextBox1.TabIndex = 2;
+            tbUserName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            tbUserName.Location = new Point(32, 195);
+            tbUserName.Name = "tbUserName";
+            tbUserName.Size = new Size(369, 38);
+            tbUserName.StateCommon.Border.Color1 = Color.FromArgb(0, 0, 64);
+            tbUserName.StateCommon.Border.Color2 = Color.FromArgb(0, 0, 64);
+            tbUserName.StateCommon.Border.ColorAngle = 45F;
+            tbUserName.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            tbUserName.StateCommon.Border.Rounding = 18F;
+            tbUserName.StateCommon.Border.Width = 2;
+            tbUserName.StateCommon.Content.Font = new Font("Archivo", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            tbUserName.TabIndex = 2;
             // 
             // label2
             // 
@@ -340,9 +341,9 @@ namespace DreamScannerApp
         private Panel panel1;
         private Label label1;
         private KryptonButton btnLogin;
-        private KryptonTextBox kryptonTextBox2;
+        private KryptonTextBox tbPassword;
         private Label label3;
-        private KryptonTextBox kryptonTextBox1;
+        private KryptonTextBox tbUserName;
         private Label label2;
         private KryptonButton btnSignUp;
         private Label label4;

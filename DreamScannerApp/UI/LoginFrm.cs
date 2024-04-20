@@ -12,8 +12,10 @@ namespace DreamScannerApp
     public partial class LoginFrm
     {
         private Services.Verification _verification;
+        private readonly IStudentService studentService;
         public LoginFrm()
         {
+            studentService = Program.ServiceProvider.GetRequiredService<Services.StudentService>();
             _verification = new Services.Verification();
             InitializeComponent();
         }
@@ -21,7 +23,8 @@ namespace DreamScannerApp
         private void LoginFrm_Load(object sender, EventArgs e)
         {
             _verification.StartCapture();
-            _verification.adminCallback += (verified) => {
+            _verification.adminCallback += (verified) =>
+            {
                 AdminVerification(verified);
             };
         }
@@ -30,10 +33,10 @@ namespace DreamScannerApp
         {
             if (isVerified)
             {
-                _verification.StopCapture();
                 MainDashboardFrm main = new MainDashboardFrm();
                 main.ShowDialog();
-                this.Close();
+                this.Hide();
+                _verification.StopCapture();
             }
             else
             {
@@ -44,8 +47,27 @@ namespace DreamScannerApp
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            _verification.StopCapture();
             RegistrationFrm reg = new RegistrationFrm();
             reg.ShowDialog();
+        }
+
+        private async void btnLogin_Click(object sender, EventArgs e)
+        {
+            var username = tbUserName.Text;
+            var password = tbPassword.Text;
+            var verified = await studentService.AdminLogIn(username, password);
+            if (verified)
+            {
+                MainDashboardFrm main = new MainDashboardFrm();
+                main.ShowDialog();
+                this.Hide();
+                _verification.StopCapture();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Credentials!"); return;
+            }
         }
     }
 }

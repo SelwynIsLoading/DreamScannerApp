@@ -20,6 +20,7 @@ namespace DreamScannerApp.Interfaces
         List<StudentsDTO.StudentDetails> FilterStudents(string search);
         List<StudentsDTO.StudentDetails> GetStudentsByStudentNumber(string studentNumber);
         public Task<SaveResults> AddAdminAsync(AdminEntity admin);
+        public Task<bool> AdminLogIn(string UserName, string Password);
         //List<StudentsDTO.StudentLog> GetStudentLogs();
     }
 }

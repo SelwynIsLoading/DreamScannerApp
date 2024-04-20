@@ -5,20 +5,22 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamScannerApp", "DreamScannerApp\DreamScannerApp.csproj", "{26EA21E3-856E-466B-BB58-33EF19BF5B66}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DreamScanner Installer", "DreamScanner Installer\DreamScanner Installer.vdproj", "{C0C23A75-8F49-4990-AFA1-1A64F9D6791C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		DefaultBuild|Any CPU = DefaultBuild|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26EA21E3-856E-466B-BB58-33EF19BF5B66}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{26EA21E3-856E-466B-BB58-33EF19BF5B66}.All|Any CPU.Build.0 = Release|Any CPU
 		{26EA21E3-856E-466B-BB58-33EF19BF5B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{26EA21E3-856E-466B-BB58-33EF19BF5B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26EA21E3-856E-466B-BB58-33EF19BF5B66}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{26EA21E3-856E-466B-BB58-33EF19BF5B66}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
 		{26EA21E3-856E-466B-BB58-33EF19BF5B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26EA21E3-856E-466B-BB58-33EF19BF5B66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C0C23A75-8F49-4990-AFA1-1A64F9D6791C}.Debug|Any CPU.ActiveCfg = Debug
-		{C0C23A75-8F49-4990-AFA1-1A64F9D6791C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

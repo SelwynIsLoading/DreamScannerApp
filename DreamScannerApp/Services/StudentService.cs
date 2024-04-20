@@ -30,7 +30,14 @@ namespace DreamScannerApp.Services
                 {
                     return new SaveResults { IsSaved = false, Message = "Please Fillup all the fields!" };
                 }
-                await _context.Admins.AddAsync(admin);
+                _context.Admins.Add(new AdminEntity
+                {
+                    FirstName = admin.FirstName,
+                    LastName = admin.LastName,
+                    UserName = admin.UserName,
+                    Password = admin.Password,
+                    FingerprintData = admin.FingerprintData
+                });
                 return new SaveResults { IsSaved = await _context.SaveChangesAsync() > 0, Message = "Saved." };
             }
             catch (Exception ex)
@@ -68,6 +75,26 @@ namespace DreamScannerApp.Services
             {
                 Console.WriteLine("ERROR!!!!!!" + ex.Message);
                 return false;
+            }
+        }
+
+        public async Task<bool> AdminLogIn(string UserName, string Password)
+        {
+            try
+            {
+                var user = await _context.Admins.Where(w => w.UserName == UserName && w.Password == Password).FirstOrDefaultAsync();
+                if (user != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 

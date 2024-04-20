@@ -13,7 +13,6 @@ namespace DreamScannerApp.Services
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
         }
 
 
