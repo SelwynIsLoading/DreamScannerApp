@@ -31,10 +31,10 @@ namespace DreamScannerApp
 
         private void AdminVerification(bool isVerified)
         {
+            _verification.StopCapture();
             if (isVerified)
             {
                 MainDashboardFrm main = new MainDashboardFrm();
-                _verification.StopCapture();
                 main.Show();
                 this.Close();
             }
@@ -59,10 +59,7 @@ namespace DreamScannerApp
             var verified = await studentService.AdminLogIn(username, password);
             if (verified)
             {
-                MainDashboardFrm main = new MainDashboardFrm();
-                main.ShowDialog();
-                this.Hide();
-                _verification.StopCapture();
+                AdminVerification(true);
             }
             else
             {
