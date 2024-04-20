@@ -22,17 +22,37 @@ namespace DreamScannerApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Build the host
             var host = CreateHostBuilder().Build();
-
-            // Resolve the service provider from the host
             ServiceProvider = host.Services;
 
             // Initialize application configuration
             ApplicationConfiguration.Initialize();
 
+            // Configure services
+            var serviceProvider = new ServiceCollection()
+                .AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite("Data Source=school.db"))
+                .BuildServiceProvider();
+
+
+            // Apply pending migrations
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                try
+                {
+                    dbContext.Database.Migrate();
+                    Console.WriteLine("Migrations applied successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred while applying migrations: " + ex.Message);
+                }
+            }
+
             // Run the main form
             Application.Run(new LoginFrm());
+            //Application.Run(new LoginFrm());
         }
 
         public static IServiceProvider ServiceProvider { get; set; }

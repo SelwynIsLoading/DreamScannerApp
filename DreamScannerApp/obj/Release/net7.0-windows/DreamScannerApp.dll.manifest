@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="DreamScannerApp.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="DreamScannerApp.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Launcher" version="8.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -116,13 +116,13 @@
       <dsig:DigestValue>j9IK9xLmU5ldLpTpSVasZPjLBbKEwPayj+yrVdxbWpQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="DreamScannerApp.dll" size="7813120">
+  <file name="DreamScannerApp.dll" size="7813632">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>JWnRpYjvtCEJvgh0i6RUfVgf8hSrLOdGZy+NYY0lHxs=</dsig:DigestValue>
+      <dsig:DigestValue>EcyfAiO3J5tR6tOO3m43q+J+GblYPKZ+WFc5Nc4LtAE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DreamScannerApp.dll.config" size="1695">
@@ -140,7 +140,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>iCLts9Hu97EAWL/+3VhluWMhw/rIuooZku69g5pdkds=</dsig:DigestValue>
+      <dsig:DigestValue>xDkXcTzfK12WyFMOi/UWiKRZ9BDFbOpiK/Oidn5L3iE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DreamScannerApp.runtimeconfig.json" size="527">
