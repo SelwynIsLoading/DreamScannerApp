@@ -77,12 +77,13 @@ namespace DreamScannerApp.Services
                 {
                     if (t.Fingerprint != null)
                     {
+                        Stream stream = new MemoryStream(t.Fingerprint);
+                        DPFP.Template template = new DPFP.Template(stream);
+                        DPFP.Verification.Verification verificator = new DPFP.Verification.Verification();
                         DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
-                        DPFP.Verification.Verification verify = new DPFP.Verification.Verification();
-                        DPFP.Template template = new DPFP.Template();
-                        MemoryStream ms = new MemoryStream(t.Fingerprint);
-                        template.DeSerialize(ms);
-                        verify.Verify(featureSet, template, ref result);
+
+                        verificator.Verify(featureSet, template, ref result);
+
                         if (result.Verified)
                         {
                             return new TeachersDTO
