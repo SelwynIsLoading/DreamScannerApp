@@ -34,9 +34,9 @@ namespace DreamScannerApp
             if (isVerified)
             {
                 MainDashboardFrm main = new MainDashboardFrm();
-                main.ShowDialog();
-                this.Hide();
                 _verification.StopCapture();
+                main.Show();
+                this.Close();
             }
             else
             {
