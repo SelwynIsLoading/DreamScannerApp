@@ -30,6 +30,10 @@ namespace DreamScannerApp.UserControls
         {
             fingerEnrollment.OnTemplate += (template) =>
             {
+                if(template != null)
+                {
+                    ((FingerprintAdd)this.ParentForm!).GetTemplate(template);
+                }
                 ((FingerprintAdd)this.ParentForm!).GetTemplate(template);
             };
             fingerEnrollment.StartCapture();

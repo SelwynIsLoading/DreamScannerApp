@@ -22,21 +22,21 @@ namespace DreamScannerApp
 
         private void LoginFrm_Load(object sender, EventArgs e)
         {
-            _verification.StartCapture();
             _verification.adminCallback += (verified) =>
             {
                 AdminVerification(verified);
             };
+            _verification.StartCapture();
         }
 
         private void AdminVerification(bool isVerified)
         {
-            _verification.StopCapture();
             if (isVerified)
             {
+                _verification.StopCapture();
                 MainDashboardFrm main = new MainDashboardFrm();
                 main.Show();
-                this.Close();
+                this.Hide();
             }
             else
             {
