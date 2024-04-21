@@ -59,7 +59,7 @@ namespace DreamScannerApp.Services
                 var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
                 var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
 
-                if (students != null)
+                if (students != null && students.Count > 0)
                 {
                     GenerateStudentData(students);
                     await _arduinoService.DoorOpenAsync();
@@ -74,7 +74,7 @@ namespace DreamScannerApp.Services
                     await ProcessStudents(students);
                     return;
                 }
-                if (teachers != null)
+                if (teachers != null && teachers.Count > 0)
                 {
                     GenerateTeacherData(teachers);
                     await _arduinoService.DoorOpenAsync();
