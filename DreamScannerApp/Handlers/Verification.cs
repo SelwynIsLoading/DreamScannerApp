@@ -47,7 +47,6 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                base.Process(Sample);
                 DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
 
                 if (features == null) return;
@@ -98,6 +97,7 @@ namespace DreamScannerApp.Services
             {
                 MessageBox.Show($"Failed to process: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            base.Process(Sample);
         }
 
 
