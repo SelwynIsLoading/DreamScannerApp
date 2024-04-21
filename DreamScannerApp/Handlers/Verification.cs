@@ -52,9 +52,9 @@ namespace DreamScannerApp.Services
 
                 if (features == null) return;
 
-                var admin = await _studentService.VerifyAdmin(features);
-                var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
                 var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
+                var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
+                var admin = await _studentService.VerifyAdmin(features);
                 var isHold = Properties.Settings.Default.IsHold;                
 
                 if (students != null)
