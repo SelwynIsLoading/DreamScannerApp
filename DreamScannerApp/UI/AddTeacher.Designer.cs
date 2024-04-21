@@ -701,6 +701,7 @@
             PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             ShowIcon = false;
             Text = "Add Teacher";
+            Load += AddTeacher_Load;
             ((System.ComponentModel.ISupportInitialize)cbGender).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbRoom).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbSection).EndInit();

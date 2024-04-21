@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using DreamScannerApp.UserControls.StudentsUserControls;
+using DreamScannerApp.Helpers;
+using System.Collections.Specialized;
+using System.Web;
 
 namespace DreamScannerApp
 {
@@ -26,32 +29,11 @@ namespace DreamScannerApp
 
             // Initialize application configuration
             ApplicationConfiguration.Initialize();
-
-            // Configure services
-            var serviceProvider = new ServiceCollection()
-                .AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite("Data Source=school.db"))
-                .BuildServiceProvider();
-
-
-            // Apply pending migrations
-            using (var scope = serviceProvider.CreateScope())
-            {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                try
-                {
-                    dbContext.Database.Migrate();
-                    Console.WriteLine("Migrations applied successfully.");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("An error occurred while applying migrations: " + ex.Message);
-                }
-            }
-
             // Run the main form
             Application.Run(new LoginFrm());
-            //Application.Run(new LoginFrm());
+
+            // Trigger database backup
+            PerformDatabaseBackup();
         }
 
         public static IServiceProvider ServiceProvider { get; set; }
@@ -74,6 +56,74 @@ namespace DreamScannerApp
                     services.AddTransient<IArduinoService, ArduinoService>();
                 });
         }
+
+        public static void PerformDatabaseBackup()
+        {
+            try
+            {
+                // Build the DbContextOptions using the SQLite connection string
+                var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+                optionsBuilder.UseSqlite("Data Source=school.db");
+
+                // Create an instance of your DbContext using the options
+                using (var dbContext = new ApplicationDbContext(optionsBuilder.Options))
+                {
+                    // Get the directory of the database file
+                    var databaseFilePath = dbContext.Database.GetDbConnection().DataSource;
+                    var databaseDirectory = Path.GetDirectoryName(databaseFilePath);
+
+                    // Determine the backup folder path
+                    var backupFolderPath = Path.Combine(databaseDirectory, "Backups");
+
+                    // Create the backup folder if it doesn't exist
+                    Directory.CreateDirectory(backupFolderPath);
+
+                    // Call the BackupDatabase method
+                    DatabaseBackupHelper.BackupDatabase(dbContext, backupFolderPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error performing database backup: {ex.Message}");
+            }
+        }
+
+        public static void RestoreDatabase()
+        {
+            try
+            {
+                // Prompt user to select the backup file
+                var openFileDialog = new OpenFileDialog
+                {
+                    Filter = "Database Files (*.db)|*.db|All Files (*.*)|*.*",
+                    Title = "Select Database Backup File"
+                };
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Get the selected file path
+                    string backupFilePath = openFileDialog.FileName;
+                    var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+                    optionsBuilder.UseSqlite("Data Source=school.db");
+
+                    // Create an instance of your DbContext using the options
+                    using (var dbContext = new ApplicationDbContext(optionsBuilder.Options))
+                    {
+                        var databaseFilePath = dbContext.Database.GetDbConnection().DataSource;
+                        var databaseDirectory = Path.GetDirectoryName(databaseFilePath);
+
+                        // Restore database from backup file
+                        DatabaseBackupHelper.RestoreDatabaseFromBackup(backupFilePath, databaseDirectory);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error restoring database from backup: {ex.Message}");
+            }
+        }
+
+
 
 
     }

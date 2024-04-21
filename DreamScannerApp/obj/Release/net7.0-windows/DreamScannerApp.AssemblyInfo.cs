@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DreamScannerApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+712d20499647e278c38bfa42ee38049372323e2a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+deadb1c755964f7bab99264a40c04f1c47044ba8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DreamScannerApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DreamScannerApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

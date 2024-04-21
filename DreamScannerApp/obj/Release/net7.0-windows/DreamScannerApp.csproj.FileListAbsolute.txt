@@ -1,5 +1,5 @@
-C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\DreamScannerApp.exe
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\school.db
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\DreamScannerApp.exe
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\DreamScannerApp.dll.config
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\DreamScannerApp.deps.json
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\DreamScannerApp.runtimeconfig.json

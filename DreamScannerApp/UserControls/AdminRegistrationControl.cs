@@ -33,12 +33,12 @@ namespace DreamScannerApp.UserControls
                 case "Enroll Fingerprint":
                     btnEnrollFingerprint.Text = "Enroll";
                     if (!validate()) { return; }
-                    FingerprintAdd finger = new FingerprintAdd();
-                    finger.OnTemplate += (template) =>
-                    {
-                        _result.fingerprintTemplate = template.Bytes;
-                    };
-                    finger.ShowDialog();
+                    //FingerprintAdd finger = new FingerprintAdd();
+                    //finger.OnTemplate += (template) =>
+                    //{
+                    //    _result.fingerprintTemplate = template.Bytes;
+                    //};
+                    //finger.ShowDialog();
                     break;
                 case "Enroll":
                     btnEnrollFingerprint.Text = "Enroll Fingerprint";
@@ -50,11 +50,11 @@ namespace DreamScannerApp.UserControls
                         Password = tbPassword.Text,
                         FingerprintData = _result.fingerprintTemplate
                     };
-                    if (admin.FingerprintData == null)
-                    {
-                        MessageBox.Show("Please enroll fingerprint first!", "DreamScanner Enroll", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    //if (admin.FingerprintData == null)
+                    //{
+                    //    MessageBox.Show("Please enroll fingerprint first!", "DreamScanner Enroll", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //    return;
+                    //}
                     var result = await studentService.AddAdminAsync(admin);
                     if (result.IsSaved)
                     {

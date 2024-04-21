@@ -22,15 +22,18 @@ namespace DreamScannerApp.UI
     public partial class AddTeacher : KryptonForm
     {
         private readonly ITeacherService _teacherService;
-        private FingerEnrollment Enroller;
+        private FingerEnrollment Enroller = new FingerEnrollment();
         private byte[]? fingerprintData;
         List<TeachersDTO> teachers { get; set; } = new List<TeachersDTO>();
-        public AddTeacher(FingerEnrollment fingerEnrollment)
+        public AddTeacher()
         {
             _teacherService = Program.ServiceProvider.GetRequiredService<ITeacherService>();
-            InitializeComponent();
-            Enroller = new FingerEnrollment();
-            Enroller.OnTemplate += (template) => {
+            InitializeComponent();            
+        }
+        private void AddTeacher_Load(object sender, EventArgs e)
+        {
+            Enroller.OnTemplate += (template) =>
+            {
                 fingerprintData = template.Bytes;
             };
             Enroller.reportCallback += OnReportCallback;
@@ -59,7 +62,7 @@ namespace DreamScannerApp.UI
 
         private void btnEnroll_Click(object sender, EventArgs e)
         {
-            switch(btnEnroll.Text)
+            switch (btnEnroll.Text)
             {
                 case "Enroll Fingerprint >":
                     pbImage.Image = Resources.fingerprintGif;
@@ -101,7 +104,7 @@ namespace DreamScannerApp.UI
                     TimeFrom = tFrom.Value.TimeOfDay,
                     TimeTo = tTo.Value.TimeOfDay
                 });
-                if(fingerprintData == null)
+                if (fingerprintData == null)
                 {
                     MessageBox.Show("Please enroll fingerprint", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -110,9 +113,9 @@ namespace DreamScannerApp.UI
                 MessageBox.Show("Teacher enrolled successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFields();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);   
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -130,5 +133,6 @@ namespace DreamScannerApp.UI
             tFrom.Value = DateTime.Now;
             tTo.Value = DateTime.Now;
         }
+
     }
 }
