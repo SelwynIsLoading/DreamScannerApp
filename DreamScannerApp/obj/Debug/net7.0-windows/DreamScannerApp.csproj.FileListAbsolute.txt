@@ -108,6 +108,7 @@ C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\ne
 C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamSca.7F97E2CA.Up2Date
 C:\Users\admin\Documents\intern-sel\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.UI.EditStudentFrm.resources
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DreamScannerApp.exe
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\App.config
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\school.db
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DreamScannerApp.dll.config
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\DreamScannerApp.deps.json
@@ -249,4 +250,3 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-window
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.pdb
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\DreamScannerApp.genruntimeconfig.cache
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Debug\net7.0-windows\ref\DreamScannerApp.dll
-C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Debug\net7.0-windows\App.config

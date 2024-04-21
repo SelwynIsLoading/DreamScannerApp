@@ -14,13 +14,7 @@ namespace DreamScannerApp.UserControls
         public VerifyControl()
         {
             InitializeComponent();
-            _verificator = new Services.Verification();
-            _verificator.studentDataCallback += OnStudentDataReceived;
-            _verificator.teacherDataCallback += OnTeacherDataReceived;
-            _verificator.reportCallback += OnStatusRecieved;
-            _verificator.stateCallback += OnStateRecieved;
-            _verificator.invalidCallback += OnInvalidRecieved;
-            Disposed += VerifyControl_Disposed;
+            
         }
 
         private void OnTeacherDataReceived(List<TeachersDTO> teachers)
@@ -137,8 +131,9 @@ namespace DreamScannerApp.UserControls
             _verificator.reportCallback += OnStatusRecieved;
             _verificator.stateCallback += OnStateRecieved;
             _verificator.invalidCallback += OnInvalidRecieved;
-            _verificator.StartCapture();
+            Disposed += VerifyControl_Disposed;
             chkHold.Checked = Properties.Settings.Default.IsHold;
+            _verificator.StartCapture();
         }
 
         private void VerifyControl_VisibleChanged(object sender, EventArgs e)

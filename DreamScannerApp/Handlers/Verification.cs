@@ -56,25 +56,8 @@ namespace DreamScannerApp.Services
 
                 var isHold = Properties.Settings.Default.IsHold;
 
-                var tasks = new List<Task>();
-
-                var teachersTask = _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
-                var studentsTask = _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
-                //var adminTask = _studentService.VerifyAdmin(features);
-                if(teachersTask == null)
-                {
-                    MessageBox.Show("Failed to verify teacher fingerprint", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                tasks.Add(teachersTask);
-                tasks.Add(studentsTask);
-                //tasks.Add(adminTask);
-
-                await Task.WhenAll(tasks);
-
-                var teachers = await teachersTask;
-                var students = await studentsTask;
-                //var admin = await adminTask;
+                var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
+                var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
 
                 if (students != null)
                 {
@@ -103,15 +86,8 @@ namespace DreamScannerApp.Services
                     return;
                 }
 
-                //if (admin.IsSaved)
-                //{
-                //    adminCallback?.Invoke(true);
-                //    return;
-                //}
-
                 InvalidAttemptsCount();
                 GenerateInvalid();
-                adminCallback?.Invoke(false);
                 await _arduinoService.InvalidAsync();
             }
             catch (Exception ex)

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="DreamScannerApp.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+	<connectionStrings>
+		<add name="ApplicationDbContext" connectionString="Data Source=school.db" providerName="Microsoft.EntityFrameworkCore.Sqlite" />
+	</connectionStrings>
+	<userSettings>
+        <DreamScannerApp.Properties.Settings>
+            <setting name="IsHold" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="breakMinutes" serializeAs="String">
+                <value>00:00:00</value>
+            </setting>
+            <setting name="lunchMinutes" serializeAs="String">
+                <value>00:00:00</value>
+            </setting>
+            <setting name="recessMinutes" serializeAs="String">
+                <value>00:00:00</value>
+            </setting>
+            <setting name="SerialPort" serializeAs="String">
+                <value>COM5</value>
+            </setting>
+            <setting name="BaudRate" serializeAs="String">
+                <value>9600</value>
+            </setting>
+            <setting name="InvalidTries" serializeAs="String">
+                <value>0</value>
+            </setting>
+            <setting name="RoomPlaced" serializeAs="String">
+                <value />
+            </setting>
+        </DreamScannerApp.Properties.Settings>
+    </userSettings>
+</configuration>
