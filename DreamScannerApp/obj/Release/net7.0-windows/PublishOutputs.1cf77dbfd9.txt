@@ -1,3 +1,4 @@
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\app.publish\App.config
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\app.publish\school.db
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\app.publish\DreamScannerApp.exe
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\app.publish\DreamScannerApp.dll

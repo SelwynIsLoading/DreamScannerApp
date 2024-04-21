@@ -140,6 +140,7 @@ C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-wind
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\DreamScannerApp.pdb
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\DreamScannerApp.genruntimeconfig.cache
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\ref\DreamScannerApp.dll
+C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\App.config
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\DreamScannerApp.dll.manifest
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\bin\Release\net7.0-windows\DreamScannerApp.application
 C:\Users\cauba\Documents\DreamScannerApp\DreamScannerApp\obj\Release\net7.0-windows\DreamScannerApp.genpublishdeps.cache
