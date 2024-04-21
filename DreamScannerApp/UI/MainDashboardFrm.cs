@@ -73,7 +73,9 @@ namespace DreamScannerApp.UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            LoginFrm login = new LoginFrm();
+            login.Show();
         }
 
         private void addUserControl(UserControl userControl)
