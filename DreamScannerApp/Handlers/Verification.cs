@@ -62,7 +62,9 @@ namespace DreamScannerApp.Services
                 if (students != null)
                 {
                     GenerateStudentData(students);
-                    OpenDoor();
+                    await _arduinoService.DoorOpenAsync();
+                    await Task.Delay(1);
+                    await _arduinoService.DoorCloseAsync();
                     InvalidAttempts = 0;
                     if (isHold)
                     {
@@ -72,10 +74,12 @@ namespace DreamScannerApp.Services
                     await ProcessStudents(students);
                     return;
                 }
-                else if (teachers != null)
+                if (teachers != null)
                 {
                     GenerateTeacherData(teachers);
-                    OpenDoor();
+                    await _arduinoService.DoorOpenAsync();
+                    await Task.Delay(1);
+                    await _arduinoService.DoorCloseAsync();
                     InvalidAttempts = 0;
                     if (isHold)
                     {
@@ -234,12 +238,6 @@ namespace DreamScannerApp.Services
             }
         }
 
-        private async void OpenDoor()
-        {
-            await _arduinoService.DoorOpenAsync();
-            await Task.Delay(1);
-            await _arduinoService.DoorCloseAsync();
-        }
 
     }
 }
