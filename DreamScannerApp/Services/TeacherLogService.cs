@@ -72,7 +72,7 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                var TeacherList = new List<TeachersDTO>();
+                List<TeachersDTO> TeacherList = new List<TeachersDTO>();
                 var teachers = await _context.Teachers
                     .Where(t => t.Fingerprint != null)
                     .ToListAsync();
