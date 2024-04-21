@@ -58,6 +58,10 @@ namespace DreamScannerApp.Services
                 var teachersTask = _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
                 var studentsTask = _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
                 var adminTask = _studentService.VerifyAdmin(features);
+                if(teachersTask == null)
+                {
+                    MessageBox.Show("Failed to verify teacher fingerprint", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 tasks.Add(teachersTask);
                 tasks.Add(studentsTask);
@@ -80,6 +84,7 @@ namespace DreamScannerApp.Services
                         return;
                     }
                     await ProcessStudents(students);
+                    return;
                 }
                 else if (teachers != null)
                 {
@@ -92,11 +97,13 @@ namespace DreamScannerApp.Services
                         return;
                     }
                     await ProcessTeachers(teachers);
+                    return;
                 }
 
                 if (admin.IsSaved)
                 {
                     adminCallback?.Invoke(true);
+                    return;
                 }
 
                 InvalidAttemptsCount();
