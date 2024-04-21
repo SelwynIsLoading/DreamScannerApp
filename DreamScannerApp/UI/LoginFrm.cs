@@ -22,10 +22,7 @@ namespace DreamScannerApp
 
         private void LoginFrm_Load(object sender, EventArgs e)
         {
-            _verification.adminCallback += (verified) =>
-            {
-                AdminVerification(verified);
-            };
+            _verification.adminCallback += AdminVerification;
             _verification.StartCapture();
         }
 

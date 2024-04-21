@@ -55,16 +55,7 @@ namespace DreamScannerApp.Services
                 var admin = await _studentService.VerifyAdmin(features);
                 var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
                 var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
-                var isHold = Properties.Settings.Default.IsHold;
-
-                if (admin.IsSaved)
-                {
-                    adminCallback?.Invoke(true);
-                }
-                else
-                {
-                    adminCallback?.Invoke(false);
-                }
+                var isHold = Properties.Settings.Default.IsHold;                
 
                 if (students != null)
                 {
@@ -90,10 +81,15 @@ namespace DreamScannerApp.Services
                     }
                     await ProcessTeachers(teachers);
                 }
+                else if (admin.IsSaved)
+                {
+                    adminCallback?.Invoke(true);
+                }
                 else
                 {
                     InvalidAttemptsCount();
                     GenerateInvalid();
+                    adminCallback?.Invoke(false);
                     await _arduinoService.InvalidAsync();
                 }
             }
