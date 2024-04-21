@@ -68,8 +68,9 @@ namespace DreamScannerApp.Services
                         return;
                     }
                     await ProcessStudents(students);
+                    return;
                 }
-                else if (teachers != null)
+                if (teachers != null)
                 {
                     GenerateTeacherData(teachers);
                     OpenDoor();
@@ -80,18 +81,18 @@ namespace DreamScannerApp.Services
                         return;
                     }
                     await ProcessTeachers(teachers);
+                    return;
                 }
-                else if (admin.IsSaved)
+                if (admin.IsSaved)
                 {
                     adminCallback?.Invoke(true);
+                    return;
                 }
-                else
-                {
-                    InvalidAttemptsCount();
-                    GenerateInvalid();
-                    adminCallback?.Invoke(false);
-                    await _arduinoService.InvalidAsync();
-                }
+
+                InvalidAttemptsCount();
+                GenerateInvalid();
+                adminCallback?.Invoke(false);
+                await _arduinoService.InvalidAsync();
             }
             catch (Exception ex)
             {
