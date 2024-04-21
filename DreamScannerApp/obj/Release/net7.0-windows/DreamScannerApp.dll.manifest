@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="DreamScannerApp.exe" version="1.0.0.35" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="DreamScannerApp.exe" version="1.0.0.36" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="logo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Launcher" version="8.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -116,13 +117,13 @@
       <dsig:DigestValue>j9IK9xLmU5ldLpTpSVasZPjLBbKEwPayj+yrVdxbWpQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="DreamScannerApp.dll" size="7825408">
+  <file name="DreamScannerApp.dll" size="8030720">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>P9tq2B/IkH5Vf/kTmtrIibzNnTh3nf7Q1jur1Dc4v8I=</dsig:DigestValue>
+      <dsig:DigestValue>ngKVwpC5NO2GlO+NGGq6DN1Kss3X9tbJaBfdCsAa52A=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DreamScannerApp.dll.config" size="1869">
@@ -134,13 +135,13 @@
       <dsig:DigestValue>7ISFEGpmGe6bm7hiWwP91NRedFHdDN8DXHresG5XTrw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="DreamScannerApp.exe" size="157696">
+  <file name="DreamScannerApp.exe" size="363008">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>qjg8hPjttML1hetY9nuWLko3p17pjs2Io2OPKczM7TU=</dsig:DigestValue>
+      <dsig:DigestValue>aePLdMIXwrwzK4zedJJsJBuuakoY4/MBtlh218pfT/Y=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DreamScannerApp.runtimeconfig.json" size="527">
@@ -186,6 +187,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>u1mFl5Zk1GOYr04sB7CAOTiWU+AF7gQ3/2MNdczEXX8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="logo.ico" size="204830">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>m04sZWIC6wn/Z/Ar+U8inc63roIAzO53KbGB+f1ZXOw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="MailKit.dll" size="932864">
