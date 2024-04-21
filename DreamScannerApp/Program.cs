@@ -13,6 +13,7 @@ using DreamScannerApp.UserControls.StudentsUserControls;
 using DreamScannerApp.Helpers;
 using System.Collections.Specialized;
 using System.Web;
+using System.Reflection;
 
 namespace DreamScannerApp
 {
@@ -27,13 +28,47 @@ namespace DreamScannerApp
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            // Initialize application configuration
             ApplicationConfiguration.Initialize();
-            // Run the main form
-            Application.Run(new LoginFrm());
 
-            // Trigger database backup
+            // Get the stored version number from file or database
+            var storedVersion = GetStoredVersion();
+
+            // Get the current version number of the application
+            var currentVersion = GetApplicationVersion();
+
+            // Compare stored version with current version
+            if (storedVersion != currentVersion)
+            {
+                // Application has been updated, trigger database restore
+                RestoreDatabase();
+
+                // Update the stored version number with the current version
+                StoreVersion(currentVersion);
+            }
+
+            // Configure services
+            var serviceProvider = new ServiceCollection()
+                .AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite("Data Source=school.db"))
+                .BuildServiceProvider();
+
+
+            // Apply pending migrations
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                try
+                {
+                    dbContext.Database.Migrate();
+                    Console.WriteLine("Migrations applied successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred while applying migrations: " + ex.Message);
+                }
+            }
             PerformDatabaseBackup();
+            Application.Run(new LoginFrm());
         }
 
         public static IServiceProvider ServiceProvider { get; set; }
@@ -120,6 +155,41 @@ namespace DreamScannerApp
             catch (Exception ex)
             {
                 Console.WriteLine($"Error restoring database from backup: {ex.Message}");
+            }
+        }
+
+        public static string GetStoredVersion()
+        {
+            // Retrieve the stored version number from file or database
+            // For example, you can read it from a file
+            try
+            {
+                return File.ReadAllText("version.txt");
+            }
+            catch (Exception)
+            {
+                return null; // Handle the case where the version file does not exist or cannot be read
+            }
+        }
+
+        public static string? GetApplicationVersion()
+        {
+            // Retrieve the current version number of the application
+            return Assembly.GetEntryAssembly()?.GetName().Version?.ToString();
+        }
+
+        public static void StoreVersion(string version)
+        {
+            // Update the stored version number with the current version
+            // For example, you can write it to a file
+            try
+            {
+                File.WriteAllText("version.txt", version);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error storing version: {ex.Message}");
+                // Handle the error appropriately, such as logging it or displaying it to the user
             }
         }
 
