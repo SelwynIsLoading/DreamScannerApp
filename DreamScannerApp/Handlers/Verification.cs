@@ -45,60 +45,64 @@ namespace DreamScannerApp.Services
         }
         protected override async void Process(DPFP.Sample Sample)
         {
-            base.Process(Sample);
-            DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
-
-            if (features == null) return;
-
-            var admin = await _studentService.VerifyAdmin(features);
-            var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
-            var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
-            var isHold = Properties.Settings.Default.IsHold;
-
-            if (admin.IsSaved)
+            try
             {
-                adminCallback?.Invoke(true);
-            }
-            else
-            {
-                adminCallback?.Invoke(false);
-            }
-            if (students != null)
-            {
-                GenerateStudentData(students);
-                await _arduinoService.DoorOpenAsync();
-                await Task.Delay(1);
-                await _arduinoService.DoorCloseAsync();
-                InvalidAttempts = 0;
-                if (isHold)
+                base.Process(Sample);
+                DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
+
+                if (features == null) return;
+
+                var admin = await _studentService.VerifyAdmin(features);
+                var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
+                var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
+                var isHold = Properties.Settings.Default.IsHold;
+
+                if (admin.IsSaved)
                 {
-                    GenerateState("Logging is disabled");
-                    return;
+                    adminCallback?.Invoke(true);
                 }
-                await ProcessStudents(students);
-                return;
-            }
-
-            if (teachers != null)
-            {
-                await _arduinoService.DoorOpenAsync();
-                await Task.Delay(1);
-                await _arduinoService.DoorCloseAsync();
-                GenerateTeacherData(teachers);
-                InvalidAttempts = 0;
-                if (isHold)
+                else
                 {
-                    GenerateState("Logging is disabled");
-                    return;
+                    adminCallback?.Invoke(false);
                 }
-                await ProcessTeachers(teachers);  
-                return;
-            }
 
-            InvalidAttemptsCount();
-            GenerateInvalid();
-            await _arduinoService.InvalidAsync();
+                if (students != null)
+                {
+                    GenerateStudentData(students);
+                    OpenDoor();
+                    InvalidAttempts = 0;
+                    if (isHold)
+                    {
+                        GenerateState("Logging is disabled");
+                        return;
+                    }
+                    await ProcessStudents(students);
+                }
+                else if (teachers != null)
+                {
+                    GenerateTeacherData(teachers);
+                    OpenDoor();
+                    InvalidAttempts = 0;
+                    if (isHold)
+                    {
+                        GenerateState("Logging is disabled");
+                        return;
+                    }
+                    await ProcessTeachers(teachers);
+                }
+                else
+                {
+                    InvalidAttemptsCount();
+                    GenerateInvalid();
+                    await _arduinoService.InvalidAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to process: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private async Task ProcessStudents(List<StudentsDTO.StudentDetail> students)
         {            
@@ -231,6 +235,13 @@ namespace DreamScannerApp.Services
                 await bot.SendTextMessageAsync(chatId, $"🚨 Alert: Intruder Alert at room {Properties.Settings.Default.RoomPlaced}!");
                 InvalidAttempts = 0;
             }
+        }
+
+        private async void OpenDoor()
+        {
+            await _arduinoService.DoorOpenAsync();
+            await Task.Delay(1);
+            await _arduinoService.DoorCloseAsync();
         }
 
     }

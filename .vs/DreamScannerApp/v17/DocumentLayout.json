@@ -15,20 +15,20 @@
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\handlers\\verification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\usercontrols\\teacherusercontrols\\teachers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\teacherusercontrols\\teachers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\usercontrols\\verifycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\verifycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|c:\\users\\cauba\\documents\\dreamscannerapp\\dreamscannerapp\\ui\\addteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\ui\\addteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\ui\\addteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\usercontrols\\enrollcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\enrollcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\usercontrols\\teacherusercontrols\\teachers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|solutionrelative:dreamscannerapp\\usercontrols\\teacherusercontrols\\teachers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{26EA21E3-856E-466B-BB58-33EF19BF5B66}|DreamScannerApp\\DreamScannerApp.csproj|C:\\Users\\cauba\\Documents\\DreamScannerApp\\dreamscannerapp\\ui\\loginfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,8 +74,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 207,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -84,18 +88,14 @@
               "RelativeDocumentMoniker": "DreamScannerApp\\Services\\TeacherLogService.cs",
               "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Services\\TeacherLogService.cs",
               "RelativeToolTip": "DreamScannerApp\\Services\\TeacherLogService.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAYwFUAAAAAAAAA",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAkwDMAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-20T07:59:36.421Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:3:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AddTeacher.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UI\\AddTeacher.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\UI\\AddTeacher.cs",
@@ -103,12 +103,11 @@
               "RelativeToolTip": "DreamScannerApp\\UI\\AddTeacher.cs",
               "ViewState": "AQIAAFUAAAAAAAAAAAA/wF8AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T07:41:32.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T07:41:32.163Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Teachers.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\TeacherUserControls\\Teachers.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\TeacherUserControls\\Teachers.cs",
@@ -116,7 +115,8 @@
               "RelativeToolTip": "DreamScannerApp\\UserControls\\TeacherUserControls\\Teachers.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T07:41:06.675Z"
+              "WhenOpened": "2024-04-20T07:41:06.675Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -126,14 +126,14 @@
               "RelativeDocumentMoniker": "DreamScannerApp\\Services\\StudentLogService.cs",
               "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Services\\StudentLogService.cs",
               "RelativeToolTip": "DreamScannerApp\\Services\\StudentLogService.cs",
-              "ViewState": "AQIAAM0AAAAAAAAAAAAswNMAAAAAAAAA",
+              "ViewState": "AQIAAMkAAAAAAAAAAAA7wPIAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-20T06:34:36.278Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "VerifyControl.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\VerifyControl.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\VerifyControl.cs",
@@ -141,12 +141,11 @@
               "RelativeToolTip": "DreamScannerApp\\UserControls\\VerifyControl.cs",
               "ViewState": "AQIAABcAAAAAAAAAAAAAwBIAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T06:32:22.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T06:32:22.125Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "EnrollControl.cs",
               "DocumentMoniker": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\UserControls\\EnrollControl.cs",
               "RelativeDocumentMoniker": "DreamScannerApp\\UserControls\\EnrollControl.cs",
@@ -154,8 +153,7 @@
               "RelativeToolTip": "DreamScannerApp\\UserControls\\EnrollControl.cs",
               "ViewState": "AQIAACsAAAAAAAAAAAAkwEwAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T06:28:53.391Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T06:28:53.391Z"
             },
             {
               "$type": "Document",
@@ -165,7 +163,7 @@
               "RelativeDocumentMoniker": "DreamScannerApp\\Handlers\\Verification.cs",
               "ToolTip": "C:\\Users\\cauba\\Documents\\DreamScannerApp\\DreamScannerApp\\Handlers\\Verification.cs",
               "RelativeToolTip": "DreamScannerApp\\Handlers\\Verification.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAArwDYAAABKAAAA",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAowDsAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-20T06:03:35.017Z",
               "EditorCaption": ""

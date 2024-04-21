@@ -204,12 +204,12 @@ namespace DreamScannerApp.Services
             try
             {
                 List<StudentsDTO.StudentDetail> studentList = new List<StudentsDTO.StudentDetail>();
-                var students = await _context.Students.ToListAsync();
+                var students = await _context.Students.Where(s => s.Fingerprint != null).ToListAsync();
+
                 foreach (var student in students)
                 {
-                    if (student.Fingerprint != null)
+                    using (Stream stream = new MemoryStream(student.Fingerprint))
                     {
-                        Stream stream = new MemoryStream(student.Fingerprint);
                         DPFP.Template template = new DPFP.Template(stream);
                         DPFP.Verification.Verification verificator = new DPFP.Verification.Verification();
                         DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
@@ -217,6 +217,7 @@ namespace DreamScannerApp.Services
                         verificator.Verify(featureSet, template, ref result);
 
                         var inAdminVerification = Properties.Settings.Default.IsHold ? result.Verified && student.isRepresentative : result.Verified;
+
                         if (inAdminVerification)
                         {
                             studentList.Add(new StudentsDTO.StudentDetail
@@ -231,11 +232,10 @@ namespace DreamScannerApp.Services
                                 StudentNumber = student.StudentNumber,
                                 IsIn = CheckSerial(ReaderSerial)
                             });
-                            break;
                         }
                     }
-
                 }
+
                 return studentList;
             }
             catch (Exception ex)
@@ -243,6 +243,7 @@ namespace DreamScannerApp.Services
                 throw new Exception(ex.Message);
             }
         }
+
 
         public async Task<List<StudentsDTO.StudentLog>> GetStudentLogInfo()
         {

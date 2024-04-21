@@ -72,12 +72,12 @@ namespace DreamScannerApp.Services
         {
             try
             {
-                var teacher = await _context.Teachers.ToListAsync();
-                foreach (var t in teacher)
+                var teachers = await _context.Teachers.Where(t => t.Fingerprint != null).ToListAsync();
+
+                foreach (var teacher in teachers)
                 {
-                    if (t.Fingerprint != null)
+                    using (Stream stream = new MemoryStream(teacher.Fingerprint))
                     {
-                        Stream stream = new MemoryStream(t.Fingerprint);
                         DPFP.Template template = new DPFP.Template(stream);
                         DPFP.Verification.Verification verificator = new DPFP.Verification.Verification();
                         DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
@@ -88,28 +88,29 @@ namespace DreamScannerApp.Services
                         {
                             return new TeachersDTO
                             {
-                                Id = t.Id,
-                                FirstName = t.FirstName,
-                                LastName = t.LastName,
-                                MiddleInitial = t.MiddleInitial,
-                                Subject = t.Subject,
-                                Section = t.Section,
-                                Email = t.Email,
-                                Room = t.Room,
-                                Gender = t.Gender,
+                                Id = teacher.Id,
+                                FirstName = teacher.FirstName,
+                                LastName = teacher.LastName,
+                                MiddleInitial = teacher.MiddleInitial,
+                                Subject = teacher.Subject,
+                                Section = teacher.Section,
+                                Email = teacher.Email,
+                                Room = teacher.Room,
+                                Gender = teacher.Gender,
                                 IsIn = CheckSerial(ReaderSerial),
-                                FingerprintId = t.FingerprintID
+                                FingerprintId = teacher.FingerprintID
                             };
                         }
                     }
                 }
-                return null;
+                return null; // No matching fingerprint found
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("Failed to verify teacher fingerprint.", ex);
             }
         }
+
 
         public async Task<TeacherLogResult> LogOnBreakTeacher(TeachersDTO teacher, string ReaderSerial)
         {
