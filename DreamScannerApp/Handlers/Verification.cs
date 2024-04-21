@@ -54,7 +54,12 @@ namespace DreamScannerApp.Services
                 var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
                 var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
                 var admin = await _studentService.VerifyAdmin(features);
-                var isHold = Properties.Settings.Default.IsHold;                
+                var isHold = Properties.Settings.Default.IsHold; 
+                
+                if(teachers == null)
+                {
+                    MessageBox.Show("Teacher not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 if (students != null)
                 {
