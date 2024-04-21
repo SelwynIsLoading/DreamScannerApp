@@ -12,7 +12,7 @@ namespace DreamScannerApp.Interfaces
     public interface ITeacherLogService
     {
         public Task<List<TeacherLogsEntity>> GetTeacherLogs();
-        public Task<TeachersDTO> VerifyTeacherFingerprint(FeatureSet featureSet, string ReaderSerial);
+        public Task<List<TeachersDTO>> VerifyTeacherFingerprint(FeatureSet featureSet, string ReaderSerial);
         public Task<Handlers.TeacherLogResult> LogTeacher(TeachersDTO student, string ReaderSerial);
         public Task<Handlers.TeacherLogResult> LogOnBreakTeacher(TeachersDTO teacher, string ReaderSerial);
         public Task<List<StudentsDTO.StudentLogReport>> GetPresentStudents();

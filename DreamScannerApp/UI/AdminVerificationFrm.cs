@@ -52,7 +52,7 @@ namespace DreamScannerApp.UI
             });
         }
 
-        private void OnTeacherDataReceived(TeachersDTO data)
+        private void OnTeacherDataReceived(List<TeachersDTO> data)
         {
             UpdateVerification(() =>
             {

@@ -23,16 +23,22 @@ namespace DreamScannerApp.UserControls
             Disposed += VerifyControl_Disposed;
         }
 
-        private void OnTeacherDataReceived(TeachersDTO t)
+        private void OnTeacherDataReceived(List<TeachersDTO> teachers)
         {
             UpdateVerification(() =>
             {
-                if (t != null)
+                if(teachers != null && teachers.Count > 0)
                 {
-                    tbName.Text = t.FirstName + " " + t.MiddleInitial + " " + t.LastName;
-                    tbSection.Text = t.Section.ToString();
-                    tbInOut.Text = t.IsIn ? "In" : "Out";
-                    pbGender.Image = t.Gender == TeacherProperties.Gender.Female ? Resources.Female : Resources.Male;
+                    foreach(var t in teachers)
+                    {
+                        if (t != null)
+                        {
+                            tbName.Text = t.FirstName + " " + t.MiddleInitial + " " + t.LastName;
+                            tbSection.Text = t.Section.ToString();
+                            tbInOut.Text = t.IsIn ? "In" : "Out";
+                            pbGender.Image = t.Gender == TeacherProperties.Gender.Female ? Resources.Female : Resources.Male;
+                        }
+                    }
                 }
             });
         }

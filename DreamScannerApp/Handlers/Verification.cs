@@ -16,7 +16,7 @@ namespace DreamScannerApp.Services
     public class Verification : FingerprintHandler
     {
         public delegate void StudentDataCallback(List<StudentsDTO.StudentDetail> data);
-        public delegate void TeacherDataCallback(TeachersDTO data);
+        public delegate void TeacherDataCallback(List<TeachersDTO> data);
         public delegate void StateCallback(string state);
         public delegate void InvalidCallback();
         public delegate void AdminCallback(bool verified);
@@ -134,14 +134,16 @@ namespace DreamScannerApp.Services
                 GenerateState("Student already logged in");
         }
 
-        private async Task ProcessTeachers(TeachersDTO teachers)
+        private async Task ProcessTeachers(List<TeachersDTO> teachers)
         {
-
-            var logResult = await _teacherService.LogTeacher(teachers, _ReaderSerial);
-            if (logResult.IsSuccess)
-                GenerateState(logResult.Message);
-            else
-                await HandleTeacherLogging(teachers);
+            foreach(var teacher in teachers)
+            {
+                var logResult = await _teacherService.LogTeacher(teacher, _ReaderSerial);
+                if (logResult.IsSuccess)
+                    GenerateState(logResult.Message);
+                else
+                    await HandleTeacherLogging(teacher);
+            }
         }
 
         private async Task HandleTeacherLogging(TeachersDTO teachers)
@@ -210,7 +212,7 @@ namespace DreamScannerApp.Services
             stateCallback?.Invoke(state);
         }
 
-        public void GenerateTeacherData(TeachersDTO teachers)
+        public void GenerateTeacherData(List<TeachersDTO> teachers)
         {
             teacherDataCallback?.Invoke(teachers);
         }

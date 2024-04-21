@@ -68,12 +68,14 @@ namespace DreamScannerApp.Services
             }
         }
 
-        public async Task<TeachersDTO> VerifyTeacherFingerprint(FeatureSet featureSet, string ReaderSerial)
+        public async Task<List<TeachersDTO>> VerifyTeacherFingerprint(FeatureSet featureSet, string ReaderSerial)
         {
             try
             {
-                var teachers = await _context.Teachers.Where(t => t.Fingerprint != null).ToListAsync();
-                var teach = new TeachersDTO();
+                var TeacherList = new List<TeachersDTO>();
+                var teachers = await _context.Teachers
+                    .Where(t => t.Fingerprint != null)
+                    .ToListAsync();
                 foreach (var teacher in teachers)
                 {
                     using (Stream stream = new MemoryStream(teacher.Fingerprint))
@@ -86,7 +88,7 @@ namespace DreamScannerApp.Services
 
                         if (result.Verified)
                         {
-                            teach = new TeachersDTO
+                            TeacherList.Add(new TeachersDTO
                             {
                                 Id = teacher.Id,
                                 FirstName = teacher.FirstName,
@@ -99,17 +101,19 @@ namespace DreamScannerApp.Services
                                 Gender = teacher.Gender,
                                 IsIn = CheckSerial(ReaderSerial),
                                 FingerprintId = teacher.FingerprintID
-                            };
+                            });
                         }
                     }
                 }
-                return teach; // No matching fingerprint found
+
+                return TeacherList; // No matching fingerprint found
             }
             catch (Exception ex)
             {
                 throw new Exception("Failed to verify teacher fingerprint.", ex);
             }
         }
+
 
 
         public async Task<TeacherLogResult> LogOnBreakTeacher(TeachersDTO teacher, string ReaderSerial)
