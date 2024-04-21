@@ -49,7 +49,10 @@ namespace DreamScannerApp.Services
             {
                 DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
 
-                if (features == null) return;
+                if (features == null) { 
+                    MessageBox.Show("Failed to extract features", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                };
 
                 var isHold = Properties.Settings.Default.IsHold;
 
