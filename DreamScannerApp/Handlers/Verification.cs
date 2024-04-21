@@ -51,15 +51,23 @@ namespace DreamScannerApp.Services
 
                 if (features == null) return;
 
-                var teachers = await _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
-                var students = await _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
-                var admin = await _studentService.VerifyAdmin(features);
-                var isHold = Properties.Settings.Default.IsHold; 
-                
-                if(teachers == null)
-                {
-                    MessageBox.Show("Teacher not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                var isHold = Properties.Settings.Default.IsHold;
+
+                var tasks = new List<Task>();
+
+                var teachersTask = _teacherService.VerifyTeacherFingerprint(features, _ReaderSerial);
+                var studentsTask = _studentService.VerifyStudentFingerprint(features, _ReaderSerial);
+                var adminTask = _studentService.VerifyAdmin(features);
+
+                tasks.Add(teachersTask);
+                tasks.Add(studentsTask);
+                tasks.Add(adminTask);
+
+                await Task.WhenAll(tasks);
+
+                var teachers = await teachersTask;
+                var students = await studentsTask;
+                var admin = await adminTask;
 
                 if (students != null)
                 {
@@ -72,9 +80,8 @@ namespace DreamScannerApp.Services
                         return;
                     }
                     await ProcessStudents(students);
-                    return;
                 }
-                if (teachers != null)
+                else if (teachers != null)
                 {
                     GenerateTeacherData(teachers);
                     OpenDoor();
@@ -85,12 +92,11 @@ namespace DreamScannerApp.Services
                         return;
                     }
                     await ProcessTeachers(teachers);
-                    return;
                 }
+
                 if (admin.IsSaved)
                 {
                     adminCallback?.Invoke(true);
-                    return;
                 }
 
                 InvalidAttemptsCount();
@@ -104,6 +110,7 @@ namespace DreamScannerApp.Services
             }
             base.Process(Sample);
         }
+
 
 
         private async Task ProcessStudents(List<StudentsDTO.StudentDetail> students)
